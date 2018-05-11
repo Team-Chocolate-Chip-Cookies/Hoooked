@@ -7,6 +7,7 @@ var passport   = require('passport')
 var session    = require('express-session')
 var env        = require('dotenv').load()
 
+
 //Use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -17,15 +18,16 @@ app.use(bodyParser.json());
  app.use(passport.session()); // persistent login sessions
 
 //Models
-var models = require("./app/models");
+var models = require("./db/models");
 
 //Routes
 var authRoute = require('./routes/auth.js')(app,passport);
 
 //load passport strategies
-require('./app/config/passport/passport.js')(passport,models.user);
+require('./config/passport/passport.js')(passport,models.user);
 
 //Sync Database
+// var sequelize = require("./db/connection.js")
 models.sequelize.sync().then(function(){
 console.log('Nice! Database looks fine')
 
