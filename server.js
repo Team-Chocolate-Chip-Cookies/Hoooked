@@ -18,7 +18,7 @@ app.use(bodyParser.json());
  app.use(passport.session()); // persistent login sessions
 
 //Models
-var models = require("./app/models");
+var models = require("./db/models");
 
 //Routes
 var authRoute = require('./routes/auth.js')(app,passport);
