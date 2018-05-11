@@ -1,8 +1,8 @@
 // videoGame.js
 // Sequelize data model for Video Games
 
-module.exports = function (sequelize, DataTypes) {
-    var Videogame = sequelize.define("Videogame", {
+module.exports = function (sequelize, Sequelize) {
+    var VideoGame = sequelize.define("Videogame", {
         id: {
             primaryKey: true,
             autoIncrement: true,
@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
         },
         cover: {
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
             allowNull: false,
             validate: {
               len: [1]

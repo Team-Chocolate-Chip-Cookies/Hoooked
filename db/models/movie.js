@@ -1,7 +1,7 @@
 // movie.js
 // 
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = function (sequelize, Sequelize) {
     var Movie = sequelize.define("Movie", {
         id: {
             primaryKey: true,
@@ -18,7 +18,7 @@ module.exports = function (sequelize, DataTypes) {
             notEmpty: true,
         },
         poster: {
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
             allowNull: false,
             validate: {
               len: [1]

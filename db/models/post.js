@@ -13,7 +13,6 @@ module.exports = function (sequelize, Sequelize) {
             notEmpty: true,
         },
         body: {
-            title: VARCHAR(600),
             type: Sequelize.STRING,
         },
     })
