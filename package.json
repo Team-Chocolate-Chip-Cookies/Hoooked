@@ -29,7 +29,10 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "google-books-search": "^0.3.1",
+    "igdb-api-node": "^3.1.4",
     "mysql2": "^1.5.3",
+    "node-spotify-api": "^1.0.7",
     "passport": "^0.4.0"
   }
 }
