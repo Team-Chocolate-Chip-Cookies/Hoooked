@@ -1,4 +1,4 @@
-// movie.js
+// /models/movie.js
 // Sequelize data model for Movies
 
 

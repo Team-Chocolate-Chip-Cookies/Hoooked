@@ -1,4 +1,4 @@
-// hook.js
+// /models/hook.js
 // Sequelize data model for Hooks
 
 module.exports = function (sequelize, Sequelize) {
