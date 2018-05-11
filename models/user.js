@@ -24,7 +24,7 @@ module.exports = function (sequelize, Sequelize) {
         msg: "/models/user.js, Oh noes sequelize doesn't think that's an email!!!!"
       }
     },
-    Password: {
+    password: {
       type: Sequelize.STRING,
       notEmpy: true,
       validate: {
@@ -32,7 +32,7 @@ module.exports = function (sequelize, Sequelize) {
         msg: "/models/user.js, Passwords must be between 6 and 100 characters long!"
       }
     },
-    last_login: {
+    lastLogin: {
       type: Sequelize.DATE
     },
   });

@@ -17,7 +17,7 @@ module.exports = function (sequelize, Sequelize) {
             type: Sequelize.STRING,
             notEmpy: true,
         },
-        recieverId: {
+        hookedId: {
             type: Sequelize.INTEGER,
             allowNull: false,
         },
