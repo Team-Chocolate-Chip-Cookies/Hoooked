@@ -11,7 +11,11 @@ module.exports = function (sequelize, Sequelize) {
         title: {
             type: Sequelize.STRING,
             notEmpty: true,
-        }
+        },
+        body: {
+            title: VARCHAR(600),
+            type: Sequelize.STRING,
+        },
     })
     Post.associate = function (models) {
         Post.belongsTo(models.User, {as: "poster"})
