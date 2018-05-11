@@ -7,6 +7,7 @@ var passport   = require('passport')
 var session    = require('express-session')
 var env        = require('dotenv').load()
 
+
 //Use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -26,6 +27,7 @@ var authRoute = require('./routes/auth.js')(app,passport);
 require('./app/config/passport/passport.js')(passport,models.user);
 
 //Sync Database
+var sequelize = require("./db/connection.js")
 models.sequelize.sync().then(function(){
 console.log('Nice! Database looks fine')
 
