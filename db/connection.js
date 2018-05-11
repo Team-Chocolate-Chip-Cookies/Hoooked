@@ -1,6 +1,8 @@
 // /db/connection.js
 // This file is a sequelize 
 
+// This file is deprecated because ... just because
+
 // var Sequelize = require('sequelize');
 
 // var sequelize = new Sequelize("hook_DB", "root", "root", {
