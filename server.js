@@ -24,10 +24,10 @@ var models = require("./db/models");
 var authRoute = require('./routes/auth.js')(app,passport);
 
 //load passport strategies
-require('./app/config/passport/passport.js')(passport,models.user);
+require('./config/passport/passport.js')(passport,models.user);
 
 //Sync Database
-var sequelize = require("./db/connection.js")
+// var sequelize = require("./db/connection.js")
 models.sequelize.sync().then(function(){
 console.log('Nice! Database looks fine')
 
