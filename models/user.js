@@ -1,4 +1,4 @@
-// user.js
+// /models/user.js
 // Sequelize data model for Users
 
 module.exports = function (sequelize, Sequelize) {
@@ -19,12 +19,20 @@ module.exports = function (sequelize, Sequelize) {
     email: {
       type: Sequelize.TEXT,
       notEmpy: true,
+      validate: {
+        isEmail: true,
+        msg: "/models/user.js, Oh noes sequelize doesn't think that's an email!!!!"
+      }
     },
-    Password: {
+    password: {
       type: Sequelize.STRING,
       notEmpy: true,
+      validate: {
+        len: [6,100],
+        msg: "/models/user.js, Passwords must be between 6 and 100 characters long!"
+      }
     },
-    last_login: {
+    lastLogin: {
       type: Sequelize.DATE
     },
   });
@@ -32,7 +40,6 @@ module.exports = function (sequelize, Sequelize) {
     User.hasMany(models.Follow, {
       foreignKey: {
         allowNull: false,
-        // I think the above MIGHT add a colum in the follow table for Follow... but it might not work
       }
     });
     User.hasMany(models.Post, {

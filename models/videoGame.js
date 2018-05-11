@@ -1,4 +1,4 @@
-// videoGame.js
+// /models/videoGame.js
 // Sequelize data model for Video Games
 
 module.exports = function (sequelize, Sequelize) {

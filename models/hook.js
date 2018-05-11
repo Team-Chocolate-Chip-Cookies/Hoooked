@@ -1,4 +1,4 @@
-// hook.js
+// /models/hook.js
 // Sequelize data model for Hooks
 
 module.exports = function (sequelize, Sequelize) {
@@ -17,7 +17,7 @@ module.exports = function (sequelize, Sequelize) {
             type: Sequelize.STRING,
             notEmpy: true,
         },
-        recieverId: {
+        hookedId: {
             type: Sequelize.INTEGER,
             allowNull: false,
         },

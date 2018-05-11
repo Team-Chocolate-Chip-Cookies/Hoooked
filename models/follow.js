@@ -1,4 +1,4 @@
-// follow.js
+// /models/follow.js
 // Sequelize data model for tracking user "following" relationships
 // This table should have the ID of the "follower" and "followed" user.  Both of those fields should be forign keys.
 // There will likely be two rows of relationships for each two way relationship user 1 following user 2 and user 2 following user 1.  Each user ID will need to be a forgin key.

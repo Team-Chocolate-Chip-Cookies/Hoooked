@@ -1,4 +1,4 @@
-// post.js
+// /models/post.js
 // Sequelize data model user posts
 
 module.exports = function (sequelize, Sequelize) {
@@ -13,5 +13,9 @@ module.exports = function (sequelize, Sequelize) {
             notEmpty: true,
         }
     })
+    Post.associate = function (models) {
+        Post.belongsTo(models.User, {as: "poster"})
+        // Follow.hasOne(models.User, {as: "Followed", foreignKey: 'userID'});
+      };
     return Post
 }
