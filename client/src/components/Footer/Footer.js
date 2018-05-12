@@ -5,8 +5,8 @@ import "./Footer.css";
 const Footer = (props) => (
     <div className="container">
 
-    <footer class="footer">
-        <div class="lowerfooter">
+    <footer className="footer">
+        <div className="lowerfooter">
             <p>Hoook.me</p>
         </div>
     </footer>

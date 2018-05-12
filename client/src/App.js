@@ -5,6 +5,7 @@ import Followers from "./pages/Followers";
 import SetHook from "./pages/SetHook";
 import NavBar from "./components/NavBar";
 import Footer from  "./components/Footer";
+import Feed from "./components/Feed";
 import './App.css';
 
 const App = () => (
@@ -15,8 +16,10 @@ const App = () => (
         <Route exact path="/" component={Dashboard} />
         <Route exact path="/followers" component={Followers} />
         <Route exact path="/sethook" component={SetHook} />
+        <Route exact path="/feed" component={Feed} />
         {/* <Route component={NoMatch} /> */}
       </Switch>
+      <Feed />
       <Footer />
     </div>
   </Router>
