@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import Followers from "./pages/Followers";
 import SetHook from "./pages/SetHook";
 import NavBar from "./components/NavBar";
+import Footer from  "./components/Footer";
 import './App.css';
 
 const App = () => (
@@ -16,6 +17,7 @@ const App = () => (
         <Route exact path="/sethook" component={SetHook} />
         {/* <Route component={NoMatch} /> */}
       </Switch>
+      <Footer />
     </div>
   </Router>
 );
