@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Dashboard from "./components/Pages/Dashboard";
-import Followers from "./components/Pages/Followers";
-import SetHook from "./components/Pages/SetHook";
+import Dashboard from "./pages/Dashboard";
+import Followers from "./pages/Followers";
+import SetHook from "./pages/SetHook";
 import NavBar from "./components/NavBar";
 import './App.css';
 

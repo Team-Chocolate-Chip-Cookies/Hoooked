@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import "./Followers.css";
 
 class Followers extends Component {
     state = {
-      book: {}
+     
     };
  
     componentDidMount() {
