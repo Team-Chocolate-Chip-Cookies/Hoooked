@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
-
-import Login from './components/Pages/Login';
-import ScrollbarContainer from "./components/ScrollbarContainer";
-import SetHook from './components/SetHook'
-import YourOnHook from './components/YourOnHook'
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Dashboard from "./components/Pages/Dashboard";
+import Followers from "./components/Pages/Followers";
+import SetHook from "./components/Pages/SetHook";
+import NavBar from "./components/NavBar";
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-
-
-      <div>
-      <ScrollbarContainer/>
-   
-     <p>WORKING</p>
-
-     <SetHook/>
-     <YourOnHook/>
-
-     </div>
-    );
-  }
-}
+const App = () => (
+  <Router>
+    <div>
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/followers" component={Followers} />
+        <Route exact path="/sethook" component={SetHook} />
+        {/* <Route component={NoMatch} /> */}
+      </Switch>
+    </div>
+  </Router>
+);
 
 export default App;

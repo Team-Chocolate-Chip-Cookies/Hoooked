@@ -1,8 +1,24 @@
 import React from "react";
 import "./Dashboard.css";
 
-const Dashboard = () => (
-    <p>Dashboard</p>
-);
+class Dashboard extends Component {
+    state = {
+      book: {}
+    };
+ 
+    componentDidMount() {
+     
+    }
+  
+    render() {
+      return (
+       <div>
+        <p>Dashboard</p>
+        </div>
+      );
+    }
+  }
+  
+  
 
 export default Dashboard;
