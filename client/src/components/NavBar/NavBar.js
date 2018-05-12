@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 
@@ -11,15 +12,23 @@ const Navbar = (props) => (
                  className={
                     window.location.pathname === "/" ? "nav-link active" : "nav-link"
                   }
-            >Home
+            >Dashboard
             </Link>
-            <Link onClick={() => props.populateSaved()}
-                to="/saved"
+            <Link 
+                to="/followers"
                 className={
-                    window.location.pathname === "/saved" ? "nav-link active" : "nav-link"
+                    window.location.pathname === "/followers" ? "nav-link active" : "nav-link"
                   }
             >
-                Saved
+                Followers
+            </Link>
+            <Link 
+                to="/sethook"
+                className={
+                    window.location.pathname === "/sethook" ? "nav-link active" : "nav-link"
+                  }
+            >
+                Sethook
             </Link>
         </nav>
     </div>
