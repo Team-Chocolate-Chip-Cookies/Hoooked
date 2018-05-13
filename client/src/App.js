@@ -27,8 +27,8 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Dashboard} />
         <Route exact path="/followers" component={Followers} />
-        <Route exact path="/sethook" component={SetHook} />
-        <Route exact path="/feed" component={Feed} />
+        <Route path="/sethook" component={SetHook} />
+
         {/* <Route component={NoMatch} /> */}
       </Switch>
       <Feed />

@@ -24,6 +24,8 @@ var models = require("./db/models");
 
 // Routes for authroization - Probabbly doesn't work at this point
 var authRoute = require('./routes/auth.js')(app,passport);
+const IGDB=require("./routes/APIs/IGDB.js")
+const bookAPI=require("./routes/APIs/bookAPI.js")
 
 // Routes for input testing
 require("./routes/routeTestsDB.js")(app);
@@ -52,6 +54,8 @@ app.get("/catdog", function(req, res) {
 
 // Send every request to the React app
 // Define any API routes before this runs
+app.use(IGDB)
+app.use(bookAPI)
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
