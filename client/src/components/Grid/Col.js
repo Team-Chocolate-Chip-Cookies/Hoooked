@@ -7,3 +7,6 @@ export const Col = ({ size, children }) => (
     {children}
   </div>
 );
+
+
+export default Col;

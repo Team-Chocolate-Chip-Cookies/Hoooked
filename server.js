@@ -1,3 +1,5 @@
+// server.js
+
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
@@ -20,10 +22,13 @@ app.use(bodyParser.json());
 //Models
 var models = require("./db/models");
 
-//Routes
+// Routes for authroization - Probabbly doesn't work at this point
 var authRoute = require('./routes/auth.js')(app,passport);
 const IGDB=require("./routes/APIs/IGDB.js")
 const bookAPI=require("./routes/APIs/bookAPI.js")
+
+// Routes for input testing
+require("./routes/routeTestsDB.js")(app);
 
 //load passport strategies
 require('./config/passport/passport.js')(passport,models.user);
@@ -41,6 +46,11 @@ console.log(err,"Something went wrong with the Database Update!")
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// Temp route to test on port 3001 - HEY LOOK A CAT!
+app.get("/catdog", function(req, res) {
+  res.sendFile(path.join(__dirname, "./public/catdog.html"));
+});
 
 // Send every request to the React app
 // Define any API routes before this runs
