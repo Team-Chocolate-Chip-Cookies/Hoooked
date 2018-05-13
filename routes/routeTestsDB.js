@@ -13,6 +13,18 @@ module.exports = function (app) {
         res.json(dbPost);
       });
   });
-  
+  app.post("/api/makeuser", function(req, res) {
+    
+    db.User.create({
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+      
+  });
 
 }
