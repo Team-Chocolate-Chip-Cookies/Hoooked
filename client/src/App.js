@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import ScrollbarContainer from "./components/ScrollbarContainer";
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Followers from "./pages/Followers";
+import SetHook from "./pages/SetHook";
+import NavBar from "./components/NavBar";
+import Footer from  "./components/Footer";
+import Feed from "./components/Feed";
+
 import './App.css';
 import { Container } from './components/Grid/Container';
 import Row from "./components/Grid/Row";
@@ -11,29 +19,23 @@ import FriendSearchCard from "./components/FriendSearchCard";
 
 
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Container>
-          <Row>
-            <Col size="xs-6 sm-6">
-              <Container>
-               <SearchCard>
-               </SearchCard>
-              </Container>
-            </Col>
-            <Col size="xs-6 sm-6">
-              <Container>
-               <FriendSearchCard>
-               </FriendSearchCard>
-              </Container>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    );
-  }
-}
+
+const App = () => (
+  <Router>
+    <div>
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/followers" component={Followers} />
+        <Route exact path="/sethook" component={SetHook} />
+        <Route exact path="/feed" component={Feed} />
+        {/* <Route component={NoMatch} /> */}
+      </Switch>
+      <Feed />
+      <Footer />
+    </div>
+  </Router>
+);
+
 
 export default App;

@@ -5,7 +5,11 @@
     background: #fff;
     overflow-y: scroll;
     margin-bottom: 25px;
+
     margin-top: 25px;
+
+    border:1px solid black;
+
 }
 .force-overflow {
     min-height: 450px;

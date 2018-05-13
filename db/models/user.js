@@ -17,19 +17,23 @@ module.exports = function (sequelize, Sequelize) {
       notEmpy: true,
     },
     email: {
-      type: Sequelize.TEXT,
+      type: Sequelize.STRING,
       notEmpy: true,
+      unique: true,
       validate: {
-        isEmail: true,
-        msg: "/models/user.js, Oh noes sequelize doesn't think that's an email!!!!"
+        isEmail: {
+          msg: "/models/user.js, Oh noes sequelize doesn't think that's an email!!!!"
+        }
       }
     },
     password: {
       type: Sequelize.STRING,
       notEmpy: true,
       validate: {
-        len: [6,100],
-        msg: "/models/user.js, Passwords must be between 6 and 100 characters long!"
+        len: {
+          args: [6, 100],
+          msg: "/models/user.js, Passwords must be between 6 and 100 characters long!"
+        }
       }
     },
     lastLogin: {
