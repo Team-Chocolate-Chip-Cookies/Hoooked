@@ -6,3 +6,5 @@ export const Row = ({ fluid, children }) => (
     {children}
   </div>
 );
+
+export default Row;
