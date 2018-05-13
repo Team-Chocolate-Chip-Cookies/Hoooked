@@ -23,12 +23,44 @@ const Navbar = (props) => (
                 Followers
             </Link>
             <Link 
-                to="/sethook"
+                to="/sethook/tv"
                 className={
-                    window.location.pathname === "/sethook" ? "nav-link active" : "nav-link"
+                    window.location.pathname === "/sethook/tv" ? "nav-link active" : "nav-link"
                   }
             >
-                Sethook
+                Sethook-tv
+            </Link>
+            <Link 
+                to="/sethook/movie"
+                className={
+                    window.location.pathname === "/sethook/movie" ? "nav-link active" : "nav-link"
+                  }
+            >
+                Sethook-movie
+            </Link>
+            <Link 
+                to="/sethook/game"
+                className={
+                    window.location.pathname === "/sethook/game" ? "nav-link active" : "nav-link"
+                  }
+            >
+                Sethook-game
+            </Link>
+            <Link 
+                to="/sethook/book"
+                className={
+                    window.location.pathname === "/sethook/book" ? "nav-link active" : "nav-link"
+                  }
+            >
+                Sethook-book
+            </Link>
+            <Link 
+                to="/sethook/music"
+                className={
+                    window.location.pathname === "/sethook/music" ? "nav-link active" : "nav-link"
+                  }
+            >
+                Sethook-music
             </Link>
         </nav>
     </div>

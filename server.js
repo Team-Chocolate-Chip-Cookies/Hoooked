@@ -22,6 +22,8 @@ var models = require("./db/models");
 
 //Routes
 var authRoute = require('./routes/auth.js')(app,passport);
+const IGDB=require("./routes/APIs/IGDB.js")
+const bookAPI=require("./routes/APIs/bookAPI.js")
 
 //load passport strategies
 require('./config/passport/passport.js')(passport,models.user);
@@ -42,6 +44,8 @@ if (process.env.NODE_ENV === "production") {
 
 // Send every request to the React app
 // Define any API routes before this runs
+app.use(IGDB)
+app.use(bookAPI)
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
