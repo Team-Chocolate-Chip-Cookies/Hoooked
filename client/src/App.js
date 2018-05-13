@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
-import Login from './components/Pages/Login';
+import Followers from './components/Pages/Followers'
+// import Login from './components/Pages/Login';
 import ScrollbarContainer from "./components/ScrollbarContainer";
-import SetHook from './components/SetHook'
+// import SetHook from './components/SetHook'
 import YourOnHook from './components/YourOnHook'
 
 import './App.css';
@@ -13,13 +13,13 @@ class App extends Component {
 
 
       <div>
-      <ScrollbarContainer/>
    
      <p>WORKING</p>
 
-     <SetHook/>
+     {/* <SetHook/> */}
      <YourOnHook/>
-
+     <Followers/>
+     <ScrollbarContainer/>
      </div>
     );
   }
