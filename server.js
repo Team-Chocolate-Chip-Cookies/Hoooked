@@ -30,6 +30,9 @@ const bookAPI=require("./routes/APIs/bookAPI.js")
 // Routes for input testing
 require("./routes/routeTestsDB.js")(app);
 
+// Movie routes
+require("./routes/movieRoutes.js")(app);
+
 //load passport strategies
 require('./config/passport/passport.js')(passport,models.user);
 
