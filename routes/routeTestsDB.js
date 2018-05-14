@@ -14,7 +14,6 @@ module.exports = function (app) {
       });
   });
   app.post("/api/makeuser", function(req, res) {
-    
     db.User.create({
       firstname: req.body.firstname,
       lastname: req.body.lastname,
