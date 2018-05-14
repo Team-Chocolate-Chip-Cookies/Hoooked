@@ -9,21 +9,36 @@ var passport   = require('passport')
 var session    = require('express-session')
 var env        = require('dotenv').load()
 
-
 //Use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
- // For Passport
- app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
- app.use(passport.initialize());
- app.use(passport.session()); // persistent login sessions
-
 //Models
 var models = require("./db/models");
 
+//////////////////
+// START PASSPORT
+//////////////////
+
+app.use(session({ secret: 'catdog',resave: true, saveUninitialized:true})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 // Routes for authroization - Probabbly doesn't work at this point
 var authRoute = require('./routes/auth.js')(app,passport);
+
+console.log("\n\n\n\nmodels:", (models.User? "User model exists":"User dont exist"))
+//load passport strategies
+require('./config/passport/passport.js')(passport,models.User);
+
+
+////////////////
+// END PASSPORT
+////////////////
+
+
+
+
 const IGDB=require("./routes/APIs/IGDB.js")
 const bookAPI=require("./routes/APIs/bookAPI.js")
 
@@ -33,8 +48,7 @@ require("./routes/routeTestsDB.js")(app);
 // Movie routes
 require("./routes/movieRoutes.js")(app);
 
-//load passport strategies
-require('./config/passport/passport.js')(passport,models.user);
+
 
 //Sync Database
 // var sequelize = require("./db/connection.js")
