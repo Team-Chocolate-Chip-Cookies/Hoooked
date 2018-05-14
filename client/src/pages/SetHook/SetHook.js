@@ -11,6 +11,9 @@ import SearchBar from "../../components/SearchBar"
 import { Col, Row, Container } from "../../components/Grid";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "../../utils/API";
+import ChangeMediaPulldown from "../../components/ChangeMediaPulldown";
+import Button from "../../components/Button";
+import FriendSearchCard from "../../components/FriendSearchCard";
 
 class SetHook extends Component {
   state = {
@@ -49,7 +52,7 @@ class SetHook extends Component {
   clickSearch = event => {
 
     console.log(this.state.search)
-    let path=this.props.location.pathname
+    let path = this.props.location.pathname
     API.foreign(this.state.search, path)
       .then(res => {
         console.log(res)
@@ -61,21 +64,21 @@ class SetHook extends Component {
           case "/sethook/game":
             break;
           case "/sethook/book":
-          let elementArray=[]
-            res.data.forEach((element)=>{
-              let currentElement={
-                title:element.title,
-                authors:element.authors,
-                description:element.description,
-                image:element.thumbnail,
-                link:element.link,
-                publishedDate:element.publishedDate
+            let elementArray = []
+            res.data.forEach((element) => {
+              let currentElement = {
+                title: element.title,
+                authors: element.authors,
+                description: element.description,
+                image: element.thumbnail,
+                link: element.link,
+                publishedDate: element.publishedDate
               }
               elementArray.push(currentElement)
             })
             console.log(elementArray)
             this.setState({
-              bookData:elementArray
+              bookData: elementArray
             });
             break;
           case "/sethook/music":
@@ -89,19 +92,28 @@ class SetHook extends Component {
   render() {
     return (
       <div>
-        {/* <ScrollbarContainer/> */}
-        <p>SetHook</p>
+<br></br>
         <Container>
-          <SearchBar
-            handleInputChange={this.handleInputChange}
-            clickSearch={this.clickSearch}
-          />
+          {/* change media button */}
+          <Row>
+            <Col size="md-12">
+            <div className="text-center">
+              <ChangeMediaPulldown/> 
+              </div>
+            </Col>
+          </Row>
+
+
+
           <Switch>
             {/* TV search path */}
             <Route exact path="/sethook/tv">
               <div>
                 <ScrollbarContainer>
-                  <p>I'm a tv child!</p>
+                  <SearchBar
+                    handleInputChange={this.handleInputChange}
+                    clickSearch={this.clickSearch}
+                  />
                   {this.state.test.map((data, index) => (
                     <ApiDataTV
                       title={data.title}
@@ -119,7 +131,10 @@ class SetHook extends Component {
             <Route exact path="/sethook/movie">
               <div>
                 <ScrollbarContainer>
-                  <p>I'm a movie child!</p>
+                  <SearchBar
+                    handleInputChange={this.handleInputChange}
+                    clickSearch={this.clickSearch}
+                  />
                   {this.state.test.map((data, index) => (
                     <ApiDataMovie
                       title={data.title}
@@ -137,7 +152,10 @@ class SetHook extends Component {
             <Route exact path="/sethook/game">
               <div>
                 <ScrollbarContainer>
-                  <p>I'm a game child!</p>
+                  <SearchBar
+                    handleInputChange={this.handleInputChange}
+                    clickSearch={this.clickSearch}
+                  />
                   {this.state.test.map((data, index) => (
                     <ApiDataGame
                       title={data.title}
@@ -154,8 +172,13 @@ class SetHook extends Component {
             {/* book search path */}
             <Route exact path="/sethook/book">
               <div>
+              <Row>
+            <Col size="xs-6">
                 <ScrollbarContainer>
-                  <p>I'm a book child!</p>
+                  <SearchBar
+                    handleInputChange={this.handleInputChange}
+                    clickSearch={this.clickSearch}
+                  />
                   {this.state.bookData.map((data, index) => (
                     <ApiDataBook
                       title={data.title}
@@ -170,14 +193,32 @@ class SetHook extends Component {
                     />
                   ))}
                 </ScrollbarContainer >
-                <ScrollbarContainer />
+</Col>
+<Col size="xs-6">
+                <ScrollbarContainer>
+                  <SearchBar
+                    handleInputChange={this.handleInputChange}
+                    clickSearch={this.clickSearch}
+                  />
+
+                  <FriendSearchCard/>
+
+
+                </ScrollbarContainer >
+
+</Col>
+</Row>
+
               </div>
             </Route>
             {/* music search path */}
             <Route exact path="/sethook/music">
               <div>
                 <ScrollbarContainer>
-                  <p>I'm a music child!</p>
+                  <SearchBar
+                    handleInputChange={this.handleInputChange}
+                    clickSearch={this.clickSearch}
+                  />
                   {this.state.test.map((data, index) => (
                     <ApiDataMusic
                       title={data.title}
@@ -192,6 +233,16 @@ class SetHook extends Component {
               </div>
             </Route>
           </Switch>
+          
+
+        
+          <Row>
+            <Col size="xs-12">
+          <Button>
+            SET HOOK
+            </Button>
+            </Col>
+            </Row>
         </Container>
       </div>
     );
