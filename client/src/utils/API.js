@@ -28,6 +28,12 @@ export default {
         }
         // return axios.get("/api/",dataObj); 
     },
-
+    signIn:function(email,password){
+      let  signUpObj={
+            email:email,
+            password:password
+        }
+        return axios.post("/signin",signUpObj)
+    }
 
 }
