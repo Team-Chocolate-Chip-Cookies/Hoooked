@@ -5,8 +5,8 @@ import "./Feed.css";
 const Feed = (props) => (
     <div className="container">
 
-        <div class="card">
-            <div class="card-body">
+        <div className="card">
+            <div className="card-body">
                card contents go here
             </div>
         </div>
