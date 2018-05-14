@@ -28,7 +28,8 @@ class SetHook extends Component {
       }
     ],
     search: "",
-    bookData: []
+    bookData: [],
+    gameData: []
   };
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -62,6 +63,22 @@ class SetHook extends Component {
           case "/sethook/movie":
             break;
           case "/sethook/game":
+          let gameElementArray=[]
+            res.data.forEach((gameElement)=>{
+              let currentGameElement={
+                name:gameElement.name,
+                cover:gameElement.cover.url,
+                rating:gameElement.rating
+              }
+              gameElementArray.push(currentGameElement)
+            })
+            console.log(gameElementArray)
+            this.setState({
+              gameData:gameElementArray
+            },function(){
+              console.log(this.state.gameData[0].cover.url)
+            });
+          
             break;
           case "/sethook/book":
             let elementArray = []
@@ -137,7 +154,7 @@ class SetHook extends Component {
                   />
                   {this.state.test.map((data, index) => (
                     <ApiDataMovie
-                      title={data.title}
+                      title={data.name}
                       // id={image.id}
                       key={index}
                       description={data.description}
@@ -152,14 +169,19 @@ class SetHook extends Component {
             <Route exact path="/sethook/game">
               <div>
                 <ScrollbarContainer>
+
                   <SearchBar
                     handleInputChange={this.handleInputChange}
                     clickSearch={this.clickSearch}
                   />
-                  {this.state.test.map((data, index) => (
+                  {this.state.gameData.map((data, index) => (
+
                     <ApiDataGame
-                      title={data.title}
+                      name={data.name}
                       // id={image.id}
+                      // synopsis={data.synopsis}
+                      rating={data.rating}
+                      cover={data.cover}
                       key={index}
                       description={data.description}
                     // image={data.image}
