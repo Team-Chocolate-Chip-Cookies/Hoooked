@@ -5,10 +5,13 @@ import "./Feed.css";
 const Feed = (props) => (
     <div className="container">
 
-        <div className="card">
-            <div className="card-body">
+
+        <div class="card scrolling">
+            <div class="card-body">
+
                card contents go here
             </div>
+            <hr/>
         </div>
 
 

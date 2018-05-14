@@ -5,7 +5,7 @@ import "./YourOnHook.css";
 const YourOnHook = (props) => (
     <div className="container">
 
-        <div className="card">
+        <div className="card scrolling">
             <div className="card-body">
                 {/* here's where the challenger's name goes */}
                 <p className="card-title">Joe {}
@@ -23,6 +23,7 @@ const YourOnHook = (props) => (
                 <button type="button" className="btn btn-info">X</button></p>
 
             </div>
+            <hr/>
         </div>
 
 

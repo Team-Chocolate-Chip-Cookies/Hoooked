@@ -33,6 +33,7 @@ const App = () => (
 
         {/* <Route component={NoMatch} /> */}
       </Switch>
+
       <Footer />
     </div>
   </Router>
