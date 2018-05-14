@@ -16,9 +16,10 @@ app.use(bodyParser.json());
 //Models
 var models = require("./db/models");
 
-//////////////////
+////////////////////////////////////////////////////////////
 // START PASSPORT
-//////////////////
+// The order of the passport server lines is important
+///////////////////////////////////////////////////////////
 
 app.use(session({ secret: 'catdog',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
