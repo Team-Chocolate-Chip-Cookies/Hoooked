@@ -2,7 +2,7 @@
     "development": {
       "username": "root",
       "password": "root",
-      "database": "sequelize_passport",
+      "database": "hook_dev_db",
       "host": "127.0.0.1",
       "port": 8889,
       "dialect": "mysql"
