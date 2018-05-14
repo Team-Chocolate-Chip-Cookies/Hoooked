@@ -33,7 +33,9 @@ const Login = (props) => (
                 <button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModalLong">
                     Get Hoooked!
                 </button>
-
+                <br></br>
+                <br></br>
+                <br></br>
             {/* <!-- Modal --> */}
             <div className="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div className="modal-dialog" role="document">
