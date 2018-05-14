@@ -31,7 +31,7 @@ const App = () => (
 
         {/* <Route component={NoMatch} /> */}
       </Switch>
-      <Feed />
+      {/* <Feed /> */}
       <Footer />
     </div>
   </Router>

@@ -1,0 +1,9 @@
+#onhookpane {
+    height:450px;
+    overflow-y: scroll;
+}
+
+#feedpane {
+    height:450px;
+    overflow-y: scroll;
+}
