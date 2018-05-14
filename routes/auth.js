@@ -1,7 +1,8 @@
 var authController = require('../controllers/authcontroller.js');
 
-module.exports = function (app, passport) {
-
+module.exports = function (app,passport) {
+    console.log("auth.js loaded")
+    
     app.get('/signup', authController.signup);
     
 
@@ -34,10 +35,4 @@ module.exports = function (app, passport) {
 
         res.redirect('/signin');
     }
-
-    // function logout(req, res) {
-    //     req.session.destroy(function (err) {
-    //         res.redirect('/');
-    //     })
-    // }
 }

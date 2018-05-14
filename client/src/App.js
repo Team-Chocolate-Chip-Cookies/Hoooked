@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from  "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Followers from "./pages/Followers";
 import SetHook from "./pages/SetHook";
@@ -25,13 +26,14 @@ const App = () => (
     <div>
       <NavBar />
       <Switch>
-        <Route exact path="/" component={Dashboard} />
+      <Route exact path="/" component={Login} />
+        <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/followers" component={Followers} />
         <Route path="/sethook" component={SetHook} />
 
         {/* <Route component={NoMatch} /> */}
       </Switch>
-      <Feed />
+
       <Footer />
     </div>
   </Router>
