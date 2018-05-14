@@ -33,7 +33,7 @@ client.games({
   console.log("Rating: " +response.body[0].rating);
   console.log("Release Date: " +response.body[0].release_dates);
   console.log("Category: " +response.body[0].category);
-  console.log("Keyword: "+ response.body[0].keywords);
+  //console.log("Keyword: "+ response.body[0].keywords);
   
   }).catch(error => {
   throw error;

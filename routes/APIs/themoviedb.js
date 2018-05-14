@@ -19,7 +19,9 @@ queryUrl="https://api.themoviedb.org/3/search/movie?api_key="+apiKey+"&query=Fro
 request(queryUrl, function (error, response, body) {
     if (!error && response.statusCode === 200) {
         var parsedBody = JSON.parse(body)
-        console.log(parsedBody)
+        console.log(parsedBody);
+        console.log("ID :"+ parsedBody.id);
+        
         
 
         
