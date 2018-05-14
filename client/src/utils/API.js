@@ -15,7 +15,7 @@ export default {
                 return axios.get("/api/movie", dataObj)
                 break;
             case "/sethook/game":
-                return axios.get("/api/game", dataObj) 
+                return axios.get("/api/game/"+text) 
                 break;
             case "/sethook/book":
                 return axios.get("/api/book/"+text)

@@ -25,3 +25,9 @@ request(queryUrl, function (error, response, body) {
         
     }
 })
+
+app.get("/api/movie", function (req, res) {
+    console.log("Movie Route Ran!")
+
+    res.json("movie route runs")
+})
