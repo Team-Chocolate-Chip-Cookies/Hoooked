@@ -98,7 +98,7 @@ class SetHook extends Component {
           <Row>
             <Col size="md-12">
             <div className="text-center">
-              <ChangeMediaPulldown/> 
+              <ChangeMediaPulldown className="text-center"/> 
               </div>
             </Col>
           </Row>
@@ -193,6 +193,7 @@ class SetHook extends Component {
                     />
                   ))}
                 </ScrollbarContainer >
+                
 </Col>
 <Col size="xs-6">
                 <ScrollbarContainer>
