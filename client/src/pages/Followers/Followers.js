@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Followers.css";
+import { Col, Row, Container } from "../../components/Grid";
 
 class Followers extends Component {
     state = {
@@ -12,9 +13,13 @@ class Followers extends Component {
   
     render() {
       return (
-       <div>
-        <p>Followers</p>
-        </div>
+        <Container>
+        <Row>
+          <Col size="md-3">
+            {/* <SetHook /> */}
+          </Col>
+        </Row>
+      </Container>
       );
     }
   }

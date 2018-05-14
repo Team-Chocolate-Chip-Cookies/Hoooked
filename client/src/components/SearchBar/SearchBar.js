@@ -3,7 +3,7 @@ import "./SearchBar.css";
 
 export const SearchBar = props => (
     <div>
-        Search<br />
+        <br />
         <input
             type="text"
             name="search"
