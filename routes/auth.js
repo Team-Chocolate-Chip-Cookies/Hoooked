@@ -3,7 +3,7 @@ var authController = require('../controllers/authcontroller.js');
 module.exports = function (app, passport) {
 
     app.get('/signup', authController.signup);
-
+    
 
     app.get('/signin', authController.signin);
 
@@ -35,11 +35,9 @@ module.exports = function (app, passport) {
         res.redirect('/signin');
     }
 
-
+    // function logout(req, res) {
+    //     req.session.destroy(function (err) {
+    //         res.redirect('/');
+    //     })
+    // }
 }
-
-
-
-
-
-

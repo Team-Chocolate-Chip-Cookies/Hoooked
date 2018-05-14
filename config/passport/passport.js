@@ -1,4 +1,6 @@
 
+  // Note to Mark From Mark... there is no reference to modesl or the user model in here... is that right?
+  
   //load bcrypt
   var bCrypt = require('bcrypt-nodejs');
 
@@ -36,7 +38,7 @@
     },
 
     function(req, email, password, done){
-       
+       console.log("passport.js inside signUp function!")
 
       var generateHash = function(password) {
       return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
@@ -56,8 +58,7 @@
         { email:email,
         password:userPassword,
         firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        username: req.body.username
+        lastname: req.body.lastname
         };
 
 

@@ -2,20 +2,21 @@ var exports = module.exports = {}
 
 
 exports.signup = function(req,res){
-
-	res.render('signup'); 
+  console.log("authcontroller.js - someone hit the SIGNUP route")
+  console.log(res)
+	// res.render('signup'); 
 
 }
 
 exports.signin = function(req,res){
-
-	res.render('signin'); 
+  console.log("authcontroller.js - someone hit the SIGNIN route")
+  console.log(res)
+	// res.render('signin'); 
 
 }
 
 exports.dashboard = function(req,res){
-
-	res.render('dashboard'); 
+	// res.render('dashboard'); 
 
 }
 
