@@ -29,11 +29,20 @@ export default {
         // return axios.get("/api/",dataObj); 
     },
     signIn:function(email,password){
-      let  signUpObj={
+      let  signInObj={
             email:email,
             password:password
         }
-        return axios.post("/signin",signUpObj)
+        return axios.post("/signin",signInObj)
+    },
+    signUp:function(firstName,lastName,email,password){
+        let  signUpObj={
+            firstname:firstName,
+            lastname:lastName,
+            email:email,
+            password:password
+        }
+        return axios.post("/signup",signUpObj)
     }
 
 }
