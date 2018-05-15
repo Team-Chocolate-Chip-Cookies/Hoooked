@@ -49,6 +49,7 @@ module.exports = function (passport, user) {
               return done(null, false);
             }
             if (newUser) {
+              console.log("passport.js, new user data inside User.create", newUser)
               return done(null, newUser);
             }
           });
@@ -86,12 +87,12 @@ module.exports = function (passport, user) {
         if (!isValidPassword(user.password, password)) {
           console.log("passport.js, INVALID PASSOWRD!")
           return done(null, false, { message: 'Incorrect password.' });
-
         }
         //Valid user functions below... I think
         console.log("passport.js, SIGN-IN : VALID USER!!!")
         var userinfo = user.get();
-
+        console.log("passport.js, ", userinfo);
+        console.log("done is", done)
         return done(null, userinfo);
 
       }).catch(function (err) {
