@@ -33,9 +33,9 @@ class SetHook extends Component {
     search: "",
     bookData: [],
     gameData: [],
-    tvData: [],
     movieData: [],
     musicData: [],
+    TVData: []
 
   };
   handleInputChange = event => {
@@ -67,6 +67,21 @@ class SetHook extends Component {
         console.log(res)
         switch (path) {
           case "/sethook/tv":
+          let TVElementArray=[]
+          res.data.forEach((TVElement)=> {
+            let currentTVElement={
+              name:TVElement.name,
+              overview:TVElement.overview,
+              popularity:TVElement.popularity
+            }
+            TVElementArray.push(currentTVElement)
+          })
+          console.log(TVElementArray)
+          this.setState({
+            TVData:TVElementArray
+          },function(){
+            console.log(this.state.TVData)
+          })
             break;
           case "/sethook/movie":
           let movieElementArray=[]
@@ -160,13 +175,14 @@ class SetHook extends Component {
                         placeholder="TV Show Title"
                     />
 
-                      {this.state.tvData.map((data, index) => (
+                      {this.state.TVData.map((data, index) => (
 
                     <ApiDataTV
-                      title={data.title}
+                      name={data.name}
                       // id={image.id}
                       key={index}
-                      description={data.description}
+                      overview={data.overview}
+                      popularity={data.popularity}
                     // image={data.image}
                     />
                   ))}
