@@ -3,13 +3,15 @@ import "./ApiDataMusic.css";
 
 
 const ApiDataMusic = (props) => (
-    <div className="card-body">
-        <p>{props.title}</p>
-        <p>{props.description}</p>
+    <div>
+        <p>{props.tracks}</p>
+        <p>{props.artists}</p>
+        <p>{props.link}</p>
+        <p>{props.album}</p>
+        <p>{props.image}</p>
+
         <button className="btn btn-primary">Pick Me!</button>
         {/* onClick={() => props.clickDelete(props.id)} */}
-                
-        <hr/>
     </div>
 );
 
