@@ -8,10 +8,13 @@ import { withRouter } from "react-router-dom";
 class Login extends Component {
     state = {
 
-        user: {
             email: '',
-            password: ''
-        }
+            password: '',
+            SUfirstName:"",
+            SUlastName:"",
+            SUemail:"",
+            SUpassword:""
+        
     };
     handleInputChange = event => {
         // Getting the value and name of the input which triggered the change
@@ -26,7 +29,7 @@ class Login extends Component {
             
         });
     };
-    clickSearch = event => {
+    clickSignIn = event => {
         event.preventDefault();
         console.log("RAN")
         API.signIn(this.state.email,this.state.password)
@@ -37,7 +40,17 @@ class Login extends Component {
         )
 
     }
+    clickSignUp = event => {
+        event.preventDefault();
+        console.log("RAN")
+        API.signUp(this.state.SUfirstName,this.state.SUlastName,this.state.SUemail,this.state.SUpassword)
+        .then(
+            (data)=>{
+                // this.props.history.push("/dashboard")
+            }
+        )
 
+    }
     render() {
         return (
             <div>
@@ -71,7 +84,7 @@ class Login extends Component {
                             onChange={this.handleInputChange}
                             placeholder="Password" />
                         </div>
-                        <button type="button" onClick={this.clickSearch} className="btn btn-primary">Submit</button>
+                        <button type="button" onClick={this.clickSignIn} className="btn btn-primary">Submit</button>
                     </form>
 
                     <br /><br />
@@ -93,21 +106,46 @@ class Login extends Component {
                                     <form>
                                         <div className="form-group">
                                             <label for="formGroupExampleInput">First Name</label>
-                                            <input type="text" className="form-control" id="formGroupExampleInput" placeholder="first name" />
+                                            <input type="text" 
+                                            className="form-control" 
+                                            id="formGroupExampleInput" 
+                                            placeholder="first name" 
+                                            onChange={this.handleInputChange}
+                                            name="SUfirstName"
+                                            />
                                         </div>
                                         <div className="form-group">
                                             <label for="formGroupExampleInput2">Last Name</label>
-                                            <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="last name" />
+                                            <input type="text" 
+                                            className="form-control" 
+                                            id="formGroupExampleInput2" 
+                                            placeholder="last name" 
+                                            onChange={this.handleInputChange}
+                                            name="SUlastName"
+                                            />
+                                            
                                         </div>
                                         <div className="form-group">
                                             <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                            <input type="email" 
+                                            className="form-control" 
+                                            id="exampleInputEmail1" 
+                                            aria-describedby="emailHelp" 
+                                            placeholder="Enter email" 
+                                            onChange={this.handleInputChange}
+                                            name="SUemail"/>
                                         </div>
                                         <div className="form-group">
                                             <label for="exampleInputPassword1">Password</label>
-                                            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                            <input type="password" 
+                                            className="form-control" 
+                                            id="exampleInputPassword1" 
+                                            placeholder="Password" 
+                                            onChange={this.handleInputChange}
+                                            name="SUpassword"
+                                            />
                                         </div>
-                                        <button type="submit" className="btn btn-primary">Submit</button>
+                                        <button type="submit" onClick={this.clickSignUp} className="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
                             </div>

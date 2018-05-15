@@ -1,10 +1,26 @@
 var express = require("express");
 var app = express();
 var books = require('google-books-search');
+var authRoute = require('../auth.js')
+
 
 console.log("book API file ran!!!")
 const APIkey="AIzaSyC-irQvnqjszF08Bex980XklUgBakhoXU8"
-app.get("/api/book/:search", function (req, res) {
+
+//VALIDATION FUNCTION
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()){
+        console.log("Authenticated")
+        return next();
+    }
+    else
+    console.log("Forbidden!")
+    res.status(403).send(err);
+    // res.redirect('/signin');
+}
+
+app.get("/api/book/:search",  isLoggedIn, function (req, res) {
+
     console.log("BOOK ROUTE RAN")
     console.log(req.params.search)
     let searchText=req.params.search;
@@ -28,7 +44,6 @@ app.get("/api/book/:search", function (req, res) {
             res.json(error)
         }
     });
-   
 })
 
 

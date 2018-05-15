@@ -16,16 +16,16 @@ app.use(bodyParser.json());
 //Models
 var models = require("./db/models");
 
-////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 // START PASSPORT
-// The order of the passport server lines is important
-///////////////////////////////////////////////////////////
+// The order of the passport server lines is important - no step on snek 
+////////////////////////////////////////////////////////////////////////////
 
 app.use(session({ secret: 'catdog',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-// Routes for authroization - Probabbly doesn't work at this point
+// Routes for authroization 
 var authRoute = require('./routes/auth.js')(app,passport);
 
 console.log("\n\n\n\nmodels:", (models.User? "User model exists":"User dont exist"))
@@ -43,13 +43,14 @@ require('./config/passport/passport.js')(passport,models.User);
 const IGDB=require("./routes/APIs/IGDB.js")
 const bookAPI=require("./routes/APIs/bookAPI.js")
 const TMDB=require("./routes/APIs/themoviedb.js")
+const TVDB=require("./routes/APIs/TVDB.js")
 
-// Routes for input testing
-require("./routes/routeTestsDB.js")(app);
-
-// Movie routes
+// Routes (but not auth.js and not isLogIn.js)
+require("./routes/followRoutes.js")(app);
 require("./routes/movieRoutes.js")(app);
-
+require("./routes/musicRoutes.js")(app);
+require("./routes/routeTestsDB.js")(app);
+require("./routes/videoGameRoutes.js")(app);
 
 
 //Sync Database
@@ -76,6 +77,7 @@ app.get("/catdog", function(req, res) {
 app.use(IGDB)
 app.use(bookAPI)
 app.use(TMDB)
+app.use(TVDB)
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
