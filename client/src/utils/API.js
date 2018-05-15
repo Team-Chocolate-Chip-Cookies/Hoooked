@@ -8,11 +8,11 @@ export default {
         console.log(dataObj)
         switch (path) {
             case "/sethook/tv":
-                return axios.get("/api/tv", dataObj)
+                return axios.get("/api/tv/"+text)
                 
                 break;
             case "/sethook/movie":
-                return axios.get("/api/movie", dataObj)
+                return axios.get("/api/movie/"+text)
                 break;
             case "/sethook/game":
                 return axios.get("/api/game/"+text) 

@@ -1,10 +1,13 @@
+// Q: How do Trees get on the internet?
+// A: They Login.
+
 var authController = require('../controllers/authcontroller.js');
 
-module.exports = function (app,passport) {
+module.exports = function (app, passport) {
     console.log("auth.js loaded")
-    
+
     app.get('/signup', authController.signup);
-    
+
 
     app.get('/signin', authController.signin);
 
@@ -16,7 +19,7 @@ module.exports = function (app,passport) {
     ));
 
 
-    app.get('/dashboard', isLoggedIn, function(req,res){
+    app.get('/dashboard', isLoggedIn, function (req, res) {
         res.send()
     });
 
@@ -28,22 +31,25 @@ module.exports = function (app,passport) {
         successRedirect: '/dashboard',
         failureRedirect: '/signin'
     }
-    ),function(req,res){
+    ), function (req, res) {
         res.send()
     });
 
 
     function isLoggedIn(req, res, next) {
+
         if (req.isAuthenticated()){
             console.log("Authenticated")
             return next();
         }
         else
         console.log("Forbidden!")
-        res.status(403).send(err);
+        res.status(403).send("Not signed in");
         // res.redirect('/signin');
     }
     function test(){
         console.log("TEST FUNCTION RAN")
+
     }
 }
+

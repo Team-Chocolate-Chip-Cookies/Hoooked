@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./SetHook.css";
 // import ScrollbarContainer from "../components/ScrollbarContainer"
-import ScrollbarContainer from "../../components/ScrollbarContainer"
+// import ScrollbarContainer from "../../components/ScrollbarContainer"
 import ApiDataTV from "../../components/ApiDataTV"
 import ApiDataMovie from "../../components/ApiDataMovie"
 import ApiDataGame from "../../components/ApiDataGame"
@@ -14,7 +14,13 @@ import API from "../../utils/API";
 import ChangeMediaPulldown from "../../components/ChangeMediaPulldown";
 import Button from "../../components/Button";
 import FriendSearchCard from "../../components/FriendSearchCard";
+
 import { withRouter } from "react-router-dom";
+
+import SearchForm from  "../../components/SetHookApiSearchForm";
+// import searchResultsList from "../../components/setHookApiSearchForm/searchResultsList";
+
+
 
 class SetHook extends Component {
   state = {
@@ -30,7 +36,11 @@ class SetHook extends Component {
     ],
     search: "",
     bookData: [],
-    gameData: []
+    gameData: [],
+    movieData: [],
+    musicData: [],
+    TVData: []
+
   };
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -43,6 +53,7 @@ class SetHook extends Component {
       [name]: value
     });
   };
+
   componentDidMount() {
 
   }
@@ -60,9 +71,41 @@ class SetHook extends Component {
         console.log(res)
         switch (path) {
           case "/sethook/tv":
+          let TVElementArray=[]
+          res.data.forEach((TVElement)=> {
+            let currentTVElement={
+              name:TVElement.name,
+              overview:TVElement.overview,
+              popularity:TVElement.popularity
+            }
+            TVElementArray.push(currentTVElement)
+          })
+          console.log(TVElementArray)
+          this.setState({
+            TVData:TVElementArray
+          },function(){
+            console.log(this.state.TVData)
+          })
             break;
           case "/sethook/movie":
+          let movieElementArray=[]
+            res.data.forEach((movieElement)=> {
+              let currentMovieElement={
+                title:movieElement.title,
+                overview:movieElement.overview,
+                popularity:movieElement.popularity,
+                release_date:movieElement.release_date
+              }
+              movieElementArray.push(currentMovieElement)
+            })
+            console.log(movieElementArray)
+            this.setState({
+              movieData:movieElementArray
+            },function(){
+              console.log(this.state.movieData)
+            })
             break;
+            
           case "/sethook/game":
           let gameElementArray=[]
             res.data.forEach((gameElement)=>{
@@ -96,7 +139,7 @@ class SetHook extends Component {
             })
             console.log(elementArray)
             this.setState({
-              bookData: elementArray
+              bookData: elementArray,
             });
             break;
           case "/sethook/music":
@@ -125,61 +168,97 @@ class SetHook extends Component {
               </div>
             </Col>
           </Row>
-
+          <br></br>
 
 
           <Switch>
             {/* TV search path */}
             <Route exact path="/sethook/tv">
-              <div>
-                <ScrollbarContainer>
-                  <SearchBar
-                    handleInputChange={this.handleInputChange}
-                    clickSearch={this.clickSearch}
-                  />
-                  {this.state.test.map((data, index) => (
+              {/* <div> */}
+              <Row>
+                <Col size="md-6">
+                  <div className="card scrolling">
+                    <SearchForm
+                        handleInputChange={this.handleInputChange}
+                        clickSearch={this.clickSearch}
+                        placeholder="TV Show Title"
+                    />
+
+                      {this.state.TVData.map((data, index) => (
+
                     <ApiDataTV
+                      name={data.name}
+                      // id={image.id}
+                      key={index}
+                      overview={data.overview}
+                      popularity={data.popularity}
+                    // image={data.image}
+                    />
+                  ))}
+
+                  </div>
+                </Col>
+
+                <Col size="md-6">
+                  <div className="card scrolling">
+                    <FriendSearchCard/>
+                  </div>      
+                </Col>
+              </Row>
+              {/* </div> */}
+            </Route>
+
+            {/* Movie search path */}
+            <Route exact path="/sethook/movie">
+
+              {/* <div> */}
+              <Row>
+                <Col size="md-6">
+                  <div className="card scrolling">
+                    <SearchForm
+                        handleInputChange={this.handleInputChange}
+                        clickSearch={this.clickSearch}
+                        placeholder="Movie Title"
+                    />
+
+                      {this.state.movieData.map((data, index) => (
+                    
+
+                    <ApiDataMovie
                       title={data.title}
                       // id={image.id}
                       key={index}
-                      description={data.description}
+                      overview={data.overview}
+                      popularity={data.popularity}
+                      release_date={data.release_date}
                     // image={data.image}
                     />
                   ))}
-                </ScrollbarContainer >
-                <ScrollbarContainer />
-              </div>
+           
+                  </div>
+                </Col>
+
+                <Col size="md-6">
+                  <div className="card scrolling">
+                    <FriendSearchCard/>
+                  </div>    
+                </Col>
+              </Row>
+              {/* </div> */}
             </Route>
-            {/* Movie search path */}
-            <Route exact path="/sethook/movie">
-              <div>
-                <ScrollbarContainer>
-                  <SearchBar
-                    handleInputChange={this.handleInputChange}
-                    clickSearch={this.clickSearch}
-                  />
-                  {this.state.test.map((data, index) => (
-                    <ApiDataMovie
-                      title={data.name}
-                      // id={image.id}
-                      key={index}
-                      description={data.description}
-                    // image={data.image}
-                    />
-                  ))}
-                </ScrollbarContainer >
-                <ScrollbarContainer />
-              </div>
-            </Route>
+
             {/* game search path */}
             <Route exact path="/sethook/game">
-              <div>
-                <ScrollbarContainer>
+              {/* <div> */}
+              <Row>
+                <Col size="md-6">
+                  <div className="card scrolling">
+                    <SearchForm
+                        handleInputChange={this.handleInputChange}
+                        clickSearch={this.clickSearch}
+                        placeholder="Game Title"
+                    />
 
-                  <SearchBar
-                    handleInputChange={this.handleInputChange}
-                    clickSearch={this.clickSearch}
-                  />
                   {this.state.gameData.map((data, index) => (
 
                     <ApiDataGame
@@ -193,62 +272,75 @@ class SetHook extends Component {
                     // image={data.image}
                     />
                   ))}
-                </ScrollbarContainer >
-                <ScrollbarContainer />
-              </div>
+            
+            </div>
+                </Col>
+
+                <Col size="md-6">
+                  <div className="card scrolling">
+                    <FriendSearchCard/>
+                  </div>       
+                </Col>
+              </Row>
+
+              {/* </div> */}
             </Route>
+
+
+
             {/* book search path */}
             <Route exact path="/sethook/book">
-              <div>
+              {/* <div> */}
               <Row>
-            <Col size="xs-6">
-                <ScrollbarContainer>
-                  <SearchBar
-                    handleInputChange={this.handleInputChange}
-                    clickSearch={this.clickSearch}
-                  />
-                  {this.state.bookData.map((data, index) => (
+                <Col size="md-6">
+                  <div className="card scrolling">
+                  
+                    <SearchForm
+                        handleInputChange={this.handleInputChange}
+                        clickSearch={this.clickSearch}
+                        placeholder="Book Title"
+                    />
+
+                      {this.state.bookData.map((data, index) => (
+                        
                     <ApiDataBook
-                      title={data.title}
-                      // id={image.id}
-                      key={index}
-                      description={data.description}
-                      image={data.image}
-                      link={data.link}
-                      authors={data.authors}
-                      publishedDate={data.publishedDate}
-                    // image={data.image}
+                        title={data.title}
+                        // id={image.id}
+                        key={index}
+                        description={data.description}
+                        image={data.image}
+                        link={data.link}
+                        authors={data.authors}
+                        publishedDate={data.publishedDate}
                     />
                   ))}
-                </ScrollbarContainer >
-                
-</Col>
-<Col size="xs-6">
-                <ScrollbarContainer>
-                  <SearchBar
-                    handleInputChange={this.handleInputChange}
-                    clickSearch={this.clickSearch}
-                  />
+            
+                  </div>
+                </Col>
 
-                  <FriendSearchCard/>
+                <Col size="md-6">
+                  <div className="card scrolling">
+                    <FriendSearchCard/>
+                  </div>         
+                </Col>
+              </Row>
 
-
-                </ScrollbarContainer >
-
-</Col>
-</Row>
-
-              </div>
+              {/* </div> */}
             </Route>
             {/* music search path */}
             <Route exact path="/sethook/music">
-              <div>
-                <ScrollbarContainer>
-                  <SearchBar
-                    handleInputChange={this.handleInputChange}
-                    clickSearch={this.clickSearch}
-                  />
-                  {this.state.test.map((data, index) => (
+              {/* <div> */}
+              <Row>
+                <Col size="md-6">
+                  <div className="card scrolling">
+                    <SearchForm
+                        handleInputChange={this.handleInputChange}
+                        clickSearch={this.clickSearch}
+                        placeholder="Song Title"
+                    />
+
+                  {this.state.musicData.map((data, index) => (
+                    
                     <ApiDataMusic
                       title={data.title}
                       // id={image.id}
@@ -257,21 +349,30 @@ class SetHook extends Component {
                     // image={data.image}
                     />
                   ))}
-                </ScrollbarContainer >
-                <ScrollbarContainer />
-              </div>
+            
+            </div>
+                </Col>
+
+                <Col size="md-6">
+                  <div className="card scrolling">
+                    <FriendSearchCard/>
+                  </div>     
+                </Col>
+              </Row>
+
+              {/* </div> */}
             </Route>
           </Switch>
           
-
+          <br></br>
         
           <Row>
-            <Col size="xs-12">
-          <Button>
-            SET HOOK
-            </Button>
+            <Col size="md-12" className = "text-center">
+              <Button>
+                SET HOOK
+              </Button>
             </Col>
-            </Row>
+          </Row>
         </Container>
       </div>
     );
