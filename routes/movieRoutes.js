@@ -18,10 +18,10 @@ module.exports = function (app) {
             });
     });
     // Searches all movies from the DB for a specific title
-    app.get("/api/findMovie/:title", isLoggedIn, function (req, res) {
+    app.get("/api/findMovie/", isLoggedIn, function (req, res) {
         db.Movie.findAll({
             where: {
-              title: req.params.title
+              title: req.body.title
             }
           })
             .then(function(dbPost) {

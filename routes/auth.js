@@ -37,11 +37,19 @@ module.exports = function (app, passport) {
 
 
     function isLoggedIn(req, res, next) {
-        console.log("isLoggedIn called")
-        if (req.isAuthenticated())
-            return next();
 
-        res.status(403).send("auth.js - OMG you're not signed in!");;
+        if (req.isAuthenticated()){
+            console.log("Authenticated")
+            return next();
+        }
+        else
+        console.log("Forbidden!")
+        res.status(403).send("Not signed in");
+        // res.redirect('/signin');
+    }
+    function test(){
+        console.log("TEST FUNCTION RAN")
+
     }
 }
 
