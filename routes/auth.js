@@ -3,11 +3,11 @@
 
 var authController = require('../controllers/authcontroller.js');
 
-module.exports = function (app,passport) {
+module.exports = function (app, passport) {
     console.log("auth.js loaded")
-    
+
     app.get('/signup', authController.signup);
-    
+
 
     app.get('/signin', authController.signin);
 
@@ -19,7 +19,7 @@ module.exports = function (app,passport) {
     ));
 
 
-    app.get('/dashboard', isLoggedIn, function(req,res){
+    app.get('/dashboard', isLoggedIn, function (req, res) {
         res.send()
     });
 
@@ -31,7 +31,7 @@ module.exports = function (app,passport) {
         successRedirect: '/dashboard',
         failureRedirect: '/signin'
     }
-    ),function(req,res){
+    ), function (req, res) {
         res.send()
     });
 
@@ -41,7 +41,7 @@ module.exports = function (app,passport) {
         if (req.isAuthenticated())
             return next();
 
-        res.redirect('/signin');
+        res.status(403).send(err);;
     }
 }
 

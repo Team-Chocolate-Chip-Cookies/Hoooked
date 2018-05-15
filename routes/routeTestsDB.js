@@ -32,4 +32,8 @@ module.exports = function (app) {
       
   });
 
+  app.get("/hasSessionID/", isLoggedIn, function (req, res) {
+    console.log(req.user)
+  });
+
 }
