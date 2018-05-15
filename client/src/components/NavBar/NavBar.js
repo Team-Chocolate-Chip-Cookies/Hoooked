@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import logo from "./logo2.png";
 
 
 const Navbar = (props) => (
@@ -10,9 +11,8 @@ const Navbar = (props) => (
             <Link 
                  to="/"
                  className={
-                    window.location.pathname === "/" ? "nav-link active" : "nav-link"
-                  }
-            >Dashboard
+                    window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
+                    <img src = {logo} alt = "logo" id = "navlogo"/>
             </Link>
             <Link 
                 to="/followers"
@@ -22,46 +22,24 @@ const Navbar = (props) => (
             >
                 Followers
             </Link>
-            <Link 
-                to="/sethook/tv"
-                className={
-                    window.location.pathname === "/sethook/tv" ? "nav-link active" : "nav-link"
-                  }
+            <div 
+                // to="/score"
+                // className={
+                //     window.location.pathname === "/score" ? "nav-link active" : "nav-link"
+                //   }
             >
-                Sethook-tv
-            </Link>
-            <Link 
-                to="/sethook/movie"
-                className={
-                    window.location.pathname === "/sethook/movie" ? "nav-link active" : "nav-link"
-                  }
+                Score :00
+            </div>
+        
+            <div
+                // to="/Logoout"
+                // className={
+                //     window.location.pathname === "/logout" ? "nav-link active" : "nav-link"
+                //   }
             >
-                Sethook-movie
-            </Link>
-            <Link 
-                to="/sethook/game"
-                className={
-                    window.location.pathname === "/sethook/game" ? "nav-link active" : "nav-link"
-                  }
-            >
-                Sethook-game
-            </Link>
-            <Link 
-                to="/sethook/book"
-                className={
-                    window.location.pathname === "/sethook/book" ? "nav-link active" : "nav-link"
-                  }
-            >
-                Sethook-book
-            </Link>
-            <Link 
-                to="/sethook/music"
-                className={
-                    window.location.pathname === "/sethook/music" ? "nav-link active" : "nav-link"
-                  }
-            >
-                Sethook-music
-            </Link>
+                Logout
+            </div>
+            
         </nav>
     </div>
 );
