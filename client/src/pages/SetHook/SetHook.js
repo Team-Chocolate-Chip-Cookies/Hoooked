@@ -14,6 +14,7 @@ import API from "../../utils/API";
 import ChangeMediaPulldown from "../../components/ChangeMediaPulldown";
 import Button from "../../components/Button";
 import FriendSearchCard from "../../components/FriendSearchCard";
+import { withRouter } from "react-router-dom";
 
 class SetHook extends Component {
   state = {
@@ -55,7 +56,7 @@ class SetHook extends Component {
     console.log(this.state.search)
     let path = this.props.location.pathname
     API.foreign(this.state.search, path)
-      .then(res => {
+      .then((res,error) => {
         console.log(res)
         switch (path) {
           case "/sethook/tv":
@@ -104,7 +105,12 @@ class SetHook extends Component {
             console.log("ERROR IN API RETURN SWITCH CASE")
         }
       })
-
+      .catch((error)=>{
+        if (error.response.status==403) {
+             this.props.history.push("/")
+      
+        }
+      })
   }
   render() {
     return (
@@ -273,4 +279,4 @@ class SetHook extends Component {
 }
 
 
-export default SetHook;
+export default withRouter(SetHook);
