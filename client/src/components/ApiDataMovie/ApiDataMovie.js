@@ -3,9 +3,13 @@ import "./ApiDataMovie.css";
 
 
 const ApiDataMovie = (props) => (
-    <div className="card-body">
-        <p>{props.title}</p>
-        <p>{props.description}</p>
+
+    <div className="">
+        <p>Title: {props.title}</p>
+        <p>Summary: {props.overview}</p>
+        <p>Popularity Score: {props.popularity}</p>
+        <p>Release Date: {props.release_date}</p>
+
         <button className="btn btn-primary">Pick Me!</button>
         {/* onClick={() => props.clickDelete(props.id)} */}
 

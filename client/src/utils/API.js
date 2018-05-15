@@ -12,7 +12,7 @@ export default {
                 
                 break;
             case "/sethook/movie":
-                return axios.get("/api/movie", dataObj)
+                return axios.get("/api/movie/"+text)
                 break;
             case "/sethook/game":
                 return axios.get("/api/game/"+text) 

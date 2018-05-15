@@ -30,10 +30,6 @@ app.get("/api/game/:search", function (req, res) {
   // res.json("game route ran!");
 })
 
-
-
-
-
 //IGDB gaming API
 // const igdbAPI="1c25b4edb78ef6a88eb1b0b891845dcf"
 // const client = igdb(igdbAPI);
@@ -49,8 +45,6 @@ app.get("/api/game/:search", function (req, res) {
 // }).catch(error => {
 //   throw error;
 // });
-
-
 
 module.exports = app;
 
