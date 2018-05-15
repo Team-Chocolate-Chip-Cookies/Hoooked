@@ -42,6 +42,7 @@ require('./config/passport/passport.js')(passport,models.User);
 
 const IGDB=require("./routes/APIs/IGDB.js")
 const bookAPI=require("./routes/APIs/bookAPI.js")
+const TMDB=require("./routes/APIs/themoviedb.js")
 
 // Routes for input testing
 require("./routes/routeTestsDB.js")(app);
@@ -74,6 +75,7 @@ app.get("/catdog", function(req, res) {
 // Define any API routes before this runs
 app.use(IGDB)
 app.use(bookAPI)
+app.use(TMDB)
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });

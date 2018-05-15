@@ -29,7 +29,8 @@ class SetHook extends Component {
     ],
     search: "",
     bookData: [],
-    gameData: []
+    gameData: [],
+    movieData: []
   };
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -61,7 +62,24 @@ class SetHook extends Component {
           case "/sethook/tv":
             break;
           case "/sethook/movie":
+          let movieElementArray=[]
+            res.data.forEach((movieElement)=> {
+              let currentMovieElement={
+                title:movieElement.title,
+                overview:movieElement.overview,
+                popularity:movieElement.popularity,
+                release_date:movieElement.release_date
+              }
+              movieElementArray.push(currentMovieElement)
+            })
+            console.log(movieElementArray)
+            this.setState({
+              movieData:movieElementArray
+            },function(){
+              console.log(this.state.movieData)
+            })
             break;
+            
           case "/sethook/game":
           let gameElementArray=[]
             res.data.forEach((gameElement)=>{
@@ -152,12 +170,14 @@ class SetHook extends Component {
                     handleInputChange={this.handleInputChange}
                     clickSearch={this.clickSearch}
                   />
-                  {this.state.test.map((data, index) => (
+                  {this.state.movieData.map((data, index) => (
                     <ApiDataMovie
-                      title={data.name}
+                      title={data.title}
                       // id={image.id}
                       key={index}
-                      description={data.description}
+                      overview={data.overview}
+                      popularity={data.popularity}
+                      release_date={data.release_date}
                     // image={data.image}
                     />
                   ))}
