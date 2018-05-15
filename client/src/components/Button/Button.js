@@ -5,7 +5,7 @@ import "./Button.css";
 const Button = ({ type = "default", className, children, onClick }) => (
   <button
     onClick={onClick}
-    className={["btn btn-lg btn-info", `btn-${type}`, className].join(" ")}
+    className={["btn btn-lg btn-info", `btn-${type}`, "center", className].join(" ")}
   >
     {children}
   </button>
