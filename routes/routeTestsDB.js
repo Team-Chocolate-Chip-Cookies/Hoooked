@@ -3,11 +3,17 @@
 // This file exists to test inputting new data into the database via routes and sequelize
 // I hope to test sequelize validations and etc using this file to update various tables 
 
+console.log("routeTestDB LOADED!")
+
+
+var isLoggedIn = require('./isLogIn.js')
+
+
 var db = require("../db/models");
 
 module.exports = function (app) {
   // Reads all users
-  app.get("/api/users/", function (req, res) {
+  app.get("/api/users/", isLoggedIn, function (req, res) {
     db.User.findAll({})
       .then(function (dbPost) {
         res.json(dbPost);
