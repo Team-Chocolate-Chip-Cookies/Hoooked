@@ -10,7 +10,7 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
 
-    res.status(403).send(err);
+    res.status(403).send("OMG you're not signed in!");;
 }
 
 module.exports = isLoggedIn;
