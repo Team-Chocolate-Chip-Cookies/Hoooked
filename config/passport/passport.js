@@ -1,3 +1,6 @@
+// Q: How do trees get on the internet?
+// A: They log-in!
+
 
 //load bcrypt
 var bCrypt = require('bcrypt-nodejs');
@@ -13,7 +16,7 @@ module.exports = function (passport, user) {
   passport.use('local-signup', new LocalStrategy(
 
     {
-      usernameField: 'email',  // this property called email but had to be changed to usernameField to use the email as a login
+      usernameField: 'email',  // this property was called email but had to be changed to usernameField to use the email as a login
       passwordField: 'password',
       passReqToCallback: true // allows us to pass back the entire request to the callback
     },
@@ -31,7 +34,6 @@ module.exports = function (passport, user) {
           console.log("passport.js, Hey there is ALREADY ANOTHER USER WITH THAT EMAIL!")
           return done(null, false, { message: 'That email is already taken' });
         }
-
         else {
           console.log("passport.js, sign-up, NEW USER CREATED!")
           var userPassword = generateHash(password);
@@ -42,19 +44,13 @@ module.exports = function (passport, user) {
               firstname: req.body.firstname,
               lastname: req.body.lastname
             };
-
-
           User.create(data).then(function (newUser, created) {
             if (!newUser) {
               return done(null, false);
             }
-
             if (newUser) {
               return done(null, newUser);
-
             }
-
-
           });
         }
       });
@@ -65,7 +61,6 @@ module.exports = function (passport, user) {
   passport.use('local-signin', new LocalStrategy(
 
     {
-
       // by default, local strategy uses username and password, we will override with email
       usernameField: 'email', // changed from emailField to usernameField... had to do it for signup... probabbly need to here too
       passwordField: 'password',
@@ -83,16 +78,18 @@ module.exports = function (passport, user) {
       User.findOne({ where: { email: email } }).then(function (user) {
 
         if (!user) {
+          console.log("passport.js, There is NO SUCH USER (email)!") // Not sure this is working
           return done(null, false, { message: 'Email does not exist' });
+          
         }
 
         if (!isValidPassword(user.password, password)) {
-
+          console.log("passport.js, INVALID PASSOWRD!")
           return done(null, false, { message: 'Incorrect password.' });
 
         }
         //Valid user functions below... I think
-        console.log("passport.js, SIGN-IN VALID USER!!!")
+        console.log("passport.js, SIGN-IN : VALID USER!!!")
         var userinfo = user.get();
 
         return done(null, userinfo);

@@ -1,34 +1,43 @@
 import React from "react";
+import "./setHookApiSearchForm.css";
+import Input from "../Input";
+import Button from "../Button";
+// import ScrollbarContainer from "../ScrollbarContainer";
+import Row from "../Grid/Row";
+import Col from "../Grid/Col";
+import container, { Container } from "../Grid/Container";
 
-export const setHookApiSearchForm = props => (
-    <Container>
-        <Row>
-            <Col size="md-12">
-            <form>
+
+export const SearchForm = props => (
+
+    <div>
+        <div className="card">
+            <div className="card-body">
                 <Container>
                     <Row>
-                        <Col size="xs-9 sm-10">
-                          <Input
-                            name="ApiSearch"
-                            value={this.state.ApiSearch}
-                            onChange={this.handleInputChange}
-                            placeholder="What's your bait?"
-                          />
+                        <Col size="md-8">
+                            <Input
+                                placeholder={props.placeholder}
+                                type="text"
+                                name="search"
+                                // value={this.state.search}
+                                onChange={props.handleInputChange}
+                            />
+                        </Col>
+                        <Col size="md-4">
+                            <Button
+                                input type="button" value="Search" id="searchButton" onClick={() => props.clickSearch(props.id)} 
+                            >
+                                 Search
+                            
+                            </Button> 
                         </Col>
                     </Row>
+    
                 </Container>
-            </form>
-            </Col>
-        </Row>
-        <Row>
-            <Col size="xs-4 sm-2">
-              <Thumbnail src={props.img} />
-            </Col>
-            <Col size="xs-8 sm-9">
-              <h3>{proprs.title}</h3>
-              <p>Summary: {props.summary}</p>
-              <a href={props.href}></a>
-            </Col>
-        </Row>
-    </Container>
+            </div>
+        </div>
+    </div>
 );
+
+export default SearchForm;

@@ -1,13 +1,19 @@
 // /routes/routeTestsDB.js
 //
 // This file exists to test inputting new data into the database via routes and sequelize
-// I hope to test sequelize validations and etc using this file to update various tables 
+
+console.log("routeTestDB LOADED!")
+
+// isLoggedIn is a function that checks if the user is logged in.
+// isLoggedIn gets called inside gets and post functions to verify the user is logged in.
+// isLoggedIn if a user is not sigged in the route will redirect the user to the signin route.
+var isLoggedIn = require('./isLogIn.js') 
 
 var db = require("../db/models");
 
 module.exports = function (app) {
   // Reads all users
-  app.get("/api/users/", function (req, res) {
+  app.get("/api/users/", isLoggedIn, function (req, res) {
     db.User.findAll({})
       .then(function (dbPost) {
         res.json(dbPost);
@@ -24,6 +30,10 @@ module.exports = function (app) {
         res.json(dbPost);
       });
       
+  });
+
+  app.get("/hasSessionID/", isLoggedIn, function (req, res) {
+    console.log(req.user)
   });
 
 }
