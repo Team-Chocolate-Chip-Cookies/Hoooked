@@ -1,3 +1,6 @@
+// Q: How do Trees get on the internet?
+// A: They Login.
+
 var authController = require('../controllers/authcontroller.js');
 
 module.exports = function (app,passport) {

@@ -4,6 +4,11 @@
 
 var db = require("../db/models");
 
+// isLoggedIn is a function that checks if the user is logged in.
+// isLoggedIn gets called inside gets and post functions to verify the user is logged in.
+// isLoggedIn if a user is not sigged in the route will redirect the user to the signin route.
+var isLoggedIn = require('./isLogIn.js') 
+
 module.exports = function (app) {
     // Reads all movies from the DB
     app.get("/api/allMovies/", function (req, res) {
