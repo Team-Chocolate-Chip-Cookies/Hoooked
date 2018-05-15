@@ -41,7 +41,7 @@ module.exports = function (app, passport) {
         if (req.isAuthenticated())
             return next();
 
-        res.status(403).send("OMG you're not signed in!");;
+        res.status(403).send("auth.js - OMG you're not signed in!");;
     }
 }
 
