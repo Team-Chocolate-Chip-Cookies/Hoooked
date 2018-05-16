@@ -8,8 +8,8 @@ var authController = require('./auth.js');
 function isLoggedIn(req, res, next) {
     console.log("isLogIn.js - isLoggedIn called")
     if (req.isAuthenticated()) {
-        res.status(418).send("isLogIn.js - Sucessful Login!")
-        console.log("isLogIn.js - Authenticated")
+        console.log("isLogIn.js - Authenticated: ", req.user.id)
+        // res.send("isLogIn.js - Successful Authentication!")
         return next();
     } else {
         console.log("Forbidden!")

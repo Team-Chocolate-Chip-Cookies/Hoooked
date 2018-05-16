@@ -41,8 +41,8 @@ module.exports = function (app, passport) {
     function isLoggedIn(req, res, next) {
 
         if (req.isAuthenticated()) {
-            res.status(418).send("auth.js - Sucessful Login!")
-            console.log("auth.js - Authenticated")
+            // res.status(418).send("auth.js - Sucessful Login!")
+            console.log("auth.js - Authenticated: ", req.user.id)
             return next();
         }
         else {
