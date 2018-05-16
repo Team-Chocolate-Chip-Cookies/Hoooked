@@ -29,7 +29,7 @@ module.exports = function (sequelize, Sequelize) {
         indexes: [
             {
                 unique: true,
-                fields: ['followed', 'followerId']
+                fields: ['followed', 'followedId']
             }
         ]
     }

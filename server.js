@@ -50,7 +50,9 @@ require("./routes/followRoutes.js")(app);
 require("./routes/movieRoutes.js")(app);
 require("./routes/musicRoutes.js")(app);
 require("./routes/routeTestsDB.js")(app);
+
 require("./routes/userRoutes.js")(app);
+
 require("./routes/videoGameRoutes.js")(app);
 
 
