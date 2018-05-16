@@ -17,8 +17,8 @@ module.exports = function (sequelize, Sequelize) {
         },
     })
     Post.associate = function (models) {
-        Post.belongsTo(models.User, {as: "poster"})
+        Post.belongsTo(models.User, { as: "poster" })
         // Follow.hasOne(models.User, {as: "Followed", foreignKey: 'userID'});
-      };
+    };
     return Post;
 }

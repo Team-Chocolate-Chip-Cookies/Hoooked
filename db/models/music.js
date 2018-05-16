@@ -26,6 +26,6 @@ module.exports = function (sequelize, Sequelize) {
             allowNull: false,
         }
     });
-   
+
     return Music;
 };
