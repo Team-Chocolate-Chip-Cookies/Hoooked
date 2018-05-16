@@ -15,18 +15,18 @@ module.exports = function (app) {
     app.get("/api/findPost/:title", function (req, res) {
         db.Post.findAll({
             where: {
-              title: req.params.title
+                title: req.params.title
             }
-          })
-            .then(function(dbPost) {
-              res.json(dbPost);
+        })
+            .then(function (dbPost) {
+                res.json(dbPost);
             });
     });
     // Adds a new Post
     app.post("/api/addPost", function (req, res) {
         db.Post.create({
             title: req.body.title,
-            body: req.body.boby           
+            body: req.body.boby
         })
             .then(function (dbPost) {
                 res.json(dbPost);

@@ -15,11 +15,11 @@ module.exports = function (app) {
     app.get("/api/findMusic/:title", function (req, res) {
         db.Music.findAll({
             where: {
-              title: req.params.title
+                title: req.params.title
             }
-          })
-            .then(function(dbPost) {
-              res.json(dbPost);
+        })
+            .then(function (dbPost) {
+                res.json(dbPost);
             });
     });
     // Adds a new Music
