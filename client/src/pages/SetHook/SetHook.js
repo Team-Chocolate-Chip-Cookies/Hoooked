@@ -42,10 +42,15 @@ class SetHook extends Component {
     TVData: [],
 
     followedArr:[],
+   
+    followerOpenSection:null,
+
     bookOpenSection: null,
-    bookFollowerOpenSection:null
-
-
+    gameOpenSection: null,
+    movieOpenSection: null,
+    tvOpenSection: null,
+    musicOpenSection: null,
+   
   };
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -93,7 +98,6 @@ class SetHook extends Component {
   this.setState({
     [stateKey]: id
   });
-  console.log(this.state.bookOpenSection)
 }
 //Post the Hook
   clickSetHook=()=>{
@@ -105,10 +109,31 @@ class SetHook extends Component {
       case "/sethook/movie":
       break;
       case "/sethook/game":
+    //   const hookedId=this.state.followedArr[this.state.followerOpenSection].followed.id
+    //   const bookData=this.state.bookData[this.state.bookOpenSection]
+    //     const title=bookData.title
+    //     const mediaPlot=bookData.description
+    //     const mediaPic=bookData.image
+    //   console.log(hookedId)
+    //   console.log(title)
+    //   console.log(mediaPlot)
+    //   console.log(mediaPic)
+    //   API.setHook(hookedId,title,mediaPlot,mediaPic)
+    //   .then((res)=>{
+        
+    //   })
+    //   .catch((error) => {
+    //     if (error.response.status == 403) {
+    //         this.props.history.push("/")
+  
+    //     }
+    //     else console.log(error)
+    // })
+      break;
       break;
       case "/sethook/book":
       
-      const hookedId=this.state.followedArr[this.state.bookFollowerOpenSection].followed.id
+      const hookedId=this.state.followedArr[this.state.followerOpenSection].followed.id
       const bookData=this.state.bookData[this.state.bookOpenSection]
         const title=bookData.title
         const mediaPlot=bookData.description
@@ -274,6 +299,10 @@ class SetHook extends Component {
                       key={index}
                       overview={data.overview}
                       popularity={data.popularity}
+                      id={index}
+                      clickClassName={this.clickClassName}
+                      open={this.state.tvOpenSection===index} 
+                      stateKey="tvOpenSection"
                     // image={data.image}
                     />
                   ))}
@@ -300,6 +329,10 @@ class SetHook extends Component {
                       // name={data.UserId}  
                       key={index}
                       id={data.followed.id}
+                      index={index}
+clickClassName={this.clickClassName}
+open={this.state.followerOpenSection===index} 
+stateKey="followerOpenSection"
                     />
                   )})}
                   </div>      
@@ -331,6 +364,10 @@ class SetHook extends Component {
                       overview={data.overview}
                       popularity={data.popularity}
                       release_date={data.release_date}
+                      id={index}
+                      clickClassName={this.clickClassName}
+                      open={this.state.movieOpenSection===index} 
+                      stateKey="movieOpenSection"
                     // image={data.image}
                     />
                   ))}
@@ -356,6 +393,10 @@ name={data.followed.firstname+" "+data.followed.lastname}
 // name={data.UserId}  
 key={index}
 id={data.followed.id}
+index={index}
+clickClassName={this.clickClassName}
+open={this.state.followerOpenSection===index} 
+stateKey="followerOpenSection"
 />
 )})}
                   </div>    
@@ -386,7 +427,10 @@ id={data.followed.id}
                       cover={data.cover}
                       key={index}
                       description={data.description}
-                    // image={data.image}
+                      id={index}
+                      clickClassName={this.clickClassName}
+                      open={this.state.gameOpenSection===index} 
+                      stateKey="gameOpenSection"
                     />
                   ))}
             
@@ -411,6 +455,10 @@ name={data.followed.firstname+" "+data.followed.lastname}
 // name={data.UserId}  
 key={index}
 id={data.followed.id}
+index={index}
+clickClassName={this.clickClassName}
+open={this.state.followerOpenSection===index} 
+stateKey="followerOpenSection"
 />
 )})}
                   </div>       
@@ -476,8 +524,8 @@ key={index}
 id={data.followed.id}
 index={index}
 clickClassName={this.clickClassName}
-open={this.state.bookFollowerOpenSection===index} 
-stateKey="bookFollowerOpenSection"
+open={this.state.followerOpenSection===index} 
+stateKey="followerOpenSection"
 />
 )})}
                   </div>         
@@ -506,6 +554,10 @@ stateKey="bookFollowerOpenSection"
                       key={index}
                       description={data.description}
                     // image={data.image}
+                    id={index}
+                    clickClassName={this.clickClassName}
+                    open={this.state.musicOpenSection===index} 
+                    stateKey="musicOpenSection"
                     />
                   ))}
             
@@ -530,6 +582,10 @@ name={data.followed.firstname+" "+data.followed.lastname}
 // name={data.UserId}  
 key={index}
 id={data.followed.id}
+index={index}
+clickClassName={this.clickClassName}
+open={this.state.followerOpenSection===index} 
+stateKey="followerOpenSection"
 />
 )})}
                   </div>     

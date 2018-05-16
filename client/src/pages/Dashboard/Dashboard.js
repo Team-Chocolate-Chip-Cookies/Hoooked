@@ -9,24 +9,19 @@ import API from "../../utils/API";
 
 class Dashboard extends Component {
   state = {
-
+    hookData:[]
   };
 
   componentDidMount() {
+    console.log("componentDidMount ran")
     API.displayHooks()
     .then((res)=>{
-      console.log("allFollowUser then function ran in componentDidMount")
-      console.log(res)
-      console.log(res.data)
-      // const data=Object.assign({}, res.data)
-      // data.followed=Object.assign({},res.data.followed)
-      const data=res.data.map(item=>item)
-      
-      this.setState({
-        followedArr:data
-      })
-      console.log(this.state.followedArr)
-      console.log(this.state.followedArr[0].followed.id)
+     console.log(res)
+     console.log(res.data)
+     this.setState({
+       hookData:res.data
+     })
+     console.log(this.state.hookData)
     })
     .catch((error) => {
       if (error.response.status == 403) {
@@ -51,7 +46,20 @@ class Dashboard extends Component {
             <Feed />
           </Col>
           <Col size="md-4">
-            <YourOnHook />
+            <YourOnHook >
+            {this.state.hookData.map((data, index) => (
+
+            <div>
+              
+              <p> {data.hooker.firstname} {data.hooker.lastname}</p>
+              <img src={data.mediaPic}/>
+              <p>{data.title}</p>
+             
+              {/* <p>{data.name}</p>
+              <p>{data.name}</p> */}
+            </div>
+            ))}
+              </YourOnHook>
           </Col>
         </Row>
       </Container>

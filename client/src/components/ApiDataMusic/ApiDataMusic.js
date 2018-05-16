@@ -3,7 +3,7 @@ import "./ApiDataMusic.css";
 
 
 const ApiDataMusic = (props) => (
-    <div>
+    <div className={props.open ? "card-body section open" : "card-body section"} onClick={() => props.clickClassName(props.stateKey,props.id)}>
         <p>{props.tracks}</p>
         <p>{props.artists}</p>
         <p>{props.link}</p>
