@@ -18,6 +18,7 @@ module.exports = function (app) {
                 res.json(dbPost);
             });
     });
+    // Search for user by registerd email
     app.post("/api/userByEmail/", isLoggedIn, function (req, res) {
         console.log(req.params)
         db.User.findAll({
