@@ -12,33 +12,27 @@ module.exports = function (sequelize, Sequelize) {
             autoIncrement: true,
             type: Sequelize.INTEGER
         },
+    },
 
-  
-    });
+        {
+            indexes: [
+                {
+                    unique: true,
+                    unique: true,
+                    fields: ['UserId', 'followedId']
+
+                }
+            ]
+        }
+    );
     Follow.associate = function (models) {
-        Follow.belongsTo(models.User, {as: "followed"})
-        
-      };
+        Follow.belongsTo(models.User, { as: "followed" })
+
+    };
     //
     // indexes should make the followed and "followerId" colums in the DB unique to avoid duplication of following relationships, need to test 
     //followedId as second in fields--doing tests
 
-    {
-        indexes: [
-            {
-                unique: true,
 
-                fields: ['followedId']
-                //"followed" was included in fields here before I removed it
-
-            }
-        ]
-    }
-);
-
-    Follow.associate = function (models) {
-        Follow.belongsTo(models.User, {as: "follower"})
-        // Follow.hasOne(models.User, {as: "Followed", foreignKey: 'userID'});
-      };
     return Follow;
 }
