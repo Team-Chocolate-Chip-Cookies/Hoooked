@@ -81,9 +81,9 @@ class SetHook extends Component {
 //control state of api className on click
   clickClassName=sectionName=> {
     this.setState({
-      openSection: sectionName
+      // openSection: sectionName
     });
-  },
+  }
 
   //This function sends an api call to the server to request data from foreign apis
   clickSearch = event => {
