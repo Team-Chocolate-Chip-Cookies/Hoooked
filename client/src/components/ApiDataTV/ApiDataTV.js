@@ -3,14 +3,11 @@ import "./ApiDataTV.css";
 
 
 const ApiDataTV = (props) => (
-    <div className="card-body">
-        <p>Title: {props.name}</p>
-        <p>Summary: {props.overview}</p>
-        <p>Popularity Score: {props.popularity}</p>
+    <div>
+        <p>{props.title}</p>
+        <p>{props.description}</p>
         <button className="btn btn-primary">Pick Me!</button>
         {/* onClick={() => props.clickDelete(props.id)} */}
-                        
-        <hr/>
     </div>
 );
 

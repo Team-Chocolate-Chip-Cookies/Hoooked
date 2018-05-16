@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./Dashboard.css";
-import SetHook from "../../components/SetHook";
-import YourOnHook from "../../components/YourOnHook";
-import Feed from "../../components/Feed";
+import SetHook from "../../components/SetHook"
 import { Col, Row, Container } from "../../components/Grid";
 
 class Dashboard extends Component {
@@ -17,16 +15,9 @@ class Dashboard extends Component {
   render() {
     return (
       <Container>
-        <br/><br/>
         <Row>
-          <Col size="md-2">
+          <Col size="md-3">
             <SetHook />
-          </Col>
-          <Col size="md-6">
-            <Feed />
-          </Col>
-          <Col size="md-4">
-            <YourOnHook />
           </Col>
         </Row>
       </Container>
