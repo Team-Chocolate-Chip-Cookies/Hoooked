@@ -48,9 +48,9 @@ const TVDB=require("./routes/APIs/TVDB.js")
 // Routes (but not auth.js and not isLogIn.js)
 require("./routes/followRoutes.js")(app);
 require("./routes/movieRoutes.js")(app);
+require("./routes/hookRoutes.js")(app);
 require("./routes/musicRoutes.js")(app);
 require("./routes/routeTestsDB.js")(app);
-require("./routes/hookRoute.js")(app);
 require("./routes/userRoutes.js")(app);
 
 require("./routes/videoGameRoutes.js")(app);
