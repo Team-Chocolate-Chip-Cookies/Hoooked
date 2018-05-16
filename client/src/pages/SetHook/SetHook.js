@@ -64,10 +64,16 @@ class SetHook extends Component {
     .then((res)=>{
       console.log("allFollowUser then function ran in componentDidMount")
       console.log(res)
+      console.log(res.data)
+      // const data=Object.assign({}, res.data)
+      // data.followed=Object.assign({},res.data.followed)
+      const data=res.data.map(item=>item)
+      console.log(data)
       this.setState({
-        followedArr:res.data
+        followedArr:data
       })
       console.log(this.state.followedArr)
+      console.log(this.state.followedArr[0].followed.id)
     })
     .catch((error) => {
       if (error.response.status == 403) {
@@ -233,16 +239,24 @@ class SetHook extends Component {
                 <Col size="md-6">
                   <div className="card scrolling">
                     <FriendSearchCard/>
-        
-                    {this.state.followedArr.map((data, index) => (
+
+                    {this.state.followedArr.map((data, index) => {
+
+                      console.log(data)
+                      if (data.followed==null){
+                        throw "This follower is null"
+                      }
+                      return(
+                      
                     <FollowedData
                       name={data.followed.firstname+" "+data.followed.lastname} 
                       // name={data.followed.}     
-                      // name="test"     
+                      // name={data.followed.id}  
+                      // name={data.UserId}  
                       key={index}
                       id={data.followed.id}
                     />
-                  ))}
+                  )})}
                   </div>      
                 </Col>
               </Row>
@@ -282,15 +296,23 @@ class SetHook extends Component {
                 <Col size="md-6">
                   <div className="card scrolling">
                     <FriendSearchCard/>
-                    {this.state.followedArr.map((data, index) => (
-                    <FollowedData
-                      name={data.followed.firstname+" "+data.followed.lastname} 
-                      // name={data.followed.}     
-                      // name="test"     
-                      key={index}
-                      id={data.followed.id}
-                    />
-                  ))}
+                    {this.state.followedArr.map((data, index) => {
+
+console.log(data)
+if (data.followed==null){
+  throw "This follower is null"
+}
+return(
+
+<FollowedData
+name={data.followed.firstname+" "+data.followed.lastname} 
+// name={data.followed.}     
+// name={data.followed.id}  
+// name={data.UserId}  
+key={index}
+id={data.followed.id}
+/>
+)})}
                   </div>    
                 </Col>
               </Row>
@@ -329,15 +351,23 @@ class SetHook extends Component {
                 <Col size="md-6">
                   <div className="card scrolling">
                     <FriendSearchCard/>
-                    {this.state.followedArr.map((data, index) => (
-                    <FollowedData
-                      name={data.followed.firstname+" "+data.followed.lastname} 
-                      // name={data.followed.}     
-                      // name="test"     
-                      key={index}
-                      id={data.followed.id}
-                    />
-                  ))}
+                    {this.state.followedArr.map((data, index) => {
+
+console.log(data)
+if (data.followed==null){
+  throw "This follower is null"
+}
+return(
+
+<FollowedData
+name={data.followed.firstname+" "+data.followed.lastname} 
+// name={data.followed.}     
+// name={data.followed.id}  
+// name={data.UserId}  
+key={index}
+id={data.followed.id}
+/>
+)})}
                   </div>       
                 </Col>
               </Row>
@@ -380,15 +410,23 @@ class SetHook extends Component {
                 <Col size="md-6">
                   <div className="card scrolling">
                     <FriendSearchCard/>
-                    {this.state.followedArr.map((data, index) => (
-                    <FollowedData
-                      name={data.followed.firstname+" "+data.followed.lastname} 
-                      // name={data.followed.}     
-                      // name="test"     
-                      key={index}
-                      id={data.followed.id}
-                    />
-                  ))}
+                    {this.state.followedArr.map((data, index) => {
+
+console.log(data)
+if (data.followed==null){
+  throw "This follower is null"
+}
+return(
+
+<FollowedData
+name={data.followed.firstname+" "+data.followed.lastname} 
+// name={data.followed.}     
+// name={data.followed.id}  
+// name={data.UserId}  
+key={index}
+id={data.followed.id}
+/>
+)})}
                   </div>         
                 </Col>
               </Row>
@@ -424,15 +462,23 @@ class SetHook extends Component {
                 <Col size="md-6">
                   <div className="card scrolling">
                     <FriendSearchCard/>
-                    {this.state.followedArr.map((data, index) => (
-                    <FollowedData
-                      name={data.followed.firstname+" "+data.followed.lastname} 
-                      // name={data.followed.}     
-                      // name="test"     
-                      key={index}
-                      id={data.followed.id}
-                    />
-                  ))}
+                    {this.state.followedArr.map((data, index) => {
+
+console.log(data)
+if (data.followed==null){
+  throw "This follower is null"
+}
+return(
+
+<FollowedData
+name={data.followed.firstname+" "+data.followed.lastname} 
+// name={data.followed.}     
+// name={data.followed.id}  
+// name={data.UserId}  
+key={index}
+id={data.followed.id}
+/>
+)})}
                   </div>     
                 </Col>
               </Row>
