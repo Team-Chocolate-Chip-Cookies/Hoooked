@@ -85,10 +85,12 @@ class SetHook extends Component {
   }
 
 //control state of api className on click
-  clickClassName=sectionName=> {
+  clickClassName=id=> {
+    console.log("clickClassName ran!")
     this.setState({
-      // openSection: sectionName
+      openSection: id
     });
+    console.log(this.state.openSection)
   }
 
   //This function sends an api call to the server to request data from foreign apis
@@ -242,7 +244,7 @@ class SetHook extends Component {
 
                     {this.state.followedArr.map((data, index) => {
 
-                      console.log(data)
+                      // console.log(data)
                       if (data.followed==null){
                         throw "This follower is null"
                       }
@@ -298,7 +300,7 @@ class SetHook extends Component {
                     <FriendSearchCard/>
                     {this.state.followedArr.map((data, index) => {
 
-console.log(data)
+// console.log(data)
 if (data.followed==null){
   throw "This follower is null"
 }
@@ -353,7 +355,7 @@ id={data.followed.id}
                     <FriendSearchCard/>
                     {this.state.followedArr.map((data, index) => {
 
-console.log(data)
+// console.log(data)
 if (data.followed==null){
   throw "This follower is null"
 }
@@ -401,6 +403,7 @@ id={data.followed.id}
                         link={data.link}
                         authors={data.authors}
                         publishedDate={data.publishedDate}
+                        clickClassName={this.clickClassName}
                     />
                   ))}
             
@@ -412,7 +415,7 @@ id={data.followed.id}
                     <FriendSearchCard/>
                     {this.state.followedArr.map((data, index) => {
 
-console.log(data)
+// console.log(data)
 if (data.followed==null){
   throw "This follower is null"
 }
@@ -464,7 +467,7 @@ id={data.followed.id}
                     <FriendSearchCard/>
                     {this.state.followedArr.map((data, index) => {
 
-console.log(data)
+// console.log(data)
 if (data.followed==null){
   throw "This follower is null"
 }

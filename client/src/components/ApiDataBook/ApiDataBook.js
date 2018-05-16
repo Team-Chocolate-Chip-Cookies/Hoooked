@@ -4,7 +4,7 @@ import "./ApiDataBook.css";
 
 const ApiDataBook = (props) => (
     
-        <div className="card-body">
+        <div className="card-body" onClick={() => props.clickClassName(props.id)}>
             <img src={props.image} className="img-fluid" alt="cover art" />
             <h3><a href={props.link} target="_blank">{props.title}</a></h3>
             <p>Author(s): {props.authors}</p>
