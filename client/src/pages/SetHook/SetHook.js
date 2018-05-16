@@ -39,8 +39,10 @@ class SetHook extends Component {
     gameData: [],
     movieData: [],
     musicData: [],
+
     TVData: [],
     followedArr:[]
+
 
   };
   handleInputChange = event => {
@@ -168,7 +170,9 @@ class SetHook extends Component {
              this.props.history.push("/")
       
         }
+
         else console.log(error)
+
       })
   }
   render() {

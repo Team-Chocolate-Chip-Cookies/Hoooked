@@ -43,6 +43,7 @@ export default {
             password:password
         }
         return axios.post("/signup",signUpObj)
+
     },
     allUsers:()=>{
         return axios.get("api/users")
@@ -56,4 +57,6 @@ export default {
     allFollowUser:()=>{
         return axios.get("/api/allFollowUser/")
     },
+
+
 }
