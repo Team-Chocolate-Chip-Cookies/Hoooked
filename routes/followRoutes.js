@@ -1,6 +1,5 @@
 // /routes/addFollow.js
 // A route used to add people that a user is following
-// Not working, not sure why
 
 var db = require("../db/models");
 
@@ -26,13 +25,16 @@ module.exports = function (app) {
                 res.json(dbPost);
             });
     });
+    // Allows users to set a relationship with another user regarding who they are folowing
     app.post("/api/addFollow",isLoggedIn, function (req, res) {
         db.Follow.create({
+
             UserId:req.user.id,
             followedId:req.body.followed,
             // followed: req.body.followed,
             
             // followerID: req.body.followerID
+
         })
             .then(function (dbPost) {
                 console.log(dbPost)

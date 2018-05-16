@@ -1,6 +1,6 @@
 import React from "react";
 import "./FollowedData.css";
-
+//
 
 const FollowedData = (props) => (
 
