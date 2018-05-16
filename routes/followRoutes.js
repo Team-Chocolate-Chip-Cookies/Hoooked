@@ -1,6 +1,5 @@
 // /routes/addFollow.js
 // A route used to add people that a user is following
-// Not working, not sure why
 
 var db = require("../db/models");
 
