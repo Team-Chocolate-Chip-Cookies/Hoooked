@@ -1,3 +1,4 @@
+
 // Music.js
 // 
 
@@ -29,4 +30,5 @@ module.exports = function (sequelize, Sequelize) {
     });
    
     return Music;
+
 };

@@ -43,6 +43,20 @@ export default {
             password:password
         }
         return axios.post("/signup",signUpObj)
-    }
+
+    },
+    allUsers:()=>{
+        return axios.get("api/users")
+    },
+    addFollow:(followedId)=>{
+        let followObj={
+            followed:followedId
+        }
+        return axios.post("api/addFollow",followObj)
+    },
+    allFollowUser:()=>{
+        return axios.get("/api/allFollowUser/")
+    },
+
 
 }

@@ -26,7 +26,15 @@ class SetHook extends Component {
     ],
     search: "",
     bookData: [],
-    musicData: []
+
+    gameData: [],
+    movieData: [],
+    musicData: [],
+
+    TVData: [],
+    followedArr:[]
+
+
   };
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -40,7 +48,21 @@ class SetHook extends Component {
     });
   };
   componentDidMount() {
+    API.allFollowUser()
+    .then((res)=>{
+      console.log("allFollowUser then function ran in componentDidMount")
+      console.log(res)
+      this.setState({
+        followedArr:res.data
+      })
+    })
+    .catch((error) => {
+      if (error.response.status == 403) {
+          this.props.history.push("/")
 
+      }
+      else console.log(error)
+  })
   }
   componentWillReceiveProps() {
 
@@ -101,6 +123,16 @@ class SetHook extends Component {
           default:
             console.log("ERROR IN API RETURN SWITCH CASE")
         }
+      })
+
+      .catch((error)=>{
+        if (error.response.status==403) {
+             this.props.history.push("/")
+      
+        }
+
+        else console.log(error)
+
       })
 
   }
