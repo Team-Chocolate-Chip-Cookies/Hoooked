@@ -84,7 +84,7 @@ class SetHook extends Component {
           let musicArray=[]
             res.data.tracks.items.forEach((mElement)=>{
               let musicElement={
-                artists:mElement.artists.name,
+                artists:mElement.artists[0].name,
                 tracks:mElement.name,
                 link:mElement.external_urls.spotify,
                 album:mElement.album.name,
