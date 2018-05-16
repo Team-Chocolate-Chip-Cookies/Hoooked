@@ -12,10 +12,6 @@ module.exports = function (sequelize, Sequelize) {
             autoIncrement: true,
             type: Sequelize.INTEGER
         },
-        followedId: {
-            type: Sequelize.INTEGER,
-            allowNull: false,
-        },
     },
         // The indexes makes it sow the below fields UserID (the follower) and "followedID" are unique so 1 can follow 2 and 2 can follow 1, but 1 cant' follow 2 a second time
         {
@@ -28,7 +24,7 @@ module.exports = function (sequelize, Sequelize) {
         }
     );
     Follow.associate = function (models) {
-        Follow.belongsTo(models.User)  //{ as: "followed" }
+        Follow.belongsTo(models.User, { as: "followed" }) 
     };
     return Follow;
 }
