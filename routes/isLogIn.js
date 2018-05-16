@@ -6,11 +6,15 @@ var authController = require('./auth.js');
 // isLoggedIn if a user is not sigged in the route will redirect the user to the signin route.
 
 function isLoggedIn(req, res, next) {
-    console.log("isLoggedIn called")
-    if (req.isAuthenticated())
+    console.log("isLogIn.js - isLoggedIn called")
+    if (req.isAuthenticated()) {
+        res.status(418).send("isLogIn.js - Sucessful Login!")
+        console.log("isLogIn.js - Authenticated")
         return next();
-
-    res.status(403).send("isLogin.js, - OMG you're not signed in!");;
+    } else {
+        console.log("Forbidden!")
+        res.status(403).send("isLogin.js, - OMG you're not signed in!");;
+    }
 }
 
 module.exports = isLoggedIn;

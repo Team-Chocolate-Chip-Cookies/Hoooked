@@ -1,6 +1,8 @@
 // Q: How do Trees get on the internet?
 // A: They Login.
 
+
+
 var authController = require('../controllers/authcontroller.js');
 
 module.exports = function (app, passport) {
@@ -38,18 +40,15 @@ module.exports = function (app, passport) {
 
     function isLoggedIn(req, res, next) {
 
-        if (req.isAuthenticated()){
-            console.log("Authenticated")
+        if (req.isAuthenticated()) {
+            res.status(418).send("auth.js - Sucessful Login!")
+            console.log("auth.js - Authenticated")
             return next();
         }
-        else
-        console.log("Forbidden!")
-        res.status(403).send("Not signed in");
-        // res.redirect('/signin');
-    }
-    function test(){
-        console.log("TEST FUNCTION RAN")
-
+        else {
+            console.log("auth.js - Forbidden!")
+            res.status(403).send("auth.js - Not signed in");
+        }
     }
 }
 
