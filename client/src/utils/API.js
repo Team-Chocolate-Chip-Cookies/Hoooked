@@ -50,7 +50,7 @@ export default {
     },
     addFollow:(followedId)=>{
         let followObj={
-            followed:followedId
+            followedId:followedId
         }
         return axios.post("api/addFollow",followObj)
     },
