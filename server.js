@@ -21,7 +21,7 @@ var models = require("./db/models");
 // The order of the passport server lines is important - no step on snek 
 ////////////////////////////////////////////////////////////////////////////
 
-app.use(session({ secret: 'catdog',resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: 'shepsvacationphotos2357',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
