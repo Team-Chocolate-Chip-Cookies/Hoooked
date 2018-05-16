@@ -1,74 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import logo from "../../images/logo2.png";
+
 
 const Navbar = (props) => (
     <div>
 
         <nav className="navbar navbar-light bg-light">
-            <Link
-                to="/"
-                className={
-                    window.location.pathname === "/" ? "nav-link active" : "nav-link"
-                }
-                >Login
+            <Link 
+                 to="/dashboard"
+                 className={
+                    window.location.pathname === "/dashboard" ? "nav-link active" : "nav-link"}>
+                    <img id="logo" src = {logo} alt = "logo" id = "navlogo"/>
             </Link>
-
-            <Link
-                to="/dashboard"
-                className={
-                    window.location.pathname === "/dashboard" ? "nav-link active" : "nav-link"
-                }
-            >Dashboard
-            </Link>
-            <Link
+            <Link 
                 to="/followers"
                 className={
                     window.location.pathname === "/followers" ? "nav-link active" : "nav-link"
-                }
+                  }
             >
                 Followers
             </Link>
-            <Link
-                to="/sethook/tv"
-                className={
-                    window.location.pathname === "/sethook/tv" ? "nav-link active" : "nav-link"
-                }
+            <div 
+                // to="/score"
+                // className={
+                //     window.location.pathname === "/score" ? "nav-link active" : "nav-link"
+                //   }
             >
-                Sethook-tv
-            </Link>
-            <Link
-                to="/sethook/movie"
-                className={
-                    window.location.pathname === "/sethook/movie" ? "nav-link active" : "nav-link"
-                }
+                Score :00
+            </div>
+        
+            <div
+                // to="/Logoout"
+                // className={
+                //     window.location.pathname === "/logout" ? "nav-link active" : "nav-link"
+                //   }
             >
-                Sethook-movie
-            </Link>
-            <Link
-                to="/sethook/game"
-                className={
-                    window.location.pathname === "/sethook/game" ? "nav-link active" : "nav-link"
-                }
-            >
-                Sethook-game
-            </Link>
-            <Link
-                to="/sethook/book"
-                className={
-                    window.location.pathname === "/sethook/book" ? "nav-link active" : "nav-link"
-                }
-            >
-                Sethook-book
-            </Link>
-            <Link
-                to="/sethook/music"
-                className={
-                    window.location.pathname === "/sethook/music" ? "nav-link active" : "nav-link"
-                }
-            >
-                Sethook-music
-            </Link>
+                Logout
+            </div>
+            
         </nav>
     </div>
 );

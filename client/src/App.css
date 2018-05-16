@@ -40,6 +40,10 @@ body {
   background-attachment: fixed;
 }
 
+.bg-light {
+  background-color: white!important;
+}
+
 .btn-primary {
   border-color: white;
 }
@@ -77,4 +81,6 @@ body {
 .searchResultsText {
   font-weight: 300;
 }
+
+
 
