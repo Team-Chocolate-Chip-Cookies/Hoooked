@@ -19,7 +19,7 @@ module.exports = function (app) {
             where: {
                 userId: req.user.id
               },include:[ { model: db.User,
-            as:"follower"
+            as:"followed"
             }]
         })
             .then(function (dbPost) {
@@ -29,8 +29,8 @@ module.exports = function (app) {
     app.post("/api/addFollow",isLoggedIn, function (req, res) {
         db.Follow.create({
             UserId:req.user.id,
-            followerId:req.body.followed,
-            followed: req.body.followed,
+            followedId:req.body.followed,
+            // followed: req.body.followed,
             
             // followerID: req.body.followerID
         })

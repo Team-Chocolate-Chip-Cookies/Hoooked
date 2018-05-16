@@ -54,7 +54,7 @@ require("./routes/routeTestsDB.js")(app);
 require("./routes/userRoutes.js")(app);
 
 require("./routes/videoGameRoutes.js")(app);
-
+require("./routes/hookRoutes.js")(app);
 
 //Sync Database
 // var sequelize = require("./db/connection.js")
