@@ -12,7 +12,6 @@ module.exports = function (sequelize, Sequelize) {
         title: {
             type: Sequelize.STRING,
             allowNull: false,
-
         },
         comment: {
             type: Sequelize.STRING,
@@ -22,17 +21,29 @@ module.exports = function (sequelize, Sequelize) {
             type: Sequelize.INTEGER,
             allowNull: false,
         },
-        mediaLink: {
+        mediaTitle: {
             type: Sequelize.STRING,
             allowNull: false,
-        }
+        },
+        mediaPlot: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        mediaPic: {
+            type: Sequelize.STRING,
+        },
+        // Need to talk about this as a group as thisfield needs to exist to avoid duplicate hooks, but it doesn't do anythign now
+        mediaUniqueID: {  
+            type: Sequelize.STRING,
+        },
+        
     },
     // The indexes below ensures that users can't hook eachother on the same media... need to discuss mediaLink as a group
     {
         indexes: [
             {
                 unique: true,
-                fields: ['hookedId', 'hookerId', 'mediaLink']
+                fields: ['hookedId', 'hookerId', 'mediaUniqueID']
             }
         ]
     });
