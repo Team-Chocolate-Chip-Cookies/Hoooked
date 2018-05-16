@@ -63,6 +63,7 @@ class Followers extends Component {
                 else console.log(error)
             })
     }
+  
     render() {
         return (
             <div>

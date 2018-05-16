@@ -11,12 +11,16 @@ var isLoggedIn = require('./isLogIn.js')
 var auth=require("./auth.js")
 
 module.exports = function (app) {
-    // Reads all the people a given user is following by their ID (myId) from the DB
-    app.get("/api/allFollowUser/:myId", function (req, res) {
+    // Reads all the people a given user is following by their ID from the DB
+    app.get("/api/allFollowUser/",isLoggedIn, function (req, res) {
+        console.log("req.user.id:")
+        console.log(req.user.id)
         db.Follow.findAll({
             where: {
-                followerId: req.params.myId
-              }
+                userId: req.user.id
+              },include:[ { model: db.User,
+            as:"follower"
+            }]
         })
             .then(function (dbPost) {
                 res.json(dbPost);
@@ -24,19 +28,19 @@ module.exports = function (app) {
     });
     app.post("/api/addFollow",isLoggedIn, function (req, res) {
         db.Follow.create({
-            id:req.user.id,
-            followed: req.body.followed
+            UserId:req.user.id,
+            followerId:req.body.followed,
+            followed: req.body.followed,
+            
             // followerID: req.body.followerID
         })
             .then(function (dbPost) {
                 console.log(dbPost)
                 res.json(dbPost);
-            }); 
-            .fail((err)=>{
+            }) 
+            .catch((err)=>{
                 console.log(err)
-                res.json(err)
+                res.status(400).send(err)
             })
-        console.log(req.body.followed)
-        res.json(req.body.followed)
     });
 }

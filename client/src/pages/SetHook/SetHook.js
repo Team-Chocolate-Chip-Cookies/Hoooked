@@ -39,7 +39,8 @@ class SetHook extends Component {
     gameData: [],
     movieData: [],
     musicData: [],
-    TVData: []
+    TVData: [],
+    followedArr:[]
 
   };
   handleInputChange = event => {
@@ -55,7 +56,21 @@ class SetHook extends Component {
   };
 
   componentDidMount() {
+    API.allFollowUser()
+    .then((res)=>{
+      console.log("allFollowUser then function ran in componentDidMount")
+      console.log(res)
+      this.setState({
+        followedArr:res.data
+      })
+    })
+    .catch((error) => {
+      if (error.response.status == 403) {
+          this.props.history.push("/")
 
+      }
+      else console.log(error)
+  })
   }
   componentWillReceiveProps() {
 

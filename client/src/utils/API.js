@@ -52,5 +52,8 @@ export default {
             followed:followedId
         }
         return axios.post("api/addFollow",followObj)
-    }
+    },
+    allFollowUser:()=>{
+        return axios.get("/api/allFollowUser/")
+    },
 }
