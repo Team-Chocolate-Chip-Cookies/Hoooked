@@ -32,6 +32,10 @@ module.exports = function (sequelize, Sequelize) {
         mediaPic: {
             type: Sequelize.STRING,
         },
+        pointValue: {
+            type: Sequelize.INTEGER,
+            defaultValue: 0
+        },
         // Need to talk about this as a group as thisfield needs to exist to avoid duplicate hooks, but it doesn't do anythign now
         mediaUniqueID: {  
             type: Sequelize.STRING,
