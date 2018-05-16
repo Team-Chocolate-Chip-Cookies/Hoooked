@@ -26,7 +26,7 @@ export const SearchForm = props => (
                         </Col>
                         <Col size="md-4">
                             <Button
-                                input type="button" value="Search" id="searchButton" onClick={() => props.clickSearch(props.id)} 
+                                input type="outline-secondary" value="Search" id="searchButton" onClick={() => props.clickSearch(props.id)} 
                             >
                                  Search
                             

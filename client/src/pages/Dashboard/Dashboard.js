@@ -4,6 +4,8 @@ import SetHook from "../../components/SetHook";
 import YourOnHook from "../../components/YourOnHook";
 import Feed from "../../components/Feed";
 import { Col, Row, Container } from "../../components/Grid";
+import NavBar from "../../components/NavBar";
+
 
 class Dashboard extends Component {
   state = {
@@ -16,7 +18,9 @@ class Dashboard extends Component {
 
   render() {
     return (
+      
       <Container>
+        <NavBar/>
         <br/><br/>
         <Row>
           <Col size="md-2">

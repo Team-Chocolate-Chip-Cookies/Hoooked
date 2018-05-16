@@ -26,3 +26,55 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  /* line-height: 34px; */
+  /* color: #777; */
+  background-image: url("./images/background2.jpg");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.btn-primary {
+  border-color: white;
+}
+
+.btn-outline-secondary {
+  border-color: lightgray;
+}
+
+.form-control {
+  border-color: lightgray;
+}
+.login {
+  border: 1px solid rgb(143, 138, 238);
+}
+.hero {
+  text-align: center;
+}
+
+.loginBtn {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.modal-content {
+  align-content: center;
+  width: auto;
+}
+
+
+.loginModalForm {
+  width: 466px;
+}
+
+.searchResultsText {
+  font-weight: 300;
+}
+

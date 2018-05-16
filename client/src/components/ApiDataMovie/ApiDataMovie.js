@@ -5,10 +5,10 @@ import "./ApiDataMovie.css";
 const ApiDataMovie = (props) => (
 
     <div className="">
-        <p>Title: {props.title}</p>
-        <p>Summary: {props.overview}</p>
-        <p>Popularity Score: {props.popularity}</p>
-        <p>Release Date: {props.release_date}</p>
+        <p>Title:  <span className="searchResultsText">{props.title}</span></p>
+        <p>Summary: <span className="searchResultsText">{props.overview}</span></p>
+        <p>Popularity Score: <span className="searchResultsText">{props.popularity}</span></p>
+        <p>Release Date: <span className="searchResultsText">{props.release_date}</span></p>
 
         <button className="btn btn-primary">Pick Me!</button>
         {/* onClick={() => props.clickDelete(props.id)} */}

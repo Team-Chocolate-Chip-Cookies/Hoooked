@@ -21,6 +21,8 @@ export const SearchCard = () => (
                         </Col>
                         <Col size="md-4">
                             <Button
+                                input type="outline-secondary"
+                                id="searchBtn"
                                 onClick={this.boop}
                             >
                               Search
