@@ -16,7 +16,7 @@ import Button from "../../components/Button";
 import FriendSearchCard from "../../components/FriendSearchCard";
 import FollowedData from "../../components/FollowedData"
 import { withRouter } from "react-router-dom";
-
+import NavBar from "../../components/NavBar";
 import SearchForm from  "../../components/SetHookApiSearchForm";
 // import searchResultsList from "../../components/setHookApiSearchForm/searchResultsList";
 
@@ -185,8 +185,12 @@ class SetHook extends Component {
   render() {
     return (
       <div>
-<br></br>
+
         <Container>
+        <NavBar/>
+        <br></br>
+       
+
           {/* change media button */}
           <Row>
             <Col size="md-12">

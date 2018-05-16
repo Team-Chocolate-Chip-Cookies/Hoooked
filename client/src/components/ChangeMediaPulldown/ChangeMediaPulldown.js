@@ -6,7 +6,7 @@ import "./ChangeMediaPulldown.css";
 const ChangeMediaPulldown = (props) => (
     
 <div className="btn-group text-center">
-  <button type="button" className="btn btn-info dropdown-toggle" id="changeMediaButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button type="button" className="btn btn-primary btn-sm dropdown-toggle" id="changeMediaButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Choose Another Media Type
   </button>
   <div className="dropdown-menu">

@@ -24,7 +24,7 @@ import FriendSearchCard from "./components/FriendSearchCard";
 const App = () => (
   <Router>
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
       <Route exact path="/" component={Login} />
         <Route exact path="/dashboard" component={Dashboard} />
