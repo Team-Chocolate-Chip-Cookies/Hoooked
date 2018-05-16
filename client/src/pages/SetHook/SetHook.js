@@ -95,6 +95,47 @@ class SetHook extends Component {
   });
   console.log(this.state.bookOpenSection)
 }
+//Post the Hook
+  clickSetHook=()=>{
+    console.log("set hook ran!")
+    let path = this.props.location.pathname
+    switch (path) {
+      case "/sethook/tv":
+      break;
+      case "/sethook/movie":
+      break;
+      case "/sethook/game":
+      break;
+      case "/sethook/book":
+      
+      const hookedId=this.state.followedArr[this.state.bookFollowerOpenSection].followed.id
+      const bookData=this.state.bookData[this.state.bookOpenSection]
+        const title=bookData.title
+        const mediaPlot=bookData.description
+        const mediaPic=bookData.image
+      console.log(hookedId)
+      console.log(title)
+      console.log(mediaPlot)
+      console.log(mediaPic)
+      API.setHook(hookedId,title,mediaPlot,mediaPic)
+      .then((res)=>{
+        
+      })
+      .catch((error) => {
+        if (error.response.status == 403) {
+            this.props.history.push("/")
+  
+        }
+        else console.log(error)
+    })
+      break;
+      case "/sethook/music":
+      break;
+      default:
+      console.log("You really shouldn't see me")
+      break;
+  }
+}
   //This function sends an api call to the server to request data from foreign apis
   clickSearch = event => {
 
@@ -503,7 +544,7 @@ id={data.followed.id}
         
           <Row>
             <Col size="md-12" className = "text-center">
-              <Button>
+              <Button onClick={() => this.clickSetHook()}>
                 SET HOOK
               </Button>
             </Col>

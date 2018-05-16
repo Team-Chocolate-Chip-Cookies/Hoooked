@@ -57,6 +57,18 @@ export default {
     allFollowUser:()=>{
         return axios.get("/api/allFollowUser/")
     },
-
+    setHook:(hookedId,title,mediaPlot,mediaPic)=>{
+            let hookObj={
+                hookedId:hookedId,
+                title:title,
+                mediaPlot:mediaPlot,
+                mediaPic:mediaPic
+            }
+            console.log(hookObj)
+        return axios.post("/api/addHook",hookObj)
+    },
+    displayHooks:()=>{
+        return axios.get("/api/allHooks/")
+    }
 
 }
