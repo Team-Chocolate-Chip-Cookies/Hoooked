@@ -15,7 +15,7 @@ module.exports = function (sequelize, Sequelize) {
         },
         comment: {
             type: Sequelize.STRING,
-            allowNull: false,
+            
         },
         hookedId: {
             type: Sequelize.INTEGER,
@@ -23,11 +23,11 @@ module.exports = function (sequelize, Sequelize) {
         },
         mediaTitle: {
             type: Sequelize.STRING,
-            allowNull: false,
+            
         },
         mediaPlot: {
             type: Sequelize.STRING,
-            allowNull: false,
+            
         },
         mediaPic: {
             type: Sequelize.STRING,
