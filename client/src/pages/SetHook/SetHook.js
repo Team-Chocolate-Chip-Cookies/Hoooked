@@ -14,7 +14,7 @@ import API from "../../utils/API";
 import ChangeMediaPulldown from "../../components/ChangeMediaPulldown";
 import Button from "../../components/Button";
 import FriendSearchCard from "../../components/FriendSearchCard";
-
+import FollowedData from "../../components/FollowedData"
 import { withRouter } from "react-router-dom";
 
 import SearchForm from  "../../components/SetHookApiSearchForm";
@@ -41,7 +41,9 @@ class SetHook extends Component {
     musicData: [],
 
     TVData: [],
-    followedArr:[]
+    followedArr:[],
+    openSection: null
+
 
 
   };
@@ -65,6 +67,7 @@ class SetHook extends Component {
       this.setState({
         followedArr:res.data
       })
+      console.log(this.state.followedArr)
     })
     .catch((error) => {
       if (error.response.status == 403) {
@@ -74,10 +77,14 @@ class SetHook extends Component {
       else console.log(error)
   })
   }
-  componentWillReceiveProps() {
 
-
+//control state of api className on click
+  clickClassName=sectionName=> {
+    this.setState({
+      // openSection: sectionName
+    });
   }
+
   //This function sends an api call to the server to request data from foreign apis
   clickSearch = event => {
 
@@ -222,6 +229,16 @@ class SetHook extends Component {
                 <Col size="md-6">
                   <div className="card scrolling">
                     <FriendSearchCard/>
+        
+                    {this.state.followedArr.map((data, index) => (
+                    <FollowedData
+                      name={data.followed.firstname+" "+data.followed.lastname} 
+                      // name={data.followed.}     
+                      // name="test"     
+                      key={index}
+                      id={data.followed.id}
+                    />
+                  ))}
                   </div>      
                 </Col>
               </Row>
@@ -261,6 +278,15 @@ class SetHook extends Component {
                 <Col size="md-6">
                   <div className="card scrolling">
                     <FriendSearchCard/>
+                    {this.state.followedArr.map((data, index) => (
+                    <FollowedData
+                      name={data.followed.firstname+" "+data.followed.lastname} 
+                      // name={data.followed.}     
+                      // name="test"     
+                      key={index}
+                      id={data.followed.id}
+                    />
+                  ))}
                   </div>    
                 </Col>
               </Row>
@@ -299,6 +325,15 @@ class SetHook extends Component {
                 <Col size="md-6">
                   <div className="card scrolling">
                     <FriendSearchCard/>
+                    {this.state.followedArr.map((data, index) => (
+                    <FollowedData
+                      name={data.followed.firstname+" "+data.followed.lastname} 
+                      // name={data.followed.}     
+                      // name="test"     
+                      key={index}
+                      id={data.followed.id}
+                    />
+                  ))}
                   </div>       
                 </Col>
               </Row>
@@ -341,6 +376,15 @@ class SetHook extends Component {
                 <Col size="md-6">
                   <div className="card scrolling">
                     <FriendSearchCard/>
+                    {this.state.followedArr.map((data, index) => (
+                    <FollowedData
+                      name={data.followed.firstname+" "+data.followed.lastname} 
+                      // name={data.followed.}     
+                      // name="test"     
+                      key={index}
+                      id={data.followed.id}
+                    />
+                  ))}
                   </div>         
                 </Col>
               </Row>
@@ -376,6 +420,15 @@ class SetHook extends Component {
                 <Col size="md-6">
                   <div className="card scrolling">
                     <FriendSearchCard/>
+                    {this.state.followedArr.map((data, index) => (
+                    <FollowedData
+                      name={data.followed.firstname+" "+data.followed.lastname} 
+                      // name={data.followed.}     
+                      // name="test"     
+                      key={index}
+                      id={data.followed.id}
+                    />
+                  ))}
                   </div>     
                 </Col>
               </Row>

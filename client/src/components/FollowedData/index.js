@@ -1,1 +1,1 @@
-export { default } from "./AllUsersData";
+export { default } from "./FollowedData";

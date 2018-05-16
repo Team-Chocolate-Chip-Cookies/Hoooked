@@ -18,7 +18,7 @@ module.exports = function (app) {
             where: {
                 userId: req.user.id
               },include:[ { model: db.User,
-            as:"follower"
+            as:"followed"
             }]
         })
             .then(function (dbPost) {
@@ -28,9 +28,13 @@ module.exports = function (app) {
     // Allows users to set a relationship with another user regarding who they are folowing
     app.post("/api/addFollow",isLoggedIn, function (req, res) {
         db.Follow.create({
-            UserId: req.user.id,
-            followerId: req.user.id,
-            followed: req.body.followed, // this is the only field you need to send when hitting this route
+
+            UserId:req.user.id,
+            followedId:req.body.followed,
+            // followed: req.body.followed,
+            
+            // followerID: req.body.followerID
+
         })
             .then(function (dbPost) {
                 console.log(dbPost)
