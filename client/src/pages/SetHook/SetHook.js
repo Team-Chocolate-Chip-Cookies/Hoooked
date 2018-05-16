@@ -39,11 +39,11 @@ class SetHook extends Component {
     gameData: [],
     movieData: [],
     musicData: [],
-
     TVData: [],
-    followedArr:[],
-    openSection: null
 
+    followedArr:[],
+    bookOpenSection: null,
+    bookFollowerOpenSection:null
 
 
   };
@@ -68,7 +68,7 @@ class SetHook extends Component {
       // const data=Object.assign({}, res.data)
       // data.followed=Object.assign({},res.data.followed)
       const data=res.data.map(item=>item)
-      console.log(data)
+      
       this.setState({
         followedArr:data
       })
@@ -84,13 +84,17 @@ class SetHook extends Component {
   })
   }
 
-//control state of api className on click
-  clickClassName=sectionName=> {
-    this.setState({
-      // openSection: sectionName
-    });
-  }
 
+//control state of api className on click
+  clickClassName=(stateKey,id)=> {
+  console.log("clickClassName ran!")
+  console.log(stateKey)
+  console.log(id)
+  this.setState({
+    [stateKey]: id
+  });
+  console.log(this.state.bookOpenSection)
+}
   //This function sends an api call to the server to request data from foreign apis
   clickSearch = event => {
 
@@ -242,7 +246,7 @@ class SetHook extends Component {
 
                     {this.state.followedArr.map((data, index) => {
 
-                      console.log(data)
+                      
                       if (data.followed==null){
                         throw "This follower is null"
                       }
@@ -298,7 +302,7 @@ class SetHook extends Component {
                     <FriendSearchCard/>
                     {this.state.followedArr.map((data, index) => {
 
-console.log(data)
+
 if (data.followed==null){
   throw "This follower is null"
 }
@@ -353,7 +357,7 @@ id={data.followed.id}
                     <FriendSearchCard/>
                     {this.state.followedArr.map((data, index) => {
 
-console.log(data)
+
 if (data.followed==null){
   throw "This follower is null"
 }
@@ -401,6 +405,10 @@ id={data.followed.id}
                         link={data.link}
                         authors={data.authors}
                         publishedDate={data.publishedDate}
+                        id={index}
+                        clickClassName={this.clickClassName}
+                        open={this.state.bookOpenSection===index} 
+                        stateKey="bookOpenSection"
                     />
                   ))}
             
@@ -412,7 +420,7 @@ id={data.followed.id}
                     <FriendSearchCard/>
                     {this.state.followedArr.map((data, index) => {
 
-console.log(data)
+
 if (data.followed==null){
   throw "This follower is null"
 }
@@ -425,6 +433,10 @@ name={data.followed.firstname+" "+data.followed.lastname}
 // name={data.UserId}  
 key={index}
 id={data.followed.id}
+index={index}
+clickClassName={this.clickClassName}
+open={this.state.bookFollowerOpenSection===index} 
+stateKey="bookFollowerOpenSection"
 />
 )})}
                   </div>         
@@ -464,7 +476,7 @@ id={data.followed.id}
                     <FriendSearchCard/>
                     {this.state.followedArr.map((data, index) => {
 
-console.log(data)
+
 if (data.followed==null){
   throw "This follower is null"
 }

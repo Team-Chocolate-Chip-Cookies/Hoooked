@@ -4,7 +4,7 @@ import "./FollowedData.css";
 
 const FollowedData = (props) => (
 
-    <div className="card-body">
+    <div className={props.open ? "card-body section open" : "card-body section"} onClick={() => props.clickClassName(props.stateKey,props.index)}>
         <p>{props.name}</p>
     </div>
 
