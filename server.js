@@ -28,7 +28,7 @@ app.use(passport.session()); // persistent login sessions
 // Routes for authroization 
 var authRoute = require('./routes/auth.js')(app,passport);
 
-console.log("\n\n\n\nmodels:", (models.User? "User model exists":"User dont exist"))
+// console.log("\n\n\n\nmodels:", (models.User? "User model exists":"User dont exist"))
 //load passport strategies
 require('./config/passport/passport.js')(passport,models.User);
 
