@@ -12,15 +12,14 @@ var auth=require("./auth.js")
 module.exports = function (app) {
     // Reads all the people a given user is following by their ID from the DB
     app.get("/api/allFollowUser/",isLoggedIn, function (req, res) {
-        // console.log("req.user.id:")
+        console.log("req.user.id:")
         console.log(req.user.id)
         db.Follow.findAll({
             where: {
                 userId: req.user.id
               },include:[ { model: db.User,
-            
+            as:"followed"
             }]
-            //as:"followed"
         })
             .then(function (dbPost) {
                 res.json(dbPost);
@@ -31,8 +30,9 @@ module.exports = function (app) {
         db.Follow.create({
 
             UserId:req.user.id,
-            followedId:req.body.followedId
+            followedId:req.body.followed,
             // followed: req.body.followed,
+            
             // followerID: req.body.followerID
 
         })

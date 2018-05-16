@@ -1,4 +1,3 @@
-
 // Music.js
 // 
 
@@ -13,7 +12,6 @@ module.exports = function (sequelize, Sequelize) {
             type: Sequelize.STRING,
             unique: true,
             notEmpty: true,
-
         },
         artists: {
             type: Sequelize.STRING,
@@ -30,5 +28,4 @@ module.exports = function (sequelize, Sequelize) {
     });
    
     return Music;
-
 };

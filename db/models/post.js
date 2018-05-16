@@ -20,5 +20,5 @@ module.exports = function (sequelize, Sequelize) {
         Post.belongsTo(models.User, {as: "poster"})
         // Follow.hasOne(models.User, {as: "Followed", foreignKey: 'userID'});
       };
-    return Post
+    return Post;
 }
