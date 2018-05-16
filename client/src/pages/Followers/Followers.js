@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import "./Followers.css";
 import { Col, Row, Container } from "../../components/Grid";
+
+import FriendSearchCard from "../../components/FriendSearchCard";
 import ScrollbarContainer from "../../components/ScrollbarContainer"
 import API from "../../utils/API";
 import { withRouter } from "react-router-dom";
 import AllUserData from "../../components/AllUsersData";
+
 
 class Followers extends Component {
     state = {
@@ -65,26 +68,15 @@ class Followers extends Component {
     }
   
     render() {
-        return (
-            <div>
-                <div className="bg">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-sm"></div>
-                            <div className="col-6" id="searchfollower">
-                                <div className="input-group mb-3">
-                                    <input type="text" className="form-control" placeholder="search by username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                                    <div className="input-group-append">
-                                        <button className="btn btn-outline-secondary" type="button">Search</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-sm"></div>
-                        </div><br /><br />
-                        <div className="row">
-                            <div className="col-12">
-                                <ScrollbarContainer>
-                                    {this.state.usersNames.map((user, index) => (
+
+      return (
+        <div>
+            <Container><br/><br/>
+                <Row>
+                    <Col size="md-12">
+                        <div className="card scrolling">
+                            <FriendSearchCard placeholder="find people to follow"/>
+                                     {this.state.usersNames.map((user, index) => (
 
                                         <AllUserData
                                             name={user.name}
@@ -92,20 +84,23 @@ class Followers extends Component {
                                             clickFollow={this.clickFollow}
                                             key={index}
                                         />
-                                    ))}
-                                </ScrollbarContainer>
-                            </div>
-                        </div><br /><br />
-                        <div className="row">
-                            <div className="col-sm"></div>
-                            <div className="col-sm">
-                                <button type="button" className="btn btn-primary btn-lg btn-block">Follow</button>
-                            </div>
-                            <div className="col-sm"></div>
+                                    ))}    
+                          
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </Col>
+                </Row><br/><br/>
+                <Row>
+                    <div className="col-sm"></div>
+                        <div className="col-sm">
+                            <button type="button" className="btn btn-info btn-lg btn-block">Follow</button>
+                        </div>
+                    <div className="col-sm"></div>
+                </Row>
+            </Container>
+        </div>
+
+
+
 
         );
     }
