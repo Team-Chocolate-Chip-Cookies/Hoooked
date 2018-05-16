@@ -32,11 +32,11 @@ app.get("/api/music/:search", function (req, res) {
             // return console.log('Error occurred: ' + err);
             res.json(data)
             return
-            tracks={tracks}
-            artists={artists}
-            link={link}
-            album={album}
-            
+            tracks = { tracks }
+            artists = { artists }
+            link = { link }
+            album = { album }
+
         }
         //Artists
         console.log("Artist(s): " + data.tracks.items[0].artists[0].name);
