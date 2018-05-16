@@ -7,6 +7,7 @@ import ScrollbarContainer from "../../components/ScrollbarContainer"
 import API from "../../utils/API";
 import { withRouter } from "react-router-dom";
 import AllUserData from "../../components/AllUsersData";
+import NavBar from "../../components/NavBar";
 
 
 class Followers extends Component {
@@ -71,7 +72,9 @@ class Followers extends Component {
 
       return (
         <div>
-            <Container><br/><br/>
+            <Container>
+            <NavBar/>
+                <br/><br/>
                 <Row>
                     <Col size="md-12">
                         <div className="card scrolling">
@@ -92,7 +95,7 @@ class Followers extends Component {
                 <Row>
                     <div className="col-sm"></div>
                         <div className="col-sm">
-                            <button type="button" className="btn btn-info btn-lg btn-block">Follow</button>
+                            <button type="button" className="btn btn-primary btn-lg btn-block">Follow</button>
                         </div>
                     <div className="col-sm"></div>
                 </Row>
