@@ -102,47 +102,82 @@ class SetHook extends Component {
 //Post the Hook
   clickSetHook=()=>{
     console.log("set hook ran!")
+    let hookedId=this.state.followedArr[this.state.followerOpenSection].followed.id
     let path = this.props.location.pathname
     switch (path) {
       case "/sethook/tv":
+      let TVData=this.state.TVData[this.state.tvOpenSection]
+      let TVTitle=TVData.name
+      let TVPlot=TVData.overview
+      let TVPic=TVData.image
+    console.log(hookedId)
+    console.log(TVTitle)
+    console.log(TVPic)
+    API.setHook(hookedId,TVTitle,TVPlot,TVPic)
+    .then((res)=>{
+      
+    })
+    .catch((error) => {
+      if (error.response.status == 403) {
+          this.props.history.push("/")
+
+      }
+      else console.log(error)
+  })
       break;
       case "/sethook/movie":
-      break;
-      case "/sethook/game":
-    //   const hookedId=this.state.followedArr[this.state.followerOpenSection].followed.id
-    //   const bookData=this.state.bookData[this.state.bookOpenSection]
-    //     const title=bookData.title
-    //     const mediaPlot=bookData.description
-    //     const mediaPic=bookData.image
-    //   console.log(hookedId)
-    //   console.log(title)
-    //   console.log(mediaPlot)
-    //   console.log(mediaPic)
-    //   API.setHook(hookedId,title,mediaPlot,mediaPic)
-    //   .then((res)=>{
+      let movieData=this.state.movieData[this.state.movieOpenSection]
+        let movieTitle=movieData.title
+        let moviePlot=movieData.overview
+        let moviePic=movieData.image
+      console.log(hookedId)
+      console.log(movieTitle)
+      console.log(moviePic)
+      API.setHook(hookedId,movieTitle,moviePlot,moviePic)
+      .then((res)=>{
         
-    //   })
-    //   .catch((error) => {
-    //     if (error.response.status == 403) {
-    //         this.props.history.push("/")
+      })
+      .catch((error) => {
+        if (error.response.status == 403) {
+            this.props.history.push("/")
   
-    //     }
-    //     else console.log(error)
-    // })
-      break;
+        }
+        else console.log(error)
+    })
       break;
       case "/sethook/book":
       
-      const hookedId=this.state.followedArr[this.state.followerOpenSection].followed.id
-      const bookData=this.state.bookData[this.state.bookOpenSection]
-        const title=bookData.title
-        const mediaPlot=bookData.description
-        const mediaPic=bookData.image
+   
+      let bookData=this.state.bookData[this.state.bookOpenSection]
+        let bookTitle=bookData.title
+        let bookPlot=bookData.description
+        let bookPic=bookData.image
       console.log(hookedId)
-      console.log(title)
-      console.log(mediaPlot)
-      console.log(mediaPic)
-      API.setHook(hookedId,title,mediaPlot,mediaPic)
+      console.log(bookTitle)
+      console.log(bookPlot)
+      console.log(bookPic)
+      API.setHook(hookedId,bookTitle,bookPlot,bookPic)
+      .then((res)=>{
+        
+      })
+      .catch((error) => {
+        if (error.response.status == 403) {
+            this.props.history.push("/")
+  
+        }
+        else console.log(error)
+    })
+      break;
+      case "/sethook/game":
+  
+      let gameData=this.state.gameData[this.state.gameOpenSection]
+        let gameTitle=gameData.name
+        let gamePlot="No description"
+        let gamePic=gameData.cover
+      console.log(hookedId)
+      console.log(gameTitle)
+      console.log(gamePic)
+      API.setHook(hookedId,gameTitle,gamePlot,gamePic)
       .then((res)=>{
         
       })
@@ -155,6 +190,24 @@ class SetHook extends Component {
     })
       break;
       case "/sethook/music":
+      let musicData=this.state.musicData[this.state.musicOpenSection]
+      let musicTitle=musicData.tracks
+      let musicPlot="No description"
+      let musicPic=musicData.image
+    console.log(hookedId)
+    console.log(musicTitle)
+    console.log(musicPic)
+    API.setHook(hookedId,musicTitle,musicPlot,musicPic)
+    .then((res)=>{
+      
+    })
+    .catch((error) => {
+      if (error.response.status == 403) {
+          this.props.history.push("/")
+
+      }
+      else console.log(error)
+  })
       break;
       default:
       console.log("You really shouldn't see me")
@@ -245,6 +298,22 @@ class SetHook extends Component {
             });
             break;
           case "/sethook/music":
+          let musicArray=[]
+          res.data.tracks.items.forEach((mElement)=>{
+            let musicElement={
+              artists:mElement.artists[0].name,
+              tracks:mElement.name,
+              link:mElement.external_urls.spotify,
+              album:mElement.album.name,
+              image:mElement.album.images[2].url,
+              
+            }
+            musicArray.push(musicElement)
+          })
+          console.log(musicArray)
+          this.setState({
+            musicData:musicArray
+          });
             break;
           default:
             console.log("ERROR IN API RETURN SWITCH CASE")
@@ -553,11 +622,13 @@ stateKey="followerOpenSection"
                   {this.state.musicData.map((data, index) => (
                     
                     <ApiDataMusic
-                      title={data.title}
-                      // id={image.id}
+                      tracks={data.tracks}
+                      artists={data.artists}
+                      link={data.link}
+                      album={data.album}
+                      image={data.image}
+                      //artists tracks link album image
                       key={index}
-                      description={data.description}
-                    // image={data.image}
                     id={index}
                     clickClassName={this.clickClassName}
                     open={this.state.musicOpenSection===index} 

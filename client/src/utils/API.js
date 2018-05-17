@@ -21,7 +21,7 @@ export default {
                 return axios.get("/api/book/"+text)
                 break;
             case "/sethook/music":
-                return axios.get("/api/music", dataObj)
+                return axios.get("/api/music/"+ text)
                 break;
             default:
                 console.log("ERROR IN API FOREIGN")
