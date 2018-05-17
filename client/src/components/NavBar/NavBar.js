@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import logo from "../../images/logo2.png";
+import peopleLogo from "../../images/peopleIcon.png"
+import logoutLogo from "../../images/logout.png"
 
 
 const Navbar = (props) => (
@@ -14,14 +16,12 @@ const Navbar = (props) => (
                     window.location.pathname === "/dashboard" ? "nav-link active" : "nav-link"}>
                     <img id="logo" src = {logo} alt = "logo" id = "navlogo"/>
             </Link>
-            <Link 
-                to="/followers"
-                className={
-                    window.location.pathname === "/followers" ? "nav-link active" : "nav-link"
-                  }
-            >
-                Followers
-            </Link>
+            <div>
+            
+            </div>
+            <div>
+            
+            </div>
             <div 
                 // to="/score"
                 // className={
@@ -30,6 +30,16 @@ const Navbar = (props) => (
             >
                 Score :00
             </div>
+            <div>
+            
+            </div>
+            <Link 
+                to="/followers"
+                className={
+                    window.location.pathname === "/followers" ? "nav-link active" : "nav-link"}>
+                <img id="peoplelogo" src = {peopleLogo} alt = "Link to Followers Page" id = "peoplelogo"/>
+            </Link>
+            
         
             <div
                 // to="/Logoout"
@@ -37,7 +47,7 @@ const Navbar = (props) => (
                 //     window.location.pathname === "/logout" ? "nav-link active" : "nav-link"
                 //   }
             >
-                Logout
+                <img id="logoutLogo" src = {logoutLogo} alt = "logo" id = "logoutlogo"/>
             </div>
             
         </nav>

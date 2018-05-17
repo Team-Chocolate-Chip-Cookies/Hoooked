@@ -21,15 +21,25 @@ class Dashboard extends Component {
       
       <Container>
         <NavBar/>
-        <br/><br/>
+        <br/>
+      
         <Row>
           <Col size="md-2">
-            <SetHook />
           </Col>
-          <Col size="md-6">
+        
+          <Col size="md-8">
+          <SetHook />
+          </Col>
+
+          <Col size="md-2">
+          </Col>
+        </Row>
+        <br/>
+          <Row>
+          <Col size="md-7">
             <Feed />
           </Col>
-          <Col size="md-4">
+          <Col size="md-5">
             <YourOnHook />
           </Col>
         </Row>

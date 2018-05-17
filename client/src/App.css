@@ -52,6 +52,10 @@ body {
   border-color: lightgray;
 }
 
+.btn-toolbar {
+  justify-content: center;
+}
+
 .form-control {
   border-color: lightgray;
 }
@@ -76,6 +80,18 @@ body {
 
 .loginModalForm {
   width: 466px;
+}
+
+
+#peoplelogo {
+  width: 60px;
+  height: auto;
+}
+
+
+#logoutlogo {
+  width: 60px;
+  height: auto;
 }
 
 .searchResultsText {
