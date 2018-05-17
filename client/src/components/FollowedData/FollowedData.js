@@ -14,13 +14,10 @@ const FollowedData = (props) => (
                 <div className="card-body">
                     <Row>
                     <Col size="md-3">
-                    <p>ICON?</p>
+                    <i class="fas fa-user fa-3x"></i>
                     </Col>
                         <Col size="md-6">
                             <p>{props.name}</p>
-                        </Col>
-                        <Col size="md-3">
-                            <button className="btn btn-primary">Hook</button>
                         </Col>
                     </Row>
                 </div>
