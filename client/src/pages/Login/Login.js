@@ -46,7 +46,7 @@ class Login extends Component {
         API.signUp(this.state.SUfirstName, this.state.SUlastName, this.state.SUemail, this.state.SUpassword)
             .then(
                 (data) => {
-                    // this.props.history.push("/dashboard")
+                    this.props.history.push("/dashboard")
                 }
             )
 
