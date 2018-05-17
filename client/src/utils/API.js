@@ -79,5 +79,8 @@ export default {
     },
     getPosts:()=>{
         return axios.get("/api/allPosts/")
+    },
+    signOut:()=>{
+        return axios('/logout')
     }
 }

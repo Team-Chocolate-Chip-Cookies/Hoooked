@@ -317,6 +317,7 @@ class SetHook extends Component {
             break;
           default:
             console.log("ERROR IN API RETURN SWITCH CASE")
+            
         }
       })
       .catch((error)=>{
