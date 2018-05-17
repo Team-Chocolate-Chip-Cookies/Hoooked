@@ -43,6 +43,12 @@ module.exports = function (sequelize, Sequelize) {
     lastLogin: {
       type: Sequelize.DATE
     },
+    resetPasswordToken: {
+      type: Sequelize.STRING
+    },
+    resetPasswordExpires: {
+      type: Sequelize.DATE
+    }
   });
   User.associate = function (models) {
     User.hasMany(models.Follow, {
