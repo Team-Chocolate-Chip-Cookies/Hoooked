@@ -7,7 +7,11 @@ const app = express();
 var bodyParser=require("body-parser")
 var passport   = require('passport')
 var session    = require('express-session')
+var async = require('async');
+var crypto = require('crypto');
+var nodemailer = require('nodemailer');
 var env        = require('dotenv').load()
+
 
 //Use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -47,6 +51,7 @@ const TVDB=require("./routes/APIs/TVDB.js")
 
 // Routes (but not auth.js and not isLogIn.js)
 require("./routes/followRoutes.js")(app);
+require("./routes/forgotRoutes.js")(app);
 require("./routes/movieRoutes.js")(app);
 require("./routes/hookRoutes.js")(app);
 require("./routes/musicRoutes.js")(app);
