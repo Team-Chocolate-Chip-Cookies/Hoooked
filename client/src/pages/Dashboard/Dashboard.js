@@ -136,20 +136,49 @@ class Dashboard extends Component {
           </Col>
 
           <Col size="md-5">
+      
             <YourOnHook >
-            {this.state.hookData.map((data, index) => (
-
-            <div key={index}>
+         
+              <Row>
+                <Col size="md-12">
               
-              <p> {data.hooker.firstname} {data.hooker.lastname}</p>
-              <img src={data.mediaPic}/>
-              <p>{data.title}</p>
+            {this.state.hookData.map((data, index) => (
+   <div className="card">
+            <div key={index}>
+              <Row>
+                <Col size="md-3">
+                </Col>
+                <Col size="md-6">
              
+              <p> {data.hooker.firstname} {data.hooker.lastname} Hoooked You!</p>
+              
+                </Col>
+              </Row>
+              <Row>
+              <Col size="md-12">
+              <img src={data.mediaPic}/>
+              </Col>
+              </Row>
+              <Row>
+              <Col size="md-3">
+                </Col>
+              <Col size="md-6">   
+             
+              <p>{data.title}</p>
+            
+              </Col>
+             </Row>
               {/* <p>{data.name}</p>
               <p>{data.name}</p> */}
             </div>
+            </div>
             ))}
+    
+              </Col>
+            </Row>
+          
             </YourOnHook>
+
             </Col>
             
         </Row>
