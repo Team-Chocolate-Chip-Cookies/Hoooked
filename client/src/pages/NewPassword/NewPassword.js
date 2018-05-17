@@ -25,7 +25,17 @@ class Login extends Component {
 
         });
     };
+    resetPassword=event=>{
+        event.preventDefault()
+        console.log(this.state.token)
+        console.log(this.state.password)
 
+        API.resetPassword(this.state.token,this.state.password)
+        .then(
+            (data) => {
+                this.props.history.push("/")
+            })
+    }
     render() {
         return (
             <Container>
@@ -33,6 +43,8 @@ class Login extends Component {
                 {/* <Col> */}
                Token <input type="text" name="token" onChange={this.handleInputChange}/>
                 New Password <input type="text" name="password" onChange={this.handleInputChange}/>
+                <br></br>
+                <button className="btn btn-primary" onClick={this.resetPassword} >New Password</button>
                 {/* </Col> */}
                 </Row>
             </Container>
