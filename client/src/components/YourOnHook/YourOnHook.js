@@ -6,7 +6,7 @@ const YourOnHook = (props) => (
     <div className="container">
 
         <div className="card scrolling">
-            <div className="card-body"> 
+            <div className="card-body" id="ctitle"> 
                 {/* here's where the challenger's name goes */}
                 { <p className="card-title">You're on the Hoook</p>}
 
