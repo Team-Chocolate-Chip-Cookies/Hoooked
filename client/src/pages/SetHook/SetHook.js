@@ -479,6 +479,7 @@ key={index}
 id={data.followed.id}
 />
 )})}
+
                   </div>     
                 </Col>
               </Row>
