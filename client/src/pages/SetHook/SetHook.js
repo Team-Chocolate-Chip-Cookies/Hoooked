@@ -39,13 +39,18 @@ class SetHook extends Component {
     gameData: [],
     movieData: [],
     musicData: [],
-
     TVData: [],
+
     followedArr:[],
-    openSection: null
+   
+    followerOpenSection:null,
 
-
-
+    bookOpenSection: null,
+    gameOpenSection: null,
+    movieOpenSection: null,
+    tvOpenSection: null,
+    musicOpenSection: null,
+   
   };
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -68,7 +73,7 @@ class SetHook extends Component {
       // const data=Object.assign({}, res.data)
       // data.followed=Object.assign({},res.data.followed)
       const data=res.data.map(item=>item)
-      console.log(data)
+      
       this.setState({
         followedArr:data
       })
@@ -84,13 +89,131 @@ class SetHook extends Component {
   })
   }
 
-//control state of api className on click
-  clickClassName=sectionName=> {
-    this.setState({
-      // openSection: sectionName
-    });
-  }
 
+//control state of api className on click
+  clickClassName=(stateKey,id)=> {
+  console.log("clickClassName ran!")
+  console.log(stateKey)
+  console.log(id)
+  this.setState({
+    [stateKey]: id
+  });
+}
+//Post the Hook
+  clickSetHook=()=>{
+    console.log("set hook ran!")
+    let hookedId=this.state.followedArr[this.state.followerOpenSection].followed.id
+    let path = this.props.location.pathname
+    switch (path) {
+      case "/sethook/tv":
+      let TVData=this.state.TVData[this.state.tvOpenSection]
+      let TVTitle=TVData.name
+      let TVPlot=TVData.overview
+      let TVPic=TVData.image
+    console.log(hookedId)
+    console.log(TVTitle)
+    console.log(TVPic)
+    API.setHook(hookedId,TVTitle,TVPlot,TVPic)
+    .then((res)=>{
+      
+    })
+    .catch((error) => {
+      if (error.response.status == 403) {
+          this.props.history.push("/")
+
+      }
+      else console.log(error)
+  })
+      break;
+      case "/sethook/movie":
+      let movieData=this.state.movieData[this.state.movieOpenSection]
+        let movieTitle=movieData.title
+        let moviePlot=movieData.overview
+        let moviePic=movieData.image
+      console.log(hookedId)
+      console.log(movieTitle)
+      console.log(moviePic)
+      API.setHook(hookedId,movieTitle,moviePlot,moviePic)
+      .then((res)=>{
+        
+      })
+      .catch((error) => {
+        if (error.response.status == 403) {
+            this.props.history.push("/")
+  
+        }
+        else console.log(error)
+    })
+      break;
+      case "/sethook/book":
+      
+   
+      let bookData=this.state.bookData[this.state.bookOpenSection]
+        let bookTitle=bookData.title
+        let bookPlot=bookData.description
+        let bookPic=bookData.image
+      console.log(hookedId)
+      console.log(bookTitle)
+      console.log(bookPlot)
+      console.log(bookPic)
+      API.setHook(hookedId,bookTitle,bookPlot,bookPic)
+      .then((res)=>{
+        
+      })
+      .catch((error) => {
+        if (error.response.status == 403) {
+            this.props.history.push("/")
+  
+        }
+        else console.log(error)
+    })
+      break;
+      case "/sethook/game":
+  
+      let gameData=this.state.gameData[this.state.gameOpenSection]
+        let gameTitle=gameData.name
+        let gamePlot="No description"
+        let gamePic=gameData.cover
+      console.log(hookedId)
+      console.log(gameTitle)
+      console.log(gamePic)
+      API.setHook(hookedId,gameTitle,gamePlot,gamePic)
+      .then((res)=>{
+        
+      })
+      .catch((error) => {
+        if (error.response.status == 403) {
+            this.props.history.push("/")
+  
+        }
+        else console.log(error)
+    })
+      break;
+      case "/sethook/music":
+      let musicData=this.state.musicData[this.state.musicOpenSection]
+      let musicTitle=musicData.tracks
+      let musicPlot="No description"
+      let musicPic=musicData.image
+    console.log(hookedId)
+    console.log(musicTitle)
+    console.log(musicPic)
+    API.setHook(hookedId,musicTitle,musicPlot,musicPic)
+    .then((res)=>{
+      
+    })
+    .catch((error) => {
+      if (error.response.status == 403) {
+          this.props.history.push("/")
+
+      }
+      else console.log(error)
+  })
+      break;
+      default:
+      console.log("You really shouldn't see me")
+      break;
+  }
+}
   //This function sends an api call to the server to request data from foreign apis
   clickSearch = event => {
 
@@ -106,7 +229,8 @@ class SetHook extends Component {
             let currentTVElement={
               name:TVElement.name,
               overview:TVElement.overview,
-              popularity:TVElement.popularity
+              popularity:TVElement.popularity,
+              image:TVElement.poster_path
             }
             TVElementArray.push(currentTVElement)
           })
@@ -124,7 +248,8 @@ class SetHook extends Component {
                 title:movieElement.title,
                 overview:movieElement.overview,
                 popularity:movieElement.popularity,
-                release_date:movieElement.release_date
+                release_date:movieElement.release_date,
+                image:movieElement.poster_path
               }
               movieElementArray.push(currentMovieElement)
             })
@@ -173,6 +298,22 @@ class SetHook extends Component {
             });
             break;
           case "/sethook/music":
+          let musicArray=[]
+          res.data.tracks.items.forEach((mElement)=>{
+            let musicElement={
+              artists:mElement.artists[0].name,
+              tracks:mElement.name,
+              link:mElement.external_urls.spotify,
+              album:mElement.album.name,
+              image:mElement.album.images[2].url,
+              
+            }
+            musicArray.push(musicElement)
+          })
+          console.log(musicArray)
+          this.setState({
+            musicData:musicArray
+          });
             break;
           default:
             console.log("ERROR IN API RETURN SWITCH CASE")
@@ -229,6 +370,11 @@ class SetHook extends Component {
                       key={index}
                       overview={data.overview}
                       popularity={data.popularity}
+                      image={data.image}
+                      id={index}
+                      clickClassName={this.clickClassName}
+                      open={this.state.tvOpenSection===index} 
+                      stateKey="tvOpenSection"
                     // image={data.image}
                     />
                   ))}
@@ -242,7 +388,7 @@ class SetHook extends Component {
 
                     {this.state.followedArr.map((data, index) => {
 
-                      console.log(data)
+                      
                       if (data.followed==null){
                         throw "This follower is null"
                       }
@@ -255,6 +401,10 @@ class SetHook extends Component {
                       // name={data.UserId}  
                       key={index}
                       id={data.followed.id}
+                      index={index}
+clickClassName={this.clickClassName}
+open={this.state.followerOpenSection===index} 
+stateKey="followerOpenSection"
                     />
                   )})}
                   </div>      
@@ -286,6 +436,11 @@ class SetHook extends Component {
                       overview={data.overview}
                       popularity={data.popularity}
                       release_date={data.release_date}
+                      image={data.image}
+                      id={index}
+                      clickClassName={this.clickClassName}
+                      open={this.state.movieOpenSection===index} 
+                      stateKey="movieOpenSection"
                     // image={data.image}
                     />
                   ))}
@@ -298,7 +453,7 @@ class SetHook extends Component {
                     <FriendSearchCard/>
                     {this.state.followedArr.map((data, index) => {
 
-console.log(data)
+
 if (data.followed==null){
   throw "This follower is null"
 }
@@ -311,6 +466,10 @@ name={data.followed.firstname+" "+data.followed.lastname}
 // name={data.UserId}  
 key={index}
 id={data.followed.id}
+index={index}
+clickClassName={this.clickClassName}
+open={this.state.followerOpenSection===index} 
+stateKey="followerOpenSection"
 />
 )})}
                   </div>    
@@ -341,7 +500,10 @@ id={data.followed.id}
                       cover={data.cover}
                       key={index}
                       description={data.description}
-                    // image={data.image}
+                      id={index}
+                      clickClassName={this.clickClassName}
+                      open={this.state.gameOpenSection===index} 
+                      stateKey="gameOpenSection"
                     />
                   ))}
             
@@ -353,7 +515,7 @@ id={data.followed.id}
                     <FriendSearchCard/>
                     {this.state.followedArr.map((data, index) => {
 
-console.log(data)
+
 if (data.followed==null){
   throw "This follower is null"
 }
@@ -366,6 +528,10 @@ name={data.followed.firstname+" "+data.followed.lastname}
 // name={data.UserId}  
 key={index}
 id={data.followed.id}
+index={index}
+clickClassName={this.clickClassName}
+open={this.state.followerOpenSection===index} 
+stateKey="followerOpenSection"
 />
 )})}
                   </div>       
@@ -401,6 +567,10 @@ id={data.followed.id}
                         link={data.link}
                         authors={data.authors}
                         publishedDate={data.publishedDate}
+                        id={index}
+                        clickClassName={this.clickClassName}
+                        open={this.state.bookOpenSection===index} 
+                        stateKey="bookOpenSection"
                     />
                   ))}
             
@@ -412,7 +582,7 @@ id={data.followed.id}
                     <FriendSearchCard/>
                     {this.state.followedArr.map((data, index) => {
 
-console.log(data)
+
 if (data.followed==null){
   throw "This follower is null"
 }
@@ -425,6 +595,10 @@ name={data.followed.firstname+" "+data.followed.lastname}
 // name={data.UserId}  
 key={index}
 id={data.followed.id}
+index={index}
+clickClassName={this.clickClassName}
+open={this.state.followerOpenSection===index} 
+stateKey="followerOpenSection"
 />
 )})}
                   </div>         
@@ -448,11 +622,17 @@ id={data.followed.id}
                   {this.state.musicData.map((data, index) => (
                     
                     <ApiDataMusic
-                      title={data.title}
-                      // id={image.id}
+                      tracks={data.tracks}
+                      artists={data.artists}
+                      link={data.link}
+                      album={data.album}
+                      image={data.image}
+                      //artists tracks link album image
                       key={index}
-                      description={data.description}
-                    // image={data.image}
+                    id={index}
+                    clickClassName={this.clickClassName}
+                    open={this.state.musicOpenSection===index} 
+                    stateKey="musicOpenSection"
                     />
                   ))}
             
@@ -464,7 +644,7 @@ id={data.followed.id}
                     <FriendSearchCard/>
                     {this.state.followedArr.map((data, index) => {
 
-console.log(data)
+
 if (data.followed==null){
   throw "This follower is null"
 }
@@ -477,6 +657,10 @@ name={data.followed.firstname+" "+data.followed.lastname}
 // name={data.UserId}  
 key={index}
 id={data.followed.id}
+index={index}
+clickClassName={this.clickClassName}
+open={this.state.followerOpenSection===index} 
+stateKey="followerOpenSection"
 />
 )})}
                   </div>     
@@ -491,7 +675,7 @@ id={data.followed.id}
         
           <Row>
             <Col size="md-12" className = "text-center">
-              <Button>
+              <Button onClick={() => this.clickSetHook()}>
                 SET HOOK
               </Button>
             </Col>

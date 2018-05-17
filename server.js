@@ -39,11 +39,12 @@ require('./config/passport/passport.js')(passport,models.User);
 
 
 
-
+//API routes
 const IGDB=require("./routes/APIs/IGDB.js")
 const bookAPI=require("./routes/APIs/bookAPI.js")
 const TMDB=require("./routes/APIs/themoviedb.js")
 const TVDB=require("./routes/APIs/TVDB.js")
+const spotify=require("./routes/APIs/spotify.js")
 
 // Routes (but not auth.js and not isLogIn.js)
 require("./routes/followRoutes.js")(app);
@@ -81,6 +82,7 @@ app.use(IGDB)
 app.use(bookAPI)
 app.use(TMDB)
 app.use(TVDB)
+app.use(spotify)
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
