@@ -91,6 +91,7 @@ class Dashboard extends Component {
           </Col>
 
         
+
            <Col size="md-8">
            <SetHook />
           </Col>
@@ -114,6 +115,7 @@ class Dashboard extends Component {
           </Col> */}
 
           <Col size="md-7">
+
             <Feed>
               <MakePost
               handleInputChange={this.handleInputChange}
