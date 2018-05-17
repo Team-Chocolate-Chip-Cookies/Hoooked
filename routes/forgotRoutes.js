@@ -31,8 +31,9 @@ function nodeMailer(user, token) {
         from: '8lternateusername@gmail.com',
         subject: 'Node.js Password Reset',
         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-            'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-            'http://hoook.me/api/reset/' + token + '\n\n' +
+            'Please click on the following link, and use the provided token to reset your password:\n\n' +
+            'Link: http://hoook.me/newpassword/ \n' +
+            'Token: ' + token + '\n\n' +
             'If you did not request this, please ignore this email and your password will remain unchanged.\n'
     };
     transporter.sendMail(mailOptions, function (err, info) {
@@ -90,24 +91,24 @@ module.exports = function (app) {
         });
     });
 
-    app.get('/api/reset/:token', function(req, res)  {  // form for reset that ends up sending 
-        res.redirect('/catdog');
-    });
+    // app.get('/pwdreset/', function(req, res)  {  // form for reset that ends up sending 
+    //     res.redirect('/catdog');
+    // });
 
     // Actual reset action takes place here, check for matchign token and allow a new password if it matches and isn't expired
-    app.put('/api/reset/:token', function (req, res) {
+    app.put('/api/reset/', function (req, res) {
         // geenrateHash is the function used to hash the user password before it hits the DB
         var generateHash = function (password) {
             return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
         };
 
-        console.log("forgotRoutes.js, /api/reset/:token is reset")
+        console.log("forgotRoutes.js, /api/reset/ route hit!")
         async.waterfall([
             function (done) {
                 // console.log("forgotRoutes.js, req stuff ", typeof req.params.token)
                 db.User.findOne({
                     where: {
-                        resetPasswordToken: req.params.token,
+                        resetPasswordToken: req.body.token,
                         resetPasswordExpires: { $gt: Date.now() }
                     }
                 }).then(function (user, err) {
