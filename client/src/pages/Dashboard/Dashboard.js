@@ -91,7 +91,7 @@ class Dashboard extends Component {
           </Col>
 
         
-//           <Col size="md-8">
+{/* //           <Col size="md-8">
 //           <SetHook />
 //           </Col>
 
@@ -104,7 +104,7 @@ class Dashboard extends Component {
 //             <Feed />
 //           </Col>
 //           <Col size="md-5">
-//             <YourOnHook />
+//             <YourOnHook /> */}
 
           <Col size="md-6">
             <Feed>
