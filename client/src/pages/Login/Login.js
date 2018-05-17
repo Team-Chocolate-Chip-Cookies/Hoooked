@@ -16,6 +16,9 @@ class Login extends Component {
         SUpassword: ""
 
     };
+    componentDidMount() {
+        API.signOut()
+    }
     handleInputChange = event => {
         // Getting the value and name of the input which triggered the change
 
