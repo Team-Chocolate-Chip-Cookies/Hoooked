@@ -91,22 +91,31 @@ class Dashboard extends Component {
           </Col>
 
         
-{/* //           <Col size="md-8">
-//           <SetHook />
-//           </Col>
 
-//           <Col size="md-2">
-//           </Col>
-//         </Row>
-//         <br/>
-//           <Row>
-//           <Col size="md-7">
-//             <Feed />
-//           </Col>
-//           <Col size="md-5">
-//             <YourOnHook /> */}
+           <Col size="md-8">
+           <SetHook />
+          </Col>
 
-          <Col size="md-6">
+          <Col size="md-2">
+           </Col>
+        </Row>
+
+
+
+         <br/>
+        <Row>
+
+           {/* <Col size="md-7">
+            <Feed />
+           </Col>
+
+         <Col size="md-5"> 
+            <YourOnHook /> 
+          
+          </Col> */}
+
+          <Col size="md-7">
+
             <Feed>
               <MakePost
               handleInputChange={this.handleInputChange}
@@ -124,10 +133,10 @@ class Dashboard extends Component {
                     </div>
                    ))}
             </Feed>
-      
           </Col>
-          <Col size="md-4">
-            <YourOnHook >
+
+          <Col size="md-5">
+            <YourOnHook />
             {this.state.hookData.map((data, index) => (
 
             <div key={index}>
@@ -140,9 +149,8 @@ class Dashboard extends Component {
               <p>{data.name}</p> */}
             </div>
             ))}
-              </YourOnHook>
-
-          </Col>
+            </Col>
+            
         </Row>
       </Container>
     );

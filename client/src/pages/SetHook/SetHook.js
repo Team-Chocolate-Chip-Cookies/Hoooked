@@ -81,7 +81,7 @@ class SetHook extends Component {
       console.log(this.state.followedArr[0].followed.id)
     })
     .catch((error) => {
-      if (error.response.status == 403) {
+      if (error && error.response.status == 403) {
           this.props.history.push("/")
 
       }
