@@ -7,7 +7,7 @@ const Feed = (props) => (
 
 
         <div class="card scrolling">
-        <div className="card-body"> 
+        <div className="card-body" id="ctitle"> 
         { <p className="card-title">The Feed</p>}
         </div>
         {props.children}

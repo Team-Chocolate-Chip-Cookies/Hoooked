@@ -26,6 +26,7 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 18px;
@@ -56,6 +57,14 @@ body {
   justify-content: center;
 }
 
+#ctitle {
+  border: 1px solid rgba(0,0,0,.125)
+}
+.card-title {
+  border: 1px solid rgb(153, 153, 153);
+  height: 47px;
+line-height: 45px;
+}
 .form-control {
   border-color: lightgray;
 }

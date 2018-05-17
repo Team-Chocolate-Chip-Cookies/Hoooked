@@ -10,10 +10,10 @@ import MakePost from "../../components/MakePost";
 
 class Dashboard extends Component {
   state = {
-    hookData:[],
-    title:"",
-    body:"",
-    postData:[]
+    hookData: [],
+    title: "",
+    body: "",
+    postData: []
   };
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -23,164 +23,112 @@ class Dashboard extends Component {
 
     // Updating the input's state
     this.setState({
-        [name]: value
+      [name]: value
     });
-};
+  };
   componentDidMount() {
     console.log("componentDidMount ran")
     //call hooks
     API.displayHooks()
-    .then((res)=>{
-     console.log(res)
-     console.log(res.data)
-     this.setState({
-       hookData:res.data
-     })
-     console.log(this.state.hookData)
-    })
-    .catch((error) => {
-      if (error.response.status == 403) {
+      .then((res) => {
+        console.log(res)
+        console.log(res.data)
+        this.setState({
+          hookData: res.data
+        })
+        console.log(this.state.hookData)
+      })
+      .catch((error) => {
+        if (error.response.status == 403) {
           this.props.history.push("/")
 
-      }
-      else console.log(error)
-  })
-  //call posts
-  API.getPosts()
-    .then((postData)=>{
-     console.log(postData)
-     this.setState({
-       postData:postData.data
-     })
-     console.log(this.state.postData)
-    })
-    .catch((error) => {
-      if (error.response.status == 403) {
+        }
+        else console.log(error)
+      })
+    //call posts
+    API.getPosts()
+      .then((postData) => {
+        console.log(postData)
+        this.setState({
+          postData: postData.data
+        })
+        console.log(this.state.postData)
+      })
+      .catch((error) => {
+        if (error.response.status == 403) {
           this.props.history.push("/")
 
-      }
-      else console.log(error)
-  })
+        }
+        else console.log(error)
+      })
   }
 
-  clickPost=(thisId)=>{
+  clickPost = (thisId) => {
     console.log("clickPost ran!")
-    API.newPost(this.state.title,this.state.body)
+    API.newPost(this.state.title, this.state.body)
     API.displayHooks()
-    .then((result)=>{
-     console.log(result)
-    })
-    .catch((error) => {
-      if (error.response.status == 403) {
+      .then((result) => {
+        console.log(result)
+      })
+      .catch((error) => {
+        if (error.response.status == 403) {
           this.props.history.push("/")
 
-      }
-      else console.log(error)
-  })
+        }
+        else console.log(error)
+      })
   }
 
   render() {
     return (
-      
+
       <Container>
-        <NavBar/>
-        <br/>
-      
-        {/* <Row>
-          <Col size="md-2">
-          </Col>
-
-        
-
-           <Col size="md-8">
-           <SetHook />
-          </Col>
-
-          <Col size="md-2">
-           </Col>
-        </Row> */}
-
-
-
-         <br/>
+        <NavBar />
+        <br />
+        <br />
         <Row>
-
-           {/* <Col size="md-7">
-            <Feed />
-           </Col>
-
-         <Col size="md-5"> 
-            <YourOnHook /> 
-          
-          </Col> */}
 
           <Col size="md-7">
 
             <Feed>
               <MakePost
-              handleInputChange={this.handleInputChange}
-              clickPost={this.clickPost}
+                handleInputChange={this.handleInputChange}
+                clickPost={this.clickPost}
               />
-                     {this.state.postData.map((data, index) => (
+              {this.state.postData.map((data, index) => (
 
-                    <div className="card-body"key={index}>
-                      
-                      <h3><b> {data.title}</b></h3>
-                      <p>{data.body}</p>
-                      <p>Posted by {data.poster.firstname} {data.poster.lastname}</p>
-                    <hr/>
-                     
-                    </div>
-                   ))}
+                <div className="card-body" key={index}>
+
+                  <h3><b> {data.title}</b></h3>
+                  <p>{data.body}</p>
+                  <p>Posted by {data.poster.firstname} {data.poster.lastname}</p>
+                  <hr />
+
+                </div>
+              ))}
             </Feed>
           </Col>
 
           <Col size="md-5">
       
             <YourOnHook >
-         
-              <Row>
-                <Col size="md-12">
-              
-            {this.state.hookData.map((data, index) => (
-   <div className="card">
-            <div key={index}>
-              <Row>
-                <Col size="md-3">
-                </Col>
-                <Col size="md-6">
-             
-              <p> {data.hooker.firstname} {data.hooker.lastname} Hoooked You!</p>
-              
-                </Col>
-              </Row>
-              <Row>
-              <Col size="md-12">
-              <img src={data.mediaPic}/>
-              </Col>
-              </Row>
-              <Row>
-              <Col size="md-3">
-                </Col>
-              <Col size="md-6">   
-             
-              <p>{data.title}</p>
-            
-              </Col>
-             </Row>
-              {/* <p>{data.name}</p>
-              <p>{data.name}</p> */}
-            </div>
-            </div>
-            ))}
-    
-              </Col>
-            </Row>
-          
-            </YourOnHook>
 
-            </Col>
-            
+              {this.state.hookData.map((data, index) => (
+
+                <div key={index}>
+
+                  <p> {data.hooker.firstname} {data.hooker.lastname} Hoooked You!</p>
+                  <img src={data.mediaPic} />
+                  <p>{data.title}</p>
+
+                  {/* <p>{data.name}</p>
+              <p>{data.name}</p> */}
+                </div>
+              ))}
+            </YourOnHook>
+          </Col>
+
+
         </Row>
       </Container>
     );
