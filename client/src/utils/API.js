@@ -88,5 +88,13 @@ export default {
             email:email
         }
         return axios.post("/api/forgot",emailObj)
+    },
+    resetPassword:(token,password)=>{
+        console.log("reset api call ran!")
+        let passwordObj={
+            token:token,
+            password:password
+        }
+        return axios.put("/api/reset/",passwordObj)
     }
 }
