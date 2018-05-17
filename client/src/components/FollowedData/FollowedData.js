@@ -9,7 +9,7 @@ const FollowedData = (props) => (
 
 
     <Container>
-    <div className={props.open ? "card-body section open" : "card-body section"} onClick={() => props.clickClassName(props.stateKey,props.index)}>
+    <div className={props.open ? "section open" : "section"} onClick={() => props.clickClassName(props.stateKey,props.index)}>
             <div className="card">
                 <div className="card-body">
                     <Row>
