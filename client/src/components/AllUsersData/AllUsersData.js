@@ -22,7 +22,9 @@ const AllUsersData = (props) => (
                         </button>
                     </Col>
                     <Col size="md-3">
-                        <button className="btn btn-primary">
+                        <button 
+                            className="btn btn-primary"
+                            onClick={() => props.clickUNFollow(props.id)}>
                         Unfollow  <i class="far fa-thumbs-down"></i>
                         </button>
                     </Col>
