@@ -53,7 +53,7 @@ require("./routes/hookRoutes.js")(app);
 require("./routes/musicRoutes.js")(app);
 require("./routes/routeTestsDB.js")(app);
 require("./routes/userRoutes.js")(app);
-
+require("./routes/postRoutes.js")(app);
 require("./routes/videoGameRoutes.js")(app);
 require("./routes/hookRoutes.js")(app);
 

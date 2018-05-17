@@ -69,6 +69,15 @@ export default {
     },
     displayHooks:()=>{
         return axios.get("/api/allHooks/")
+    },
+    newPost:(title,body)=>{
+        let postObj={
+            title:title,
+            body:body
+        }
+        return axios.post("/api/addPost",postObj)
+    },
+    getPosts:()=>{
+        return axios.get("/api/allPosts/")
     }
-
 }
