@@ -30,7 +30,7 @@ const App = () => (
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/followers" component={Followers} />
         <Route path="/sethook" component={SetHook} />
-
+        <Route exact path="/sethook/music" component={SetHook} />
         {/* <Route component={NoMatch} /> */}
       </Switch>
 
