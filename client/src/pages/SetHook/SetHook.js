@@ -13,6 +13,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "../../utils/API";
 import ChangeMediaPulldown from "../../components/ChangeMediaPulldown";
 import Button from "../../components/Button";
+import Button2 from "../../components/Button2";
+
 import FriendSearchCard from "../../components/FriendSearchCard";
 import FollowedData from "../../components/FollowedData"
 import { withRouter } from "react-router-dom";
@@ -676,9 +678,10 @@ stateKey="followerOpenSection"
         
           <Row>
             <Col size="md-12" className = "text-center">
-              <Button onClick={() => this.clickSetHook()}>
+              <Button2 onClick={() => this.clickSetHook()}
+              >
                 SET HOOK
-              </Button>
+              </Button2>
             </Col>
           </Row>
         </Container>
