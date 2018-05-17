@@ -663,6 +663,7 @@ open={this.state.followerOpenSection===index}
 stateKey="followerOpenSection"
 />
 )})}
+
                   </div>     
                 </Col>
               </Row>
