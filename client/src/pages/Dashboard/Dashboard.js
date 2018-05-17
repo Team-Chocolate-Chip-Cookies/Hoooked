@@ -86,7 +86,7 @@ class Dashboard extends Component {
         <NavBar/>
         <br/>
       
-        <Row>
+        {/* <Row>
           <Col size="md-2">
           </Col>
 
@@ -98,7 +98,7 @@ class Dashboard extends Component {
 
           <Col size="md-2">
            </Col>
-        </Row>
+        </Row> */}
 
 
 
