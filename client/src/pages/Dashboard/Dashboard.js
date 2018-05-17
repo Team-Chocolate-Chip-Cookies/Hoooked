@@ -136,7 +136,7 @@ class Dashboard extends Component {
           </Col>
 
           <Col size="md-5">
-          <Row>
+      
             <YourOnHook >
          
               <Row>
@@ -178,7 +178,7 @@ class Dashboard extends Component {
             </Row>
           
             </YourOnHook>
-            </Row>
+
             </Col>
             
         </Row>
