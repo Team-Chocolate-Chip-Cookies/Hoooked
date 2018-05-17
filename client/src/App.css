@@ -98,5 +98,9 @@ body {
   font-weight: 300;
 }
 
+.scrolling, .navbar{
+  opacity: 0.9;
+}
+
 
 

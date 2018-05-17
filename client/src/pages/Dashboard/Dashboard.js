@@ -136,7 +136,7 @@ class Dashboard extends Component {
           </Col>
 
           <Col size="md-5">
-            <YourOnHook />
+            <YourOnHook >
             {this.state.hookData.map((data, index) => (
 
             <div key={index}>
@@ -149,6 +149,7 @@ class Dashboard extends Component {
               <p>{data.name}</p> */}
             </div>
             ))}
+            </YourOnHook>
             </Col>
             
         </Row>
