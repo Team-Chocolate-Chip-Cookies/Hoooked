@@ -7,8 +7,9 @@ import { Col, Row, Container } from "../../components/Grid";
 
 const FollowedData = (props) => (
 
+
     <Container>
-        <div className="card-body">
+    <div className={props.open ? "card-body section open" : "card-body section"} onClick={() => props.clickClassName(props.stateKey,props.index)}>
             <div className="card">
                 <div className="card-body">
                     <Row>
@@ -26,6 +27,7 @@ const FollowedData = (props) => (
             </div>
         </div>
     </Container>
+
 );
 
 export default FollowedData;

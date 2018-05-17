@@ -36,6 +36,10 @@ module.exports = function (sequelize, Sequelize) {
         }
       }
     },
+    points :{
+      type: Sequelize.INTEGER,
+      defaultValue: 0
+    },
     lastLogin: {
       type: Sequelize.DATE
     },

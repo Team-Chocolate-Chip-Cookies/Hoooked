@@ -27,6 +27,7 @@ const YourOnHook = (props) => (
 
             </div>
             <hr />
+            {props.children}
         </div>
 
 

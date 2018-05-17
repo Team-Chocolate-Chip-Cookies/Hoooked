@@ -15,7 +15,7 @@ module.exports = function (sequelize, Sequelize) {
         },
         comment: {
             type: Sequelize.STRING,
-            allowNull: false,
+            
         },
         hookedId: {
             type: Sequelize.INTEGER,
@@ -23,14 +23,18 @@ module.exports = function (sequelize, Sequelize) {
         },
         mediaTitle: {
             type: Sequelize.STRING,
-            allowNull: false,
+            
         },
         mediaPlot: {
             type: Sequelize.STRING,
-            allowNull: false,
+            
         },
         mediaPic: {
             type: Sequelize.STRING,
+        },
+        pointValue: {
+            type: Sequelize.INTEGER,
+            defaultValue: 0
         },
         // Need to talk about this as a group as thisfield needs to exist to avoid duplicate hooks, but it doesn't do anythign now
         mediaUniqueID: {  
