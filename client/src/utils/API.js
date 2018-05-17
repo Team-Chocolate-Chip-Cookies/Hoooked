@@ -81,6 +81,12 @@ export default {
         return axios.get("/api/allPosts/")
     },
     signOut:()=>{
-        return axios('/logout')
+        return axios.get('/logout')
+    },
+    newPassword:(email)=>{
+        let emailObj={
+            email:email
+        }
+        return axios.post("/api/forgot",emailObj)
     }
 }
