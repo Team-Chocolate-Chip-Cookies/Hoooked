@@ -3,14 +3,6 @@
 This file is intended to explain what each route file actually does.
 
 
-# isLogIn.js
-
-isLogIn.js contains a function that uses passport to check if a user is logged in or not when they hit server routes.  If not logged in they are sent to the signIn page.   This prevents non signed in users from hitting routes, adding data, without being logged in.
-
-#routeTestsDB.js
-
-routeTestsDB.js is used to test various routes.  This is purely a troubleshooting route file and upon deployment we can probabbly comment it out entirely. 
-
 # auth.js
 
 auth.js is tied to passport that does our authentication, signUp, signIn
@@ -22,6 +14,15 @@ followRoutes.js allows:
 - Find all users.
 - Add a follower.
 - Remove a follower.
+
+# forgotRoutes.js
+
+forgotRoutes.js allows: 
+
+-  Users to say they forgot their password via a route.
+-  forgotRoutes sends an email with a token, adds a token and expiration to the user DB entery.
+-  Users recieve an email with a token / route to reset their password.
+-  forgotRoutes will update their profile with a new password that is hashed.
 
 #hookRoutes.js
 
