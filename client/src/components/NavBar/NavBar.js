@@ -41,16 +41,13 @@ const Navbar = (props) => (
                 <img id="peoplelogo" src = {peopleLogo} alt = "Link to Followers Page" id = "peoplelogo"/>
             </Link>
             
-        
-            <div
-                // to="/Logoout"
-                // className={
-                //     window.location.pathname === "/logout" ? "nav-link active" : "nav-link"
-                //   }
-            >
+            <Link
+            to="/"
+            className={
+            window.location.pathname === "/followers" ? "nav-link active" : "nav-link"}>
                 <img id="logoutLogo" src = {logoutLogo} alt = "logo" id = "logoutlogo"/>
-            </div>
             
+            </Link>
         </nav>
     </div>
 );

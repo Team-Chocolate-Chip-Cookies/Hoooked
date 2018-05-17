@@ -1,8 +1,12 @@
 import React from "react";
 import "./YourOnHook.css";
+import { Col, Row, Container } from "../../components/Grid";
+
 
 
 const YourOnHook = (props) => (
+
+<div>
     <div className="container">
 
         <div className="card scrolling">
@@ -27,13 +31,17 @@ const YourOnHook = (props) => (
 
             </div>
             {/* <hr /> */}
+    
             {props.children}
+ 
+
         </div>
 
 
 
 
     </div>
+</div>
 );
 
 export default YourOnHook;
