@@ -90,8 +90,12 @@ module.exports = function (app) {
         });
     });
 
+    app.get('/api/reset/:token', function(req, res)  {  // form for reset that ends up sending 
+        res.redirect('/catdog');
+    });
+
     // Actual reset action takes place here, check for matchign token and allow a new password if it matches and isn't expired
-    app.post('/api/reset/:token', function (req, res) {
+    app.put('/api/reset/:token', function (req, res) {
         // geenrateHash is the function used to hash the user password before it hits the DB
         var generateHash = function (password) {
             return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
@@ -126,7 +130,7 @@ module.exports = function (app) {
                             },
                             { where: { email: user.email } }
                         ).then(function () {
-                            res.redirect('http://hoook.me'); // or the heroku domain
+                            
                             done();
                         })
                     }
@@ -154,7 +158,7 @@ module.exports = function (app) {
             //     });
             //   }
         ], function (err) {
-            res.redirect('/');
+            res.redirect('http://hoook.me'); // or heroku link or whatevwer
         });
     });
 }
