@@ -105,8 +105,7 @@ class Login extends Component {
                 </div>
                 <br /><br />
                 <br /><br />
-                <br /><br />
-                <br /><br />
+               
                 
 
 
@@ -121,8 +120,7 @@ class Login extends Component {
                             New User - Get Hoooked!
                 </button>
                         <br></br>
-                        <br></br>
-                        <br></br>
+                        
                     </div>
 
 

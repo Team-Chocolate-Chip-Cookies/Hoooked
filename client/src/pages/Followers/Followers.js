@@ -92,13 +92,13 @@ class Followers extends Component {
                         </div>
                     </Col>
                 </Row><br/><br/>
-                <Row>
+                {/* <Row>
                     <div className="col-sm"></div>
                         <div className="col-sm">
                             <button type="button" className="btn btn-primary btn-lg btn-block">Follow</button>
                         </div>
                     <div className="col-sm"></div>
-                </Row>
+                </Row> */}
             </Container>
         </div>
 
