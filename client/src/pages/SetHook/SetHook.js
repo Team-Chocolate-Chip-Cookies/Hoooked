@@ -176,7 +176,8 @@ class SetHook extends Component {
             let currentTVElement={
               name:TVElement.name,
               overview:TVElement.overview,
-              popularity:TVElement.popularity
+              popularity:TVElement.popularity,
+              image:TVElement.poster_path
             }
             TVElementArray.push(currentTVElement)
           })
@@ -194,7 +195,8 @@ class SetHook extends Component {
                 title:movieElement.title,
                 overview:movieElement.overview,
                 popularity:movieElement.popularity,
-                release_date:movieElement.release_date
+                release_date:movieElement.release_date,
+                image:movieElement.poster_path
               }
               movieElementArray.push(currentMovieElement)
             })
@@ -299,6 +301,7 @@ class SetHook extends Component {
                       key={index}
                       overview={data.overview}
                       popularity={data.popularity}
+                      image={data.image}
                       id={index}
                       clickClassName={this.clickClassName}
                       open={this.state.tvOpenSection===index} 
@@ -364,6 +367,7 @@ stateKey="followerOpenSection"
                       overview={data.overview}
                       popularity={data.popularity}
                       release_date={data.release_date}
+                      image={data.image}
                       id={index}
                       clickClassName={this.clickClassName}
                       open={this.state.movieOpenSection===index} 
