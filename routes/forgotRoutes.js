@@ -90,8 +90,9 @@ module.exports = function (app) {
         });
     });
 
-    // app.get ... some site with the password recovery form /api/reset/
-
+    app.get('/api/reset/:token', function(req, res)  {  // form for reset that ends up sending 
+        res.redirect('/catdog');
+    });
 
     // Actual reset action takes place here, check for matchign token and allow a new password if it matches and isn't expired
     app.put('/api/reset/:token', function (req, res) {
