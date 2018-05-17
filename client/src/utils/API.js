@@ -21,7 +21,7 @@ export default {
                 return axios.get("/api/book/"+text)
                 break;
             case "/sethook/music":
-                return axios.get("/api/music", dataObj)
+                return axios.get("/api/music/"+ text)
                 break;
             default:
                 console.log("ERROR IN API FOREIGN")
@@ -57,6 +57,27 @@ export default {
     allFollowUser:()=>{
         return axios.get("/api/allFollowUser/")
     },
-
-
+    setHook:(hookedId,title,mediaPlot,mediaPic)=>{
+            let hookObj={
+                hookedId:hookedId,
+                title:title,
+                mediaPlot:mediaPlot,
+                mediaPic:mediaPic
+            }
+            console.log(hookObj)
+        return axios.post("/api/addHook",hookObj)
+    },
+    displayHooks:()=>{
+        return axios.get("/api/allHooks/")
+    },
+    newPost:(title,body)=>{
+        let postObj={
+            title:title,
+            body:body
+        }
+        return axios.post("/api/addPost",postObj)
+    },
+    getPosts:()=>{
+        return axios.get("/api/allPosts/")
+    }
 }

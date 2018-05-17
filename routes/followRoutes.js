@@ -42,4 +42,16 @@ module.exports = function (app) {
                 res.status(400).send(err)
             })
     });
+    // Unfollow another user route
+    app.delete("/api/destoryFollow", isLoggedIn, function (req, res) {
+        db.Follow.destroy({
+            where: {
+                UserId: req.user.id,
+                followedId: req.body.followed  // Just need to send this to us
+            }
+        })
+            .then(function (dbPost) {
+                res.json(dbPost);
+            });
+    });
 }

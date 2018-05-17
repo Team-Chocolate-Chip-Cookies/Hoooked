@@ -22,7 +22,7 @@ module.exports = function (app) {
         db.Hook.findAll({
             where: {
                 hookedId: req.user.id
-            }
+            }, include: [{ model: db.User, as: "hooker" }]
         })
             .then(function (dbPost) {
                 res.json(dbPost);

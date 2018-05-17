@@ -7,11 +7,8 @@ const Feed = (props) => (
 
 
         <div class="card scrolling">
-            <div class="card-body">
-
-               card contents go here
-            </div>
-            <hr/>
+       
+        {props.children}
         </div>
 
 

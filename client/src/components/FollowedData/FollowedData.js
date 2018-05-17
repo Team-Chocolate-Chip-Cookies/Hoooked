@@ -1,13 +1,32 @@
 import React from "react";
 import "./FollowedData.css";
+import UserContainer from "../../components/UserContainer";
+
+import { Col, Row, Container } from "../../components/Grid";
 //
 
 const FollowedData = (props) => (
 
-    <div className="card-body">
-        <p>{props.name}</p>
-    </div>
 
+    <Container>
+    <div className={props.open ? "section open" : "section"} onClick={() => props.clickClassName(props.stateKey,props.index)}>
+            <div className="card">
+                <div className="card-body">
+                    <Row>
+                    <Col size="md-3">
+                    <p>ICON?</p>
+                    </Col>
+                        <Col size="md-6">
+                            <p>{props.name}</p>
+                        </Col>
+                        <Col size="md-3">
+                            <button className="btn btn-primary">Hook</button>
+                        </Col>
+                    </Row>
+                </div>
+            </div>
+        </div>
+    </Container>
 
 );
 
