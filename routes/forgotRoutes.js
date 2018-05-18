@@ -29,7 +29,7 @@ function nodeMailer(user, token) {
     var mailOptions = {
         to: user.email,
         from: '8lternateusername@gmail.com',
-        subject: 'Node.js Password Reset',
+        subject: 'Hoook.me Password Reset',
         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
             'Please click on the following link, and use the provided token to reset your password:\n\n' +
             'Link: http://hoook.me/newpassword/ \n' +
@@ -43,6 +43,36 @@ function nodeMailer(user, token) {
         else
             console.log(info);
         req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+    });
+}
+
+
+
+function nodeMailerConfirm(user, done) {
+    console.log('forgotRoutes.js, user is ', user.email)
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: '8lternateusername@gmail.com',
+            pass: 'a7632fc207'
+        }
+    });
+    var mailOptions = {
+        to: user.email,
+        from: '8lternateusername@gmail.com',
+        subject: 'Your password has been changed for Hoook.me!',
+        text: 'Hello,\n\n' +
+            'This is a confirmation that the password for your account ' + user.email + ' on http://hoook.me has just been changed.\n\n' +
+            'Log in and enjoy your new password!\n\n' +
+            '-The Hoook.me Team'
+    };
+    transporter.sendMail(mailOptions, function (err, info) {
+        console.log("forgotRoutes.js, nodeMailer sent a password recovery CONFIRMATION email!")
+        if (err)
+            console.log(err)
+        else
+            console.log(info);
+        
     });
 }
 
@@ -131,33 +161,15 @@ module.exports = function (app) {
                             },
                             { where: { email: user.email } }
                         ).then(function () {
-                            
+                            console.log('forgotRoutes.js, Last then sees user as ', user.email)
+                            nodeMailerConfirm(user)
                             done();
                         })
                     }
                 }
                 );
             },
-            //   function(user, done) {
-            //     var smtpTransport = nodemailer.createTransport('SMTP', {
-            //       service: 'SendGrid',
-            //       auth: {
-            //         user: '!!! YOUR SENDGRID USERNAME !!!',
-            //         pass: '!!! YOUR SENDGRID PASSWORD !!!'
-            //       }
-            //     });
-            //     var mailOptions = {
-            //       to: user.email,
-            //       from: 'passwordreset@demo.com',
-            //       subject: 'Your password has been changed',
-            //       text: 'Hello,\n\n' +
-            //         'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
-            //     };
-            //     smtpTransport.sendMail(mailOptions, function(err) {
-            //       req.flash('success', 'Success! Your password has been changed.');
-            //       done(err);
-            //     });
-            //   }
+
         ], function (err) {
             res.redirect('http://hoook.me'); // or heroku link or whatevwer
         });
