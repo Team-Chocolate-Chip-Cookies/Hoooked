@@ -29,6 +29,7 @@
 
 .author {
   font-weight: 400;
+  margin-top:10px;
 }
 
 body {
@@ -135,3 +136,6 @@ body {
   margin-top:20%;
 }
 
+.delete-hook-button{
+  margin-bottom:10px;
+}
