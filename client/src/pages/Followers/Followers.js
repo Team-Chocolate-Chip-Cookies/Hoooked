@@ -12,7 +12,8 @@ import NavBar from "../../components/NavBar";
 
 class Followers extends Component {
     state = {
-        usersNames:[]
+        usersNames: [],
+        followedArr: []
     };
     handleInputChange = event => {
         // Getting the value and name of the input which triggered the change
@@ -32,16 +33,17 @@ class Followers extends Component {
                 console.log(usersData)
                 let usersNames = []
                 usersData.data.forEach((element) => {
-                    let currentUser={
-                    name:element.firstname + " " + element.lastname,
-                        id:element.id
+                    let currentUser = {
+                        name: element.firstname + " " + element.lastname,
+                        id: element.id
                     }
                     usersNames.push(currentUser)
                 })
                 this.setState({
-                    usersNames:usersNames
+                    usersNames: usersNames
                 })
                 console.log(this.state.usersNames)
+                this.allFollowUsers()
             })
             .catch((error) => {
                 if (error.response.status == 403) {
@@ -51,13 +53,54 @@ class Followers extends Component {
                 else console.log(error)
             })
     }
-    clickFollow=(thisId)=>{
+    allFollowUsers = () => {
+        API.allFollowUser()
+            .then((res) => {
+                console.log("allFollowUser then function ran in componentDidMount")
+                console.log(res)
+                console.log(res.data)
+                console.log(res.data[0].followed.id)
+                //   // const data=Object.assign({}, res.data)
+                //   // data.followed=Object.assign({},res.data.followed)
+                //   const data=res.data.map(item=>item)
+
+                this.setState({
+                    followedArr: res.data
+                })
+                console.log(this.state.followedArr)
+                console.log(this.state.followedArr[0].followed.id)
+               this.checkFollow(6)
+
+            })
+            .catch((error) => {
+                if (error && error.response.status == 403) {
+                    this.props.history.push("/")
+
+                }
+                else console.log(error)
+            })
+    }
+    checkFollow = (currentId) => {
+        console.log("current ID")
+        for (let i = 0; i < this.state.followedArr.length; i++) {
+             if (currentId === this.state.followedArr[i].followed.id) {
+                console.log(currentId + " FOLLOWING")
+                return "Unfollow"
+                break;
+            }
+    
+        }
+        return "Follow"
+    }
+
+    clickFollow = (thisId) => {
         console.log("clickFollow Ran!")
         // let followedId
         console.log(thisId)
         API.addFollow(thisId)
-            .then((res)=>{
+            .then((res) => {
                 console.log(res)
+                this.componentDidMount()
             })
             .catch((error) => {
                 if (error.response.status == 403) {
@@ -68,13 +111,14 @@ class Followers extends Component {
             })
     }
 
-    clickUNFollow=(thisId)=>{
+    clickUNFollow = (thisId) => {
         console.log("clickUNFollow Ran!")
         // let followedId
         console.log(thisId)
         API.destroyFollow(thisId)
-            .then((res)=>{
+            .then((res) => {
                 console.log(res)
+                this.componentDidMount()
             })
             .catch((error) => {
                 if (error.response.status == 403) {
@@ -84,42 +128,51 @@ class Followers extends Component {
                 else console.log(error)
             })
     }
-  
+    clickController=(followCheck,thisId)=>{
+        if (followCheck=="Unfollow"){
+            this.clickUNFollow(thisId)
+        }
+        else if (followCheck=="Follow"){
+            this.clickFollow(thisId)
+        }
+    }
+
     render() {
 
-      return (
-        <div>
-            <Container>
-            <NavBar/>
-                <br/><br/>
-                <Row>
-                    <Col size="md-12">
-                        <div className="card scrolling">
-                            <FriendSearchCard placeholder="find people to follow"/>
-                                     {this.state.usersNames.map((user, index) => (
+        return (
+            <div>
+                <Container>
+                    <NavBar />
+                    <br /><br />
+                    <Row>
+                        <Col size="md-12">
+                            <div className="card scrolling">
+                                <FriendSearchCard placeholder="find people to follow" />
+                                {this.state.usersNames.map((user, index) => (
 
-                                        <AllUserData
-                                            name={user.name}
-                                            id={user.id}
-                                            clickFollow={this.clickFollow}
-                                            clickUNFollow={this.clickUNFollow}
-                                            key={index}
-                                            index={index}
-                                        />
-                                    ))}    
-                          
-                        </div>
-                    </Col>
-                </Row><br/><br/>
-                {/* <Row>
+                                    <AllUserData
+                                        name={user.name}
+                                        id={user.id}
+                                        clickController={this.clickController}
+                                       
+                                        key={index}
+                                        index={index}
+                                    following={this.checkFollow(user.id)}
+                                    />
+                                ))}
+
+                            </div>
+                        </Col>
+                    </Row><br /><br />
+                    {/* <Row>
                     <div className="col-sm"></div>
                         <div className="col-sm">
                             <button type="button" className="btn btn-primary btn-lg btn-block">Follow</button>
                         </div>
                     <div className="col-sm"></div>
                 </Row> */}
-            </Container>
-        </div>
+                </Container>
+            </div>
 
 
 
