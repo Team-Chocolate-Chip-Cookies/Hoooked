@@ -54,6 +54,10 @@ class Login extends Component {
                     window.location.reload();
                 }
             )
+            .catch(error => {
+                console.log("catch ran")
+                window.location.reload();
+            });
     }
     newPassword=event=>{
         event.preventDefault()
