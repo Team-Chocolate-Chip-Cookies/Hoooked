@@ -61,10 +61,8 @@ export default {
     // CAN I DO THIS???
     //////////////////////////////////
     destroyFollow:(followedId)=>{
-        let UNfollowObj={
-            UNfollowed:followedId
-        }
-        return axios.delete("api/destroyFollow",UNfollowObj)
+  
+        return axios.delete("/api/destroyFollow/"+followedId)
     },
     setHook:(hookedId,title,mediaPlot,mediaPic)=>{
             let hookObj={

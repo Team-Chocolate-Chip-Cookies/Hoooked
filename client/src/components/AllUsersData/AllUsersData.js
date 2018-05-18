@@ -25,15 +25,17 @@ const AllUsersData = (props) => (
                     <Col size="md-3">
                         <button 
                             className="btn btn-primary"
-                            onClick={() => props.clickUNFollow(props.id)}>
+                            onClick={() => props.clickUNFollow(props.id) }
+                            data-toggle="modal"
+                         data-target={"#modal2"+props.index}>
                         Unfollow  <i class="far fa-thumbs-down"></i>
                         </button>
                     </Col>
                 </Row>
 
-
+            </div>
         </div>
-        {/* <div class="modal fade" id={"modal" + props.index} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         {/* <div class="modal fade" id={"modal" + props.index} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -71,11 +73,11 @@ const AllUsersData = (props) => (
                     </div>
                 </div>
             </div>
-        </div> */}
+        </div> 
+ */}
 
-
-    </div>
-    //     </div>
+   
+         </div>
     // </div>
 
 );
