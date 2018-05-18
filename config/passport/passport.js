@@ -4,7 +4,8 @@
 
 //load bcrypt
 var bCrypt = require('bcrypt-nodejs');
-console.log("Passport.js is loaded")
+var db = require("../../db/models");
+// console.log("Passport.js is loaded")
 
 module.exports = function (passport, user) {
   console.log("----Setting up Authentication----")
@@ -49,6 +50,24 @@ module.exports = function (passport, user) {
               return done(null, false);
             }
             if (newUser) {
+              // Adding a follow relationship to avoid some 0 follower bugs, this is a temp fix.... hopefully we get back to it ;)
+              console.log("NEW USER IS", newUser.id)
+              db.Follow.create({
+
+                UserId: newUser.id,
+                followedId: "1"
+
+              })
+                .then(function (dbPost) {
+                  console.log("passport.js, auto friend adding upon registration worked")
+                  // res.json(dbPost);
+                  done()
+                })
+                .catch((err) => {
+                  console.log(err)
+                  // res.status(400).send(err)
+                  done()
+                })
               return done(null, newUser);
             }
           });
@@ -80,7 +99,7 @@ module.exports = function (passport, user) {
         if (!user) {
           console.log("passport.js, There is NO SUCH USER (email)!") // Not sure this is working
           return done(null, false, { message: 'Email does not exist' });
-          
+
         }
 
         if (!isValidPassword(user.password, password)) {
@@ -106,7 +125,7 @@ module.exports = function (passport, user) {
     }
   ));
 
-  
+
   passport.serializeUser(function (user, done) {
     done(null, user.id);
   });
