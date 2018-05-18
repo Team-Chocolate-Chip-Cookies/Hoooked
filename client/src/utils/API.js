@@ -57,9 +57,7 @@ export default {
     allFollowUser:()=>{
         return axios.get("/api/allFollowUser/")
     },
-    //////////////////////////////////
-    // CAN I DO THIS???
-    //////////////////////////////////
+   
     destroyFollow:(followedId)=>{
   
         return axios.delete("/api/destroyFollow/"+followedId)
@@ -103,5 +101,8 @@ export default {
             password:password
         }
         return axios.put("/api/reset/",passwordObj)
+    },
+    deleteHook:(hookId)=>{
+        return axios.delete("/api/deletehook/"+hookId)
     }
 }

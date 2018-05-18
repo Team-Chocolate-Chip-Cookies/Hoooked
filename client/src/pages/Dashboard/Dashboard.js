@@ -81,7 +81,22 @@ class Dashboard extends Component {
         else console.log(error)
       })
   }
+  deleteHook=(hookId)=>{
+    console.log("deleteHook ran!")
+    console.log(this.state.hookData)
+    API.deleteHook(hookId)
+      .then((result) => {
+        console.log(result)
+        this.componentDidMount()
+      })
+      .catch((error) => {
+        if (error.response.status == 403) {
+          this.props.history.push("/")
 
+        }
+        else console.log(error)
+      })
+  }
   render() {
     return (
 
@@ -121,13 +136,13 @@ class Dashboard extends Component {
               {this.state.hookData.map((data, index) => (
 
                 <div key={index}>
-               {<p></p>}
+           
                   <p className="author"> {data.hooker.firstname} {data.hooker.lastname} Hoooked You On:</p>
                   <img src={data.mediaPic} />
                   <p>{data.title}</p>
-                  
-                  {/* <p>{data.name}</p>
-              <p>{data.name}</p> */}
+                  <button className="btn btn-lg btn-primary btn-outline-secondary"
+                  onClick={() => this.deleteHook(data.id)}
+                  >Clear Hook</button>
               
                 </div>
                 
