@@ -32,7 +32,7 @@ function nodeMailer(user, token) {
         subject: 'Hoook.me Password Reset',
         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
             'Please click on the following link, and use the provided token to reset your password:\n\n' +
-            'Link: http://hoook.me/newpassword/ \n' +
+            'Link: http://www.hoook.me/newpassword/ \n' +
             'Token: ' + token + '\n\n' +
             'If you did not request this, please ignore this email and your password will remain unchanged.\n'
     };

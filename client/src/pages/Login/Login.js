@@ -63,6 +63,16 @@ class Login extends Component {
         event.preventDefault()
         console.log(this.state.newPasswordEmail)
         API.newPassword(this.state.newPasswordEmail)
+        .then(
+            () => {
+                console.log("register")
+                window.location.reload();
+            }
+        )
+        .catch(error => {
+            console.log("catch ran")
+            window.location.reload();
+        });
         // .then(
         //     (data) => {
         //         window.location.reload();
