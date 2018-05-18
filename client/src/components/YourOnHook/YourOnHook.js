@@ -10,7 +10,7 @@ const YourOnHook = (props) => (
     <div className="container">
 
         <div className="card scrolling">
-            <div className="card-body" id="ctitle"> 
+            <div className="card-body" id="c1title"> 
                 {/* here's where the challenger's name goes */}
                 { <p className="card-title">You're on the Hoook</p>}
 
@@ -28,7 +28,7 @@ const YourOnHook = (props) => (
 
                 {/* here's where the "X" goes to decline a challenge */}
                 {/* <button type="button" className="btn btn-info">X</button> */} 
-
+               
             </div>
             {/* <hr /> */}
     
