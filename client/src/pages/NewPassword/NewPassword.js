@@ -40,12 +40,16 @@ class Login extends Component {
         return (
             <Container>
             <Row>
-                {/* <Col> */}
-               Token <input type="text" name="token" onChange={this.handleInputChange}/>
+            <div className="col-md-12">
+                <div className="text-center new-password-div">
+               
+               Token <input className="new-password-input1" type="text" name="token" onChange={this.handleInputChange}/>
                 New Password <input type="text" name="password" onChange={this.handleInputChange}/>
                 <br></br>
+                <br></br>
                 <button className="btn btn-primary" onClick={this.resetPassword} >New Password</button>
-                {/* </Col> */}
+               </div>
+                </div>
                 </Row>
             </Container>
         )

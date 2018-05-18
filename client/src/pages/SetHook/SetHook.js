@@ -224,6 +224,9 @@ class SetHook extends Component {
     API.foreign(this.state.search, path)
       .then((res,error) => {
         console.log(res)
+        this.setState({
+          search:""
+        })
         switch (path) {
           case "/sethook/tv":
           let TVElementArray=[]
@@ -363,6 +366,7 @@ class SetHook extends Component {
                         handleInputChange={this.handleInputChange}
                         clickSearch={this.clickSearch}
                         placeholder="TV Show Title"
+                        search={this.state.search}
                     />
 
                       {this.state.TVData.map((data, index) => (
@@ -370,6 +374,7 @@ class SetHook extends Component {
                     <ApiDataTV
                       name={data.name}
                       // id={image.id}
+                      
                       key={index}
                       overview={data.overview}
                       popularity={data.popularity}
@@ -427,6 +432,7 @@ stateKey="followerOpenSection"
                         handleInputChange={this.handleInputChange}
                         clickSearch={this.clickSearch}
                         placeholder="Movie Title"
+                        search={this.state.search}
                     />
 
                       {this.state.movieData.map((data, index) => (
@@ -491,6 +497,7 @@ stateKey="followerOpenSection"
                         handleInputChange={this.handleInputChange}
                         clickSearch={this.clickSearch}
                         placeholder="Game Title"
+                        search={this.state.search}
                     />
 
                   {this.state.gameData.map((data, index) => (
@@ -557,6 +564,7 @@ stateKey="followerOpenSection"
                         handleInputChange={this.handleInputChange}
                         clickSearch={this.clickSearch}
                         placeholder="Book Title"
+                        search={this.state.search}
                     />
 
                       {this.state.bookData.map((data, index) => (
@@ -620,6 +628,7 @@ stateKey="followerOpenSection"
                         handleInputChange={this.handleInputChange}
                         clickSearch={this.clickSearch}
                         placeholder="Song Title"
+                        search={this.state.search}
                     />
 
                   {this.state.musicData.map((data, index) => (
