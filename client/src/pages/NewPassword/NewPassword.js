@@ -35,6 +35,11 @@ class Login extends Component {
             (data) => {
                 this.props.history.push("/")
             })
+      
+            .catch(error => {
+                console.log("catch ran")
+                this.props.history.push("/")
+            });
     }
     render() {
         return (
@@ -44,7 +49,7 @@ class Login extends Component {
                 <div className="text-center new-password-div">
                
                Token <input className="new-password-input1" type="text" name="token" onChange={this.handleInputChange}/>
-                New Password <input type="text" name="password" onChange={this.handleInputChange}/>
+                New Password <input type="password" name="password" onChange={this.handleInputChange}/>
                 <br></br>
                 <br></br>
                 <button className="btn btn-primary" onClick={this.resetPassword} >New Password</button>
