@@ -104,6 +104,7 @@ class Followers extends Component {
                                             clickFollow={this.clickFollow}
                                             clickUNFollow={this.clickUNFollow}
                                             key={index}
+                                            index={index}
                                         />
                                     ))}    
                           
