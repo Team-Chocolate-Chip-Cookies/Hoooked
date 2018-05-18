@@ -28,6 +28,23 @@ module.exports = function (app) {
                 res.json(dbPost);
             });
     });
+        
+    // Delete a hook
+    app.delete("/api/deletehook/:id", isLoggedIn, function (req, res) {
+        console.log("req.user.id:")
+        console.log(req.user.id)
+        console.log("req.params.id")
+        console.log(req.params.id)
+        db.Hook.destroy({
+            where: {
+                // hookedId: req.user.id
+                id:req.params.id
+            }, include: [{ model: db.User, as: "hooker" }]
+        })
+            .then(function (dbPost) {
+                res.json(dbPost);
+            });
+    });
     // This is a list of hooks a user has sent
     app.get("/api/sentHooks/", isLoggedIn, function (req, res) {
         console.log("req.user.id:")
