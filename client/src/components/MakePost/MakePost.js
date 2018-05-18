@@ -5,10 +5,10 @@ const MakePost = (props) => (
     <div>
             <br></br>
 
-            <input className="form-control center posts" type="text" name="title"  onChange={props.handleInputChange} placeholder="Title"/>
+            <input className="form-control center posts" type="text" name="title"  onChange={props.handleInputChange} value={props.valueTitle} placeholder="Title"/>
             <br></br>
              
-            <textarea className="form-control center posts" name="body"  onChange={props.handleInputChange} placeholder="Comments"/>
+            <textarea className="form-control center posts" name="body"  onChange={props.handleInputChange}  value={props.valueBody} placeholder="Comments"/>
 
             <br></br>
             <button className="btn btn-lg btn-primary btn-outline-secondary" onClick={() => props.clickPost()}>Post</button>

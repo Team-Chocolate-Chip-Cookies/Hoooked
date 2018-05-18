@@ -49,7 +49,8 @@ class Login extends Component {
         console.log("RAN")
         API.signUp(this.state.SUfirstName, this.state.SUlastName, this.state.SUemail, this.state.SUpassword)
             .then(
-                (data) => {
+                () => {
+                    console.log("signup passed")
                     window.location.reload();
                 }
             )
