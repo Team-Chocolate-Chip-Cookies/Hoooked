@@ -15,7 +15,7 @@ const AllUsersData = (props) => (
             <button className="btn btn-primary" data-toggle="modal" data-target={"#modal2" + props.index}>Unfollow</button>
 
         </div>
-        <div class="modal fade" id={"modal" + props.index} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        {/* <div class="modal fade" id={"modal" + props.index} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -53,7 +53,7 @@ const AllUsersData = (props) => (
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */}
 
 
     </div>
