@@ -13,7 +13,8 @@ class Login extends Component {
         SUfirstName: "",
         SUlastName: "",
         SUemail: "",
-        SUpassword: ""
+        SUpassword: "",
+        newPasswordEmail:""
 
     };
     componentDidMount() {
@@ -52,7 +53,15 @@ class Login extends Component {
                     window.location.reload();
                 }
             )
-
+    }
+    newPassword=event=>{
+        event.preventDefault()
+        console.log(this.state.newPasswordEmail)
+        API.newPassword(this.state.newPasswordEmail)
+        // .then(
+        //     (data) => {
+        //         window.location.reload();
+        //     }
     }
     render() {
         return (
@@ -121,9 +130,11 @@ class Login extends Component {
                         {/* <!-- Button trigger modal --> */}
                         <button type="button" className="btn btn-primary btn-lg loginBtn" data-toggle="modal" data-target="#exampleModalLong">
                             New User - Get Hoooked!
-                </button>
+                        </button>
                         <br></br>
-                        
+                        <div className="text-center">
+                        <button className="btn btn-primary" data-toggle="modal" data-target="#newpassword" >Forgot Password?</button>
+                        </div>
                     </div>
 
 
@@ -183,6 +194,29 @@ class Login extends Component {
                                         />
                                     </div>
                                     <button type="submit" onClick={this.clickSignUp} className="btn btn-primary">Register</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* New password modal */}
+                <div className="modal fade" id="newpassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                {/* <h5 className="modal-title" id="exampleModalLongTitle">Register</h5> */}
+                                <form className="loginModalForm">
+                                    <div className="form-group">
+                                        <label for="formGroupExampleInput">Email</label>
+                                        <input type="text"
+                                            className="form-control"
+                                            id="formGroupExampleInput"
+                                            // placeholder="first name"
+                                            onChange={this.handleInputChange}
+                                            name="newPasswordEmail"
+                                        />
+                                    </div>
+                                    <button type="submit" onClick={this.newPassword} className="btn btn-primary">Get New Password</button>
                                 </form>
                             </div>
                         </div>

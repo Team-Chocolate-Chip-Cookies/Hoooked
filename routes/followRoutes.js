@@ -43,14 +43,16 @@ module.exports = function (app) {
             })
     });
     // Unfollow another user route
-    app.delete("/api/destoryFollow", isLoggedIn, function (req, res) {
+    app.delete("/api/destroyFollow/:followed", isLoggedIn, function (req, res) {
         db.Follow.destroy({
             where: {
                 UserId: req.user.id,
-                followedId: req.body.followed  // Just need to send this to us
+                followedId: req.params.followed  // Just need to send this to us
             }
         })
             .then(function (dbPost) {
+                console.log("req.body:")
+                console.log(req.body)
                 res.json(dbPost);
             });
     });

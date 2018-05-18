@@ -57,6 +57,13 @@ export default {
     allFollowUser:()=>{
         return axios.get("/api/allFollowUser/")
     },
+    //////////////////////////////////
+    // CAN I DO THIS???
+    //////////////////////////////////
+    destroyFollow:(followedId)=>{
+  
+        return axios.delete("/api/destroyFollow/"+followedId)
+    },
     setHook:(hookedId,title,mediaPlot,mediaPic)=>{
             let hookObj={
                 hookedId:hookedId,
@@ -81,6 +88,20 @@ export default {
         return axios.get("/api/allPosts/")
     },
     signOut:()=>{
-        return axios('/logout')
+        return axios.get('/logout')
+    },
+    newPassword:(email)=>{
+        let emailObj={
+            email:email
+        }
+        return axios.post("/api/forgot",emailObj)
+    },
+    resetPassword:(token,password)=>{
+        console.log("reset api call ran!")
+        let passwordObj={
+            token:token,
+            password:password
+        }
+        return axios.put("/api/reset/",passwordObj)
     }
 }

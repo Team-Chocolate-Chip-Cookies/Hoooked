@@ -13,6 +13,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "../../utils/API";
 import ChangeMediaPulldown from "../../components/ChangeMediaPulldown";
 import Button from "../../components/Button";
+import Button2 from "../../components/Button2";
+
 import FriendSearchCard from "../../components/FriendSearchCard";
 import FollowedData from "../../components/FollowedData"
 import { withRouter } from "react-router-dom";
@@ -222,6 +224,9 @@ class SetHook extends Component {
     API.foreign(this.state.search, path)
       .then((res,error) => {
         console.log(res)
+        this.setState({
+          search:""
+        })
         switch (path) {
           case "/sethook/tv":
           let TVElementArray=[]
@@ -361,6 +366,7 @@ class SetHook extends Component {
                         handleInputChange={this.handleInputChange}
                         clickSearch={this.clickSearch}
                         placeholder="TV Show Title"
+                        search={this.state.search}
                     />
 
                       {this.state.TVData.map((data, index) => (
@@ -368,6 +374,7 @@ class SetHook extends Component {
                     <ApiDataTV
                       name={data.name}
                       // id={image.id}
+                      
                       key={index}
                       overview={data.overview}
                       popularity={data.popularity}
@@ -425,6 +432,7 @@ stateKey="followerOpenSection"
                         handleInputChange={this.handleInputChange}
                         clickSearch={this.clickSearch}
                         placeholder="Movie Title"
+                        search={this.state.search}
                     />
 
                       {this.state.movieData.map((data, index) => (
@@ -489,6 +497,7 @@ stateKey="followerOpenSection"
                         handleInputChange={this.handleInputChange}
                         clickSearch={this.clickSearch}
                         placeholder="Game Title"
+                        search={this.state.search}
                     />
 
                   {this.state.gameData.map((data, index) => (
@@ -555,6 +564,7 @@ stateKey="followerOpenSection"
                         handleInputChange={this.handleInputChange}
                         clickSearch={this.clickSearch}
                         placeholder="Book Title"
+                        search={this.state.search}
                     />
 
                       {this.state.bookData.map((data, index) => (
@@ -618,6 +628,7 @@ stateKey="followerOpenSection"
                         handleInputChange={this.handleInputChange}
                         clickSearch={this.clickSearch}
                         placeholder="Song Title"
+                        search={this.state.search}
                     />
 
                   {this.state.musicData.map((data, index) => (
@@ -677,9 +688,10 @@ stateKey="followerOpenSection"
         
           <Row>
             <Col size="md-12" className = "text-center">
-              <Button onClick={() => this.clickSetHook()}>
+              <Button2 onClick={() => this.clickSetHook()}
+              >
                 SET HOOK
-              </Button>
+              </Button2>
             </Col>
           </Row>
         </Container>

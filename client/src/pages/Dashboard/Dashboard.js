@@ -50,7 +50,9 @@ class Dashboard extends Component {
       .then((postData) => {
         console.log(postData)
         this.setState({
-          postData: postData.data
+          postData: postData.data.reverse(),
+          title:"",
+          body:""
         })
         console.log(this.state.postData)
       })
@@ -69,6 +71,7 @@ class Dashboard extends Component {
     API.displayHooks()
       .then((result) => {
         console.log(result)
+        this.componentDidMount()
       })
       .catch((error) => {
         if (error.response.status == 403) {
@@ -94,6 +97,8 @@ class Dashboard extends Component {
               <MakePost
                 handleInputChange={this.handleInputChange}
                 clickPost={this.clickPost}
+                valueTitle= {this.state.title}
+                valueBody= {this.state.body}
               />
               {this.state.postData.map((data, index) => (
 
@@ -112,7 +117,7 @@ class Dashboard extends Component {
           <Col size="md-5">
       
             <YourOnHook >
-
+              <div className="card">
               {this.state.hookData.map((data, index) => (
 
                 <div key={index}>
@@ -127,6 +132,7 @@ class Dashboard extends Component {
                 </div>
                 
               ))}
+              </div>
             </YourOnHook>
           </Col>
 

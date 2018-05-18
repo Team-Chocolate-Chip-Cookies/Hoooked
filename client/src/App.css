@@ -32,9 +32,9 @@
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 550;
   /* line-height: 34px; */
   /* color: #777; */
   background-image: url("./images/background2.jpg");
@@ -127,6 +127,11 @@ body {
 .scrolling, .navbar{
   opacity: 0.9;
 }
+.new-password-input1{
+  margin-right:10px
+}
 
-
+.new-password-div{
+  margin-top:20%;
+}
 
