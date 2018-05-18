@@ -101,8 +101,8 @@ class Dashboard extends Component {
 
                   <h3><b> {data.title}</b></h3>
                   <p>{data.body}</p>
-                  <p>Posted by {data.poster.firstname} {data.poster.lastname}</p>
-                  <hr />
+                  <p className="author">Posted by {data.poster.firstname} {data.poster.lastname}</p>
+                  <hr></hr>
 
                 </div>
               ))}
@@ -116,14 +116,16 @@ class Dashboard extends Component {
               {this.state.hookData.map((data, index) => (
 
                 <div key={index}>
-
-                  <p> {data.hooker.firstname} {data.hooker.lastname} Hoooked You!</p>
+               {<p></p>}
+                  <p className="author"> {data.hooker.firstname} {data.hooker.lastname} Hoooked You On:</p>
                   <img src={data.mediaPic} />
                   <p>{data.title}</p>
-
+                  
                   {/* <p>{data.name}</p>
               <p>{data.name}</p> */}
+              
                 </div>
+                
               ))}
             </YourOnHook>
           </Col>
