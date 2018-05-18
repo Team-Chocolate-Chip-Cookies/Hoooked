@@ -17,6 +17,7 @@ export const SearchForm = props => (
                     <Row>
                         <Col size="md-8">
                             <Input
+                                onKeyPress={props.onKeyPress}
                                 placeholder={props.placeholder}
                                 type="text"
                                 name="search"
