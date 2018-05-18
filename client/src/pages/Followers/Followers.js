@@ -86,6 +86,7 @@ class Followers extends Component {
                                             id={user.id}
                                             clickFollow={this.clickFollow}
                                             key={index}
+                                            index={index}
                                         />
                                     ))}    
                           
