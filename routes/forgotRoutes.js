@@ -42,7 +42,7 @@ function nodeMailer(user, token) {
             console.log(err)
         else
             console.log(info);
-        req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+        
     });
 }
 
@@ -96,7 +96,7 @@ module.exports = function (app) {
                     // console.log("forgotRoutes.js found user", user)
                     if (!user) {
                         console.log("forgotRoutes.js, Did not find a user");
-                        req.flash('error', 'No account with that email address exists.');
+                        // req.flash('error', 'No account with that email address exists.');
                     } else {
                         // console.log("forgotRoutes.js, looking for user ", req.body.email)
                         db.User.update(
