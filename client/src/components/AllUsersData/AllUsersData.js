@@ -9,28 +9,21 @@ const AllUsersData = (props) => (
         <div className="card">
             <div className="card-body">
                 <Row>
-                    <Col size="md-3">
+                    <Col size="md-4">
                         <i class="fas fa-user fa-3x"></i>
                     </Col>
-                    <Col size="md-3">
-                        <p>{props.name} {props.following}</p>
+                    <Col size="md-4">
+                        <p>{props.name} </p>
                     </Col>
-                    <Col size="md-3">
+                    <Col size="md-4">
                         <button
                             className="btn btn-primary"
-                            onClick={() => props.clickFollow(props.id)}>
-                            Follow  <i class="far fa-thumbs-up"></i>
+                            onClick={() => props.clickController(props.following,props.id)}>
+                            {props.following}  <i className={props.following=="Follow" ? "far fa-thumbs-up" : "far fa-thumbs-down"}></i>
+                            {/* {props.following}  <i className="far fa-thumbs-up"></i> */}
                         </button>
                     </Col>
-                    <Col size="md-3">
-                        <button 
-                            className="btn btn-primary"
-                            onClick={() => props.clickUNFollow(props.id) }
-                            data-toggle="modal"
-                         data-target={"#modal2"+props.index}>
-                        Unfollow  <i class="far fa-thumbs-down"></i>
-                        </button>
-                    </Col>
+              
                 </Row>
 
             </div>

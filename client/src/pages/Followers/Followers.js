@@ -69,7 +69,7 @@ class Followers extends Component {
                 })
                 console.log(this.state.followedArr)
                 console.log(this.state.followedArr[0].followed.id)
-               
+               this.checkFollow(6)
 
             })
             .catch((error) => {
@@ -82,16 +82,15 @@ class Followers extends Component {
     }
     checkFollow = (currentId) => {
         console.log("current ID")
-        for (let i = 0; i = this.state.followedArr.length; i++) {
-            if(i===this.state.followedArr.length){
-                return "Follow"
-            }
-            else if (currentId === this.state.followedArr[i].followed.id) {
-                console.log(currentId + " followed")
+        for (let i = 0; i < this.state.followedArr.length; i++) {
+             if (currentId === this.state.followedArr[i].followed.id) {
+                console.log(currentId + " FOLLOWING")
                 return "Unfollow"
+                break;
             }
-            console.log(currentId + " NOT FOLLOWED")
+    
         }
+        return "Follow"
     }
 
     clickFollow = (thisId) => {
@@ -101,6 +100,7 @@ class Followers extends Component {
         API.addFollow(thisId)
             .then((res) => {
                 console.log(res)
+                this.componentDidMount()
             })
             .catch((error) => {
                 if (error.response.status == 403) {
@@ -118,6 +118,7 @@ class Followers extends Component {
         API.destroyFollow(thisId)
             .then((res) => {
                 console.log(res)
+                this.componentDidMount()
             })
             .catch((error) => {
                 if (error.response.status == 403) {
@@ -127,7 +128,14 @@ class Followers extends Component {
                 else console.log(error)
             })
     }
-
+    clickController=(followCheck,thisId)=>{
+        if (followCheck=="Unfollow"){
+            this.clickUNFollow(thisId)
+        }
+        else if (followCheck=="Follow"){
+            this.clickFollow(thisId)
+        }
+    }
 
     render() {
 
@@ -145,8 +153,8 @@ class Followers extends Component {
                                     <AllUserData
                                         name={user.name}
                                         id={user.id}
-                                        clickFollow={this.clickFollow}
-                                        clickUNFollow={this.clickUNFollow}
+                                        clickController={this.clickController}
+                                       
                                         key={index}
                                         index={index}
                                     following={this.checkFollow(user.id)}
