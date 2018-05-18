@@ -132,22 +132,22 @@ class Dashboard extends Component {
           <Col size="md-5">
       
             <YourOnHook >
-              <div className="card">
+              <div>
               {this.state.hookData.map((data, index) => (
-
+                <div className="card">
                 <div key={index}>
            
                   <p className="author"> {data.hooker.firstname} {data.hooker.lastname} Hoooked You On:</p>
                   <img src={data.mediaPic} />
                   <p>{data.title}</p>
-                  <button className="btn btn-lg btn-primary btn-outline-secondary"
+                  <button className="btn btn-lg btn-primary btn-outline-secondary delete-hook-button"
                   onClick={() => this.deleteHook(data.id)}
                   >Clear Hook</button>
               
                 </div>
-                
+                </div>
               ))}
-              </div>
+             </div>
             </YourOnHook>
           </Col>
 
