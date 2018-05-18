@@ -65,7 +65,12 @@ class SetHook extends Component {
       [name]: value
     });
   };
-
+  _handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      console.log('do validate');
+      this.clickSearch()
+    }
+  }
   componentDidMount() {
     API.allFollowUser()
     .then((res)=>{
@@ -367,6 +372,7 @@ class SetHook extends Component {
                         clickSearch={this.clickSearch}
                         placeholder="TV Show Title"
                         search={this.state.search}
+                        onKeyPress={this._handleKeyPress}
                     />
 
                       {this.state.TVData.map((data, index) => (
@@ -433,6 +439,7 @@ stateKey="followerOpenSection"
                         clickSearch={this.clickSearch}
                         placeholder="Movie Title"
                         search={this.state.search}
+                        onKeyPress={this._handleKeyPress}
                     />
 
                       {this.state.movieData.map((data, index) => (
@@ -498,6 +505,7 @@ stateKey="followerOpenSection"
                         clickSearch={this.clickSearch}
                         placeholder="Game Title"
                         search={this.state.search}
+                        onKeyPress={this._handleKeyPress}
                     />
 
                   {this.state.gameData.map((data, index) => (
@@ -565,6 +573,7 @@ stateKey="followerOpenSection"
                         clickSearch={this.clickSearch}
                         placeholder="Book Title"
                         search={this.state.search}
+                        onKeyPress={this._handleKeyPress}
                     />
 
                       {this.state.bookData.map((data, index) => (
@@ -629,6 +638,7 @@ stateKey="followerOpenSection"
                         clickSearch={this.clickSearch}
                         placeholder="Song Title"
                         search={this.state.search}
+                        onKeyPress={this._handleKeyPress}
                     />
 
                   {this.state.musicData.map((data, index) => (
