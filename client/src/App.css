@@ -110,6 +110,11 @@ line-height: 45px;
 .scrolling, .navbar{
   opacity: 0.9;
 }
+.new-password-input1{
+  margin-right:10px
+}
 
-
+.new-password-div{
+  margin-top:20%;
+}
 

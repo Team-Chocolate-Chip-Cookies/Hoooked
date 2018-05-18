@@ -22,6 +22,7 @@ export const SearchForm = props => (
                                 name="search"
                                 // value={this.state.search}
                                 onChange={props.handleInputChange}
+                                value={props.search}
                             />
                         </Col>
                         <Col size="md-4">
