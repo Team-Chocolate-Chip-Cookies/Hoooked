@@ -57,6 +57,15 @@ export default {
     allFollowUser:()=>{
         return axios.get("/api/allFollowUser/")
     },
+    //////////////////////////////////
+    // CAN I DO THIS???
+    //////////////////////////////////
+    destroyFollow:(followedId)=>{
+        let UNfollowObj={
+            UNfollowed:followedId
+        }
+        return axios.delete("api/destroyFollow",UNfollowObj)
+    },
     setHook:(hookedId,title,mediaPlot,mediaPic)=>{
             let hookObj={
                 hookedId:hookedId,

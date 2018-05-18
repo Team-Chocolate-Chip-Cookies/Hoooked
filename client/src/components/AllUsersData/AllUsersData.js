@@ -5,14 +5,32 @@ import { Col, Row, Container } from "../../components/Grid";
 const AllUsersData = (props) => (
 
     <div>
-        <div className="card-body">
-            <p>{props.name}</p>
-            <button
-                className="btn btn-primary" data-toggle="modal" data-target={"#modal" + props.index}
-                onClick={() => props.clickFollow(props.id)}>
-                Follow
-        </button>
-            <button className="btn btn-primary" data-toggle="modal" data-target={"#modal2" + props.index}>Unfollow</button>
+
+        <div className="card">
+            <div className="card-body">
+                <Row>
+                    <Col size="md-3">
+                        <i class="fas fa-user fa-3x"></i>
+                    </Col>
+                    <Col size="md-3">
+                        <p>{props.name}</p>
+                    </Col>
+                    <Col size="md-3">
+                        <button
+                            className="btn btn-primary"
+                            onClick={() => props.clickFollow(props.id)}>
+                            Follow  <i class="far fa-thumbs-up"></i>
+                        </button>
+                    </Col>
+                    <Col size="md-3">
+                        <button 
+                            className="btn btn-primary"
+                            onClick={() => props.clickUNFollow(props.id)}>
+                        Unfollow  <i class="far fa-thumbs-down"></i>
+                        </button>
+                    </Col>
+                </Row>
+
 
         </div>
         {/* <div class="modal fade" id={"modal" + props.index} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

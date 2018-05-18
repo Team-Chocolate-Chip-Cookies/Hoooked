@@ -67,6 +67,23 @@ class Followers extends Component {
                 else console.log(error)
             })
     }
+
+    clickUNFollow=(thisId)=>{
+        console.log("clickUNFollow Ran!")
+        // let followedId
+        console.log(thisId)
+        API.destroyFollow(thisId)
+            .then((res)=>{
+                console.log(res)
+            })
+            .catch((error) => {
+                if (error.response.status == 403) {
+                    this.props.history.push("/")
+
+                }
+                else console.log(error)
+            })
+    }
   
     render() {
 
@@ -85,6 +102,7 @@ class Followers extends Component {
                                             name={user.name}
                                             id={user.id}
                                             clickFollow={this.clickFollow}
+                                            clickUNFollow={this.clickUNFollow}
                                             key={index}
                                             index={index}
                                         />
