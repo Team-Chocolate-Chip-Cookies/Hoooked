@@ -1,14 +1,18 @@
 import React from "react";
 import "./YourOnHook.css";
+import { Col, Row, Container } from "../../components/Grid";
+
 
 
 const YourOnHook = (props) => (
+
+<div>
     <div className="container">
 
         <div className="card scrolling">
-            {/* <div className="card-body"> */}
+            <div className="card-body" id="ctitle"> 
                 {/* here's where the challenger's name goes */}
-                {/* <p className="card-title">You're on the Hoook</p> */}
+                { <p className="card-title">You're on the Hoook</p>}
 
                 {/* here's where the name goes */}
                   {}
@@ -25,15 +29,19 @@ const YourOnHook = (props) => (
                 {/* here's where the "X" goes to decline a challenge */}
                 {/* <button type="button" className="btn btn-info">X</button> */} 
 
-            {/* </div> */}
+            </div>
             {/* <hr /> */}
+    
             {props.children}
+ 
+
         </div>
 
 
 
 
     </div>
+</div>
 );
 
 export default YourOnHook;

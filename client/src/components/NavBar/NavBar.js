@@ -4,6 +4,7 @@ import "./NavBar.css";
 import logo from "../../images/logo2.png";
 import peopleLogo from "../../images/peopleIcon.png"
 import logoutLogo from "../../images/logout.png"
+import SetHook from "../../components/SetHook";
 
 
 const Navbar = (props) => (
@@ -17,19 +18,19 @@ const Navbar = (props) => (
                     <img id="logo" src = {logo} alt = "logo" id = "navlogo"/>
             </Link>
             <div>
-            
+            <SetHook />
             </div>
             <div>
             
             </div>
-            <div 
+            {/* <div 
                 // to="/score"
                 // className={
                 //     window.location.pathname === "/score" ? "nav-link active" : "nav-link"
                 //   }
             >
                 Score :00
-            </div>
+            </div> */}
             <div>
             
             </div>
@@ -40,16 +41,13 @@ const Navbar = (props) => (
                 <img id="peoplelogo" src = {peopleLogo} alt = "Link to Followers Page" id = "peoplelogo"/>
             </Link>
             
-        
-            <div
-                // to="/Logoout"
-                // className={
-                //     window.location.pathname === "/logout" ? "nav-link active" : "nav-link"
-                //   }
-            >
+            <Link
+            to="/"
+            className={
+            window.location.pathname === "/followers" ? "nav-link active" : "nav-link"}>
                 <img id="logoutLogo" src = {logoutLogo} alt = "logo" id = "logoutlogo"/>
-            </div>
             
+            </Link>
         </nav>
     </div>
 );

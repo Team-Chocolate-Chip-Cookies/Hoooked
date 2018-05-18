@@ -24,21 +24,25 @@
    
         "database": "",
    
-        "host": "",
+       
    
         "dialect": "mysql"
    
     },
    
     "production": {
+
+        "username": "ial4rg72y3f7b0vg",
+
+        "password": "poabh11db8kksssb",
+
+        "database": "ihw5y9gb28gcn290",
+
+        "host": "wm63be5w8m7gs25a.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+
+        "port": "3306",
    
-        "username": "",
-   
-        "password": null,
-   
-        "database": "",
-   
-        "host": "127.0.0.1",
+        "use_env_variable":"JawsDB_URL",
    
         "dialect": "mysql"
    

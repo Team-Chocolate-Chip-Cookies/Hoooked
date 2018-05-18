@@ -79,5 +79,22 @@ export default {
     },
     getPosts:()=>{
         return axios.get("/api/allPosts/")
+    },
+    signOut:()=>{
+        return axios.get('/logout')
+    },
+    newPassword:(email)=>{
+        let emailObj={
+            email:email
+        }
+        return axios.post("/api/forgot",emailObj)
+    },
+    resetPassword:(token,password)=>{
+        console.log("reset api call ran!")
+        let passwordObj={
+            token:token,
+            password:password
+        }
+        return axios.put("/api/reset/",passwordObj)
     }
 }

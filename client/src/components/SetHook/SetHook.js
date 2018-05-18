@@ -9,7 +9,7 @@ const SetHook = (props) => (
         // <div className="card">
         //     <div className="card-body">
             <div>
-                <span className="card-title">Set Hoooks</span>
+                {/* <span className="card-title">Set Hoooks</span> */}
                 <div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                 <Link
                 to="/sethook/movie"

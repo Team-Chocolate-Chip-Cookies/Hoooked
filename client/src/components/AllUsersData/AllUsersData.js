@@ -1,8 +1,9 @@
 import React from "react";
 import "./AllUsersData.css";
-
+import { Col, Row, Container } from "../../components/Grid";
 
 const AllUsersData = (props) => (
+
 
     <div className="card-body">
         <p>{props.name}</p>
@@ -51,9 +52,10 @@ const AllUsersData = (props) => (
         </div>
         </div>
 
-        <hr />
-    </div>
 
+            </div>
+        </div>
+    </div>
 
 );
 

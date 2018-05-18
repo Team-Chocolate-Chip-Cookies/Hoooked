@@ -17,7 +17,7 @@ import Input from "./components/Input";
 import Button from "./components/Button";
 import SearchCard from "./components/SearchCard";
 import FriendSearchCard from "./components/FriendSearchCard";
-
+import NewPassword from "./pages/NewPassword"
 
 
 
@@ -30,7 +30,7 @@ const App = () => (
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/followers" component={Followers} />
         <Route path="/sethook" component={SetHook} />
-
+        <Route path="/newpassword" component={NewPassword} />
         {/* <Route component={NoMatch} /> */}
       </Switch>
       <br/><br/>

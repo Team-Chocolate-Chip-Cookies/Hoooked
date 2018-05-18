@@ -319,6 +319,7 @@ class SetHook extends Component {
             break;
           default:
             console.log("ERROR IN API RETURN SWITCH CASE")
+            
         }
       })
       .catch((error)=>{
@@ -340,14 +341,14 @@ class SetHook extends Component {
         <br></br>
        
 
-          change media button
-          <Row>
+          
+          {/* <Row>
             <Col size="md-12">
             <div className="text-center">
               <ChangeMediaPulldown className="text-center"/> 
               </div>
             </Col>
-          </Row>
+          </Row> */}
           <br></br>
 
 
