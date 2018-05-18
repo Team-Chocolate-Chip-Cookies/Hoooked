@@ -22,13 +22,13 @@ function nodeMailer(user, token) {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: '8lternateusername@gmail.com',
-            pass: 'a7632fc207'
+            user: 'Hoookmallnow@gmail.com',
+            pass: 'Cy0s3Ug3R7S9KGrmK91o'
         }
     });
     var mailOptions = {
         to: user.email,
-        from: '8lternateusername@gmail.com',
+        from: 'Hoookmallnow@gmail.com',
         subject: 'Hoook.me Password Reset',
         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
             'Please click on the following link, and use the provided token to reset your password:\n\n' +
@@ -53,13 +53,13 @@ function nodeMailerConfirm(user, done) {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: '8lternateusername@gmail.com',
-            pass: 'a7632fc207'
+            user: 'Hoookmallnow@gmail.com',
+            pass: 'Cy0s3Ug3R7S9KGrmK91o'
         }
     });
     var mailOptions = {
         to: user.email,
-        from: '8lternateusername@gmail.com',
+        from: 'Hoookmallnow@gmail.com',
         subject: 'Your password has been changed for Hoook.me!',
         text: 'Hello,\n\n' +
             'This is a confirmation that the password for your account ' + user.email + ' on http://hoook.me has just been changed.\n\n' +
