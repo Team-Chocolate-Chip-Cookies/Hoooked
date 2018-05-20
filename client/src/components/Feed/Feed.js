@@ -6,9 +6,9 @@ const Feed = (props) => (
     <div className="container">
 
 
-        <div class="card scrolling">
-        <div className="card-body" id="ctitle"> 
-        <p className="card-title">The Feed</p>
+        <div className="card scrolling opac">
+        <div className="card-body opac" id="ctitle"> 
+        <p className="card-title opac">The Feed</p>
         </div>
         {props.children}
         </div>

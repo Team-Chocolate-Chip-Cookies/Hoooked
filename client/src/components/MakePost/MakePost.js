@@ -2,7 +2,7 @@ import React from "react";
 import "./MakePost.css";
 
 const MakePost = (props) => (
-    <div>
+    <div className="opac">
             <br></br>
 
             <input className="form-control center posts" type="text" name="title"  onChange={props.handleInputChange} value={props.valueTitle} placeholder="Title"/>

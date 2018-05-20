@@ -108,8 +108,8 @@ class Dashboard extends Component {
 
           <Col size="md-7">
 
-            <Feed>
-              <MakePost
+            <Feed className="opac">
+              <MakePost className="opac"
                 handleInputChange={this.handleInputChange}
                 clickPost={this.clickPost}
                 valueTitle= {this.state.title}

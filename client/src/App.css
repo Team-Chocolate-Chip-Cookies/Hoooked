@@ -65,10 +65,13 @@ body {
 /* .card-body {
   max-height: 89px;
 } */
-
+.card {
+  opacity: 0.9;
+}
 
 #ctitle, #c1title {
-  border: 1px solid rgba(0,0,0,.125)
+  border: 1px solid rgba(0,0,0,.125);
+  opacity: 0.9;
 }
 .card-title {
   border: 1px solid rgb(153, 153, 153);
@@ -138,4 +141,7 @@ body {
 
 .delete-hook-button{
   margin-bottom:10px;
+}
+.opac{
+  opacity: 0.9;
 }
