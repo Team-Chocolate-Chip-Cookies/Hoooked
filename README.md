@@ -10,7 +10,7 @@ You just watched a mind blowing movie, or played a great video game, or read a g
 
 Solution, you Hoook'm.   
 
-On Hoooked you can recommend all sorts of media to friends and they can score points and badges (in development) for following your recommendations, and you for following their recommendations.
+On Hoooked you can recommend all sorts of media to friends and they can score points and badges (in development) for following your recommendations, and you as well for following their recommendations.
 
 
 
