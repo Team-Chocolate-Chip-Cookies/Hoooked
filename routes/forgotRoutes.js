@@ -16,6 +16,7 @@ var db = require("../db/models");
 
 
 // The nodeMailer function is for emailing the user their token
+// The passwrod for the gmail acccount has been loaded into Heroku vars for security reasons -Mark
 function nodeMailer(user, token) {
     // console.log("forgotRoutes.js, I'm in NODEMAILER!")
     // console.log("forgotRouts.js, token is ", token)
@@ -49,8 +50,9 @@ function nodeMailer(user, token) {
 }
 
 
-
+// The nodeMailer function is for emailing the user a confirmation that their password has changed
 function nodeMailerConfirm(user, done) {
+    // The passwrod for the gmail acccount has been loaded into Heroku vars for security reasons -Mark
     console.log('forgotRoutes.js, user is ', user.email)
     var transporter = nodemailer.createTransport({
         service: 'gmail',
