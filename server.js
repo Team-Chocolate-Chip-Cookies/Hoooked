@@ -24,8 +24,8 @@ var models = require("./db/models");
 // START PASSPORT
 // The order of the passport server lines is important - no step on snek 
 ////////////////////////////////////////////////////////////////////////////
-
-app.use(session({ secret: 'shepsvacationphotos2357',resave: true, saveUninitialized:true})); // session secret
+// Note that process.env.sessionsecret is a variable that I configured Heroku for to keep it out of github for security issues, otherwise it can be any random string. -Mark
+app.use(session({ secret: process.env.sessionsecret,resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
@@ -96,5 +96,5 @@ app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
 
-console.log(process.env.testvar)
+
 console.log("\n\n\n SERVER UP! \n\n\n")
