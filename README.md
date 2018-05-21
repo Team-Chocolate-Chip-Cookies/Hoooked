@@ -32,3 +32,14 @@ Matthew Plein
 
 Shepard Sonstegard
 
+#Technology
+
+- [React](https://reactjs.org/)
+- [MySQL](https://www.mysql.com/)
+- [Sequelize](sequelizejs.com)
+- [Express](https://expressjs.com/)
+- [Express-session](https://www.npmjs.com/package/express-session)
+- [Passport](http://www.passportjs.org)
+- Crypto
+- Nodemailer
+
