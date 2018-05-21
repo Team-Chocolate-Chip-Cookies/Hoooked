@@ -13,18 +13,19 @@ var nodemailer = require('nodemailer');
 var bCrypt = require('bcrypt-nodejs');
 var db = require("../db/models");
 
-console.log("Forgot Routes Says", process.env.testvar)
+
 
 // The nodeMailer function is for emailing the user their token
 function nodeMailer(user, token) {
     // console.log("forgotRoutes.js, I'm in NODEMAILER!")
     // console.log("forgotRouts.js, token is ", token)
     // console.log("forgotroutes.js, user is ", user.email)
+    console.log("Forgot Routes Says", process.env.testvar)
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
             user: 'Hoookmallnow@gmail.com',
-            pass: 'Cy0s3Ug3R7S9KGrmK91o'
+            pass: process.env.gmailpwd
         }
     });
     var mailOptions = {
@@ -55,7 +56,7 @@ function nodeMailerConfirm(user, done) {
         service: 'gmail',
         auth: {
             user: 'Hoookmallnow@gmail.com',
-            pass: 'Cy0s3Ug3R7S9KGrmK91o'
+            pass: process.env.gmailpwd
         }
     });
     var mailOptions = {
