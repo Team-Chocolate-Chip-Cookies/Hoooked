@@ -32,9 +32,9 @@
    
     "production": {
 
-        "username": "ial4rg72y3f7b0vg",
+        "username": "JAWSDB_USERNAME",
 
-        "password": "poabh11db8kksssb",
+        "password": "JAWSDB_PASSWORD",
 
         "database": "ihw5y9gb28gcn290",
 
