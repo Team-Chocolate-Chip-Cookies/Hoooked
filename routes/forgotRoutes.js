@@ -13,6 +13,7 @@ var nodemailer = require('nodemailer');
 var bCrypt = require('bcrypt-nodejs');
 var db = require("../db/models");
 
+console.log("Forgot Routes Says", process.env.testvar)
 
 // The nodeMailer function is for emailing the user their token
 function nodeMailer(user, token) {
