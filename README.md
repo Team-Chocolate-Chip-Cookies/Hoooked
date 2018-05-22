@@ -1,4 +1,4 @@
-# Hoooked
+# Hoook
 
 ![Hoooked Logo](https://raw.githubusercontent.com/Team-Chocolate-Chip-Cookies/Hoooked/master/client/src/images/logo2.png)
 
