@@ -2,6 +2,8 @@
 
 Hoooked is a social media platform where users can request friends watch or read various forms of media.   
 
+http://www.hoook.me/
+
 # Inspiration
 
 You just watched a mind blowing movie, or played a great video game, or read a great book.   You want to share that experience with someone else.   But perhaps it is an unpopular movie, an old video game, or the issue is simply that nobody in your circle of friends has yet taken the time to experience it themselves?
