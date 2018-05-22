@@ -32,7 +32,7 @@ Matthew Plein
 
 Shepard Sonstegard
 
-#Technology
+# Technology
 
 - [React](https://reactjs.org/)
 - [Node.js](https://nodejs.org/en/)
