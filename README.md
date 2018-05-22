@@ -1,5 +1,7 @@
 # Hoooked
 
+[](https://raw.githubusercontent.com/Team-Chocolate-Chip-Cookies/Hoooked/master/client/src/images/logo2.png)
+
 Hoooked is a social media platform where users can request friends watch or read various forms of media.   
 
 http://www.hoook.me/
