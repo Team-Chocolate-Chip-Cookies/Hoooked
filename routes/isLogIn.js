@@ -12,8 +12,8 @@ function isLoggedIn(req, res, next) {
         // res.send("isLogIn.js - Successful Authentication!")
         return next();
     } else {
-        console.log("Forbidden!")
-        res.status(403).send("isLogin.js, - OMG you're not signed in!");;
+        console.log("isLogIn.js, Authentication Failed!")
+        res.status(403).send("Not signed in.  <a href='http://www.hoook.me/'>Please Sign In</a>");;
     }
 }
 
