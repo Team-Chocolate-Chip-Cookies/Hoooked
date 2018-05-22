@@ -47,7 +47,7 @@ module.exports = function (app, passport) {
         }
         else {
             console.log("auth.js - Forbidden!")
-            res.status(403).send("auth.js - Not signed in");
+            res.status(403).send("Not signed in.  <a href='http://www.hoook.me/'>Please Sign In</a>");
         }
     }
 }

@@ -13,7 +13,7 @@ function isLoggedIn(req, res, next) {
         return next();
     } else {
         console.log("Forbidden!")
-        res.status(403).send("isLogin.js, - OMG you're not signed in!");;
+        res.status(403).send("Not signed in.  <a href='http://www.hoook.me/'>Please Sign In</a>");;
     }
 }
 
