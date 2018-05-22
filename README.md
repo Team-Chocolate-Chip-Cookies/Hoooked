@@ -35,11 +35,11 @@ Shepard Sonstegard
 #Technology
 
 - [React](https://reactjs.org/)
+- [Node.js](https://nodejs.org/en/)
 - [MySQL](https://www.mysql.com/)
-- [Sequelize](sequelizejs.com)
+- [Sequelize](http://docs.sequelizejs.com/)
 - [Express](https://expressjs.com/)
 - [Express-session](https://www.npmjs.com/package/express-session)
 - [Passport](http://www.passportjs.org)
-- Crypto
-- Nodemailer
+- [Nodemailer](https://nodemailer.com/about/)
 
