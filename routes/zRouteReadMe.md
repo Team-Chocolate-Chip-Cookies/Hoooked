@@ -1,6 +1,6 @@
 # Route File ReadMe
 
-This file is intended to explain what each route file actually does.
+This file is intended to explain what each route file does.
 
 
 # auth.js
