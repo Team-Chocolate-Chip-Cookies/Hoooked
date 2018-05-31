@@ -47,3 +47,8 @@ Shepard Sonstegard
 - [Passport](http://www.passportjs.org)
 - [Nodemailer](https://nodemailer.com/about/)
 
+
+
+# Screen Shots
+
+![Landing Page](https://raw.githubusercontent.com/Team-Chocolate-Chip-Cookies/Hoooked/master/gitpics/landingpage.PNG "Landing Page")
